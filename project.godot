@@ -11,12 +11,17 @@ config_version=5
 [application]
 
 config/name="Co-Sketch"
+run/main_scene="uid://dsgp3tuk3ns8g"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="Co-Sketch"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [rendering]
 
