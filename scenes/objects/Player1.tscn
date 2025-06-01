@@ -8,6 +8,7 @@ size = Vector2(32, 32)
 
 [node name="Player1" type="CharacterBody2D"]
 script = ExtResource("1_a0kq5")
+Air_Reistance = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -20,3 +21,9 @@ shape = SubResource("RectangleShape2D_oewah")
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+one_shot = true
