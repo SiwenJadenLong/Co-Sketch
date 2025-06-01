@@ -6,7 +6,8 @@ var canjump = true
 @onready var jumptimer = $Timer
 
 @export var Jumptime : float = 0.1
-@export var Jumpspeed : int = 80
+@export var Jumpspeed : int = 90
+@export var Jumpspeedcap : int = -500
 @export var Camera_Speed : int = 1
 @export var Gound_Reistance : int = 40
 @export var Air_Reistance : int = 10
@@ -18,10 +19,13 @@ func _physics_process(delta):
 	else:
 		jumptimer.start(Jumptime)
 		canjump = true
-	print(jumptimer.time_left)
 	
 	if Input.is_action_pressed("ui_up") and jumptimer.time_left != 0:
-		velocity.y -= Jumpspeed
+		if velocity.y >= Jumpspeedcap:
+			velocity.y -= Jumpspeed
+		else:
+			velocity.y = Jumpspeedcap
+		
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
