@@ -16,17 +16,20 @@ var canjump = true
 
 
 func _physics_process(delta):
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
 		jumptimer.start(Jumptime)
 		canjump = true
-	
+		velocity.y = 0
+
 	if Input.is_action_pressed("ui_up") and jumptimer.time_left != 0:
 		if velocity.y >= Jumpspeedcap:
-			velocity.y -= Jumpspeed
+			velocity.y -= Jumpspeed 
 		else:
 			velocity.y = Jumpspeedcap
+
 	elif Input.is_action_just_released("ui_up"):
 		jumptimer.stop()
 
@@ -41,8 +44,5 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, 40)
 	else:
 		velocity.x = move_toward(velocity.x, 0, 10)
-
-	#$Camera2D.position_smoothing_speed = 7 + velocity.length() * CameraSpeedmultiplier
-	#print($Camera2D.position_smoothing_speed)
 	
 	move_and_slide()

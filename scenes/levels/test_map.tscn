@@ -34,4 +34,6 @@ polygon = PackedVector2Array(-2499.88, -10, -2499.88, 11, 2500.13, 10, 2500.13, 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 visible = false
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

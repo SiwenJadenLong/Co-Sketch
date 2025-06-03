@@ -16,12 +16,6 @@ texture = ExtResource("2_pvjs5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_oewah")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 7.0
-
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.5
