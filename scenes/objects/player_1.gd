@@ -7,7 +7,7 @@ var canjump = true
 
 #Player movement variables
 @export var Xacceleration : float = 50
-@export var Jumptime : float = 0.1
+@export var Jumptime : float = 0.08
 @export var Jumpspeed : int = 80
 @export var Jumpspeedcap : int = -500
 @export var Camera_Speed : int = 1
