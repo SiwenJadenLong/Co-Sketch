@@ -41,8 +41,8 @@ func _physics_process(delta):
 		else:
 			velocity.x = direction * 200
 	elif is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, 40)
+		velocity.x = move_toward(velocity.x, 0, 50)
 	else:
-		velocity.x = move_toward(velocity.x, 0, 10)
+		velocity.x = move_toward(velocity.x, 0, 5)
 	
 	move_and_slide()

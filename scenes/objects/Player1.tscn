@@ -14,6 +14,8 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_pvjs5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
 shape = SubResource("RectangleShape2D_oewah")
 
 [node name="Timer" type="Timer" parent="."]
