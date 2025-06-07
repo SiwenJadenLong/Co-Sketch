@@ -8,12 +8,19 @@ func _process(delta):
 	pass
 
 func _input(event):
+	var point_pos = get_local_mouse_position()
+	#if event.is_action("ui_cancel"):
+		
+	await $Timer.timeout
+	$Timer.start(0.5)
+	var newsegmentbody = RigidBody2D.new()
+	var newline = Line2D.new()
 	if event.is_action("ui_accept"):
-		var point_pos = get_local_mouse_position()
-
-		var newsegmentbody = RigidBody2D.new()
-		var newline = Line2D.new()
-		newline.add_point(point_pos)
+		newline.width = 5
+		if newline.points.size() == 0:
+			newline.add_point(point_pos)
+		else:
+			newline.add_point(last_point)
 		newsegmentbody.add_child(newline)
 
 		var new_line_segment = CollisionShape2D.new()
@@ -25,5 +32,4 @@ func _input(event):
 		add_child(newsegmentbody)
 
 		last_point = point_pos
-		
 		

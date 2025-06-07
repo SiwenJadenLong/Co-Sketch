@@ -38,6 +38,5 @@ visible = false
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Linemaker" parent="." instance=ExtResource("4_ymjof")]
-position = Vector2(71, -53)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
