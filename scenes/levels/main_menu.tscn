@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cw4l35a2swb7x"]
+
+[ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/Placeholder title.png" id="1_fsby3"]
+[ext_resource type="Script" uid="uid://dr0irou0rwq6m" path="res://assets/Scripts/main_menu.gd" id="1_leamy"]
+
+[sub_resource type="SystemFont" id="SystemFont_fsby3"]
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_leamy"]
+default_font = SubResource("SystemFont_fsby3")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fsby3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_leamy"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchor_right = 1.667
+anchor_bottom = 1.667
+offset_right = -0.384033
+offset_bottom = -0.216064
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_leamy")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_fsby3")
+expand_mode = 2
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 228.0
+offset_right = 799.0
+offset_bottom = 373.0
+theme = SubResource("Theme_leamy")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fsby3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_leamy")
+text = "START
+"
+alignment = 0
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

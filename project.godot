@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Co-Sketch"
-run/main_scene="uid://dsgp3tuk3ns8g"
+run/main_scene="uid://cw4l35a2swb7x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [dotnet]
 
