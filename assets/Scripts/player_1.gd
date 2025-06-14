@@ -24,6 +24,7 @@ func _ready():
 	elif player == "Blue":
 		$Sprite2D.self_modulate = Color(1.0, 0.6, 0.0)
 		$Label.text = "BLUE"
+		
 
 func _physics_process(delta):
 	if not is_on_floor():

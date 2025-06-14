@@ -7,6 +7,7 @@
 size = Vector2(32, 32)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
 script = ExtResource("1_a0kq5")
 player = "Orange"
 
@@ -21,7 +22,7 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
-visibility_layer = 3
+visibility_layer = 2
 shape = SubResource("RectangleShape2D_oewah")
 
 [node name="Label" type="Label" parent="."]
