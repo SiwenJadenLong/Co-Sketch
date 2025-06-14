@@ -6,6 +6,7 @@ var canjump = true
 @onready var jumptimer = $Timer
 
 #Player movement variables
+@export var player : enum 
 @export var Xacceleration : float = 50
 @export var Jumptime : float = 0.08
 @export var Jumpspeed : int = 80
@@ -13,12 +14,12 @@ var canjump = true
 @export var Camera_Speed : int = 1
 @export var Gound_Reistance : int = 40
 @export var Air_Reistance : int = 15
-
+@export var Timescale : float = 1
 
 func _physics_process(delta):
 
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * Timescale
 	else:
 		jumptimer.start(Jumptime)
 		canjump = true
@@ -26,7 +27,7 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("ui_up") and jumptimer.time_left != 0:
 		if velocity.y >= Jumpspeedcap:
-			velocity.y -= Jumpspeed 
+			velocity.y -= Jumpspeed*Timescale
 		else:
 			velocity.y = Jumpspeedcap
 
