@@ -6,7 +6,8 @@ var canjump = true
 @onready var jumptimer = $Timer
 
 #Player movement variables
-@export var player : enum 
+@export_enum("Orange","Blue") var player : String
+
 @export var Xacceleration : float = 50
 @export var Jumptime : float = 0.08
 @export var Jumpspeed : int = 80
@@ -16,8 +17,15 @@ var canjump = true
 @export var Air_Reistance : int = 15
 @export var Timescale : float = 1
 
-func _physics_process(delta):
+func _ready():
+	if player == "Orange":
+		$Sprite2D.self_modulate = Color(1,1,0)
+		$Label.text = "ORANGE"
+	elif player == "Blue":
+		$Sprite2D.self_modulate = Color(1.0, 0.6, 0.0)
+		$Label.text = "BLUE"
 
+func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta * Timescale
 	else:
@@ -25,17 +33,34 @@ func _physics_process(delta):
 		canjump = true
 		velocity.y = 0
 
-	if Input.is_action_pressed("ui_up") and jumptimer.time_left != 0:
-		if velocity.y >= Jumpspeedcap:
-			velocity.y -= Jumpspeed*Timescale
-		else:
-			velocity.y = Jumpspeedcap
+	if player == "Orange":
+		if Input.is_action_pressed("p1_up") and jumptimer.time_left != 0:
+			if velocity.y >= Jumpspeedcap:
+				velocity.y -= Jumpspeed*Timescale
+			else:
+				velocity.y = Jumpspeedcap
 
-	elif Input.is_action_just_released("ui_up"):
-		jumptimer.stop()
+		elif Input.is_action_just_released("p1_up"):
+			jumptimer.stop()
 
-	var direction = Input.get_axis("ui_left", "ui_right")
+		var direction = Input.get_axis("p1_left", "p1_right")
+		horizontalmovement(Input.get_axis("p1_left", "p1_right"))
 	
+	elif player == "Blue":
+		if Input.is_action_pressed("p2_up") and jumptimer.time_left != 0:
+			if velocity.y >= Jumpspeedcap:
+				velocity.y -= Jumpspeed*Timescale
+			else:
+				velocity.y = Jumpspeedcap
+
+		elif Input.is_action_just_released("p2_up"):
+			jumptimer.stop()
+
+		horizontalmovement(Input.get_axis("p2_left", "p2_right"))
+
+	move_and_slide()
+
+func horizontalmovement(direction):
 	if direction:
 		if velocity.x <= 200 and velocity.x >= -200:
 			velocity.x += direction * Xacceleration
@@ -45,5 +70,3 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, 50)
 	else:
 		velocity.x = move_toward(velocity.x, 0, 5)
-	
-	move_and_slide()

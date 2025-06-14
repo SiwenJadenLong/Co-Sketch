@@ -6,28 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oewah"]
 size = Vector2(32, 32)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_a0kq5")
-Xacceleration = null
-Jumptime = null
-Jumpspeed = null
-Jumpspeedcap = null
-Camera_Speed = null
-Gound_Reistance = null
-Air_Reistance = null
-Timescale = null
+player = "Orange"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_pvjs5")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-gravity_scale = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-light_mask = 3
-visibility_layer = 3
-shape = SubResource("RectangleShape2D_oewah")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
@@ -38,3 +23,11 @@ one_shot = true
 light_mask = 3
 visibility_layer = 3
 shape = SubResource("RectangleShape2D_oewah")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -31.0
+offset_top = -39.0
+offset_right = 31.0
+offset_bottom = -16.0
+text = "Player 1"
