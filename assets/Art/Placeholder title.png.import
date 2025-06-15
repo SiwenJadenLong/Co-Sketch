@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bufecpmycyif5"
-path="res://.godot/imported/tilemap_packed.png-a1810568715b5c52bde7e2ed217e5383.ctex"
+uid="uid://do0c10ygthsbb"
+path="res://.godot/imported/Placeholder title.png-cd692cb340853cd33487b15f9f0ab966.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilesets/Pico-8 Tileset/Transparent/Tilemap/tilemap_packed.png"
-dest_files=["res://.godot/imported/tilemap_packed.png-a1810568715b5c52bde7e2ed217e5383.ctex"]
+source_file="res://assets/Art/Placeholder title.png"
+dest_files=["res://.godot/imported/Placeholder title.png-cd692cb340853cd33487b15f9f0ab966.ctex"]
 
 [params]
 

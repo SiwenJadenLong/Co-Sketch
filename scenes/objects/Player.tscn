@@ -32,3 +32,4 @@ offset_top = -39.0
 offset_right = 31.0
 offset_bottom = -16.0
 text = "Player 1"
+horizontal_alignment = 1

@@ -15,20 +15,20 @@ var canjump = true
 @export var Camera_Speed : int = 1
 @export var Gound_Reistance : int = 40
 @export var Air_Reistance : int = 15
-@export var Timescale : float = 1
+#@export var Timescale : float = 0.5
 
 func _ready():
 	if player == "Orange":
 		$Sprite2D.self_modulate = Color(1,1,0)
-		$Label.text = "ORANGE"
+		$Label.text = "P1 ORANGE"
 	elif player == "Blue":
 		$Sprite2D.self_modulate = Color(1.0, 0.6, 0.0)
-		$Label.text = "BLUE"
+		$Label.text = "P2 BLUE"
 		
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity += get_gravity() * delta * Timescale
+		velocity += get_gravity() * delta
 	else:
 		jumptimer.start(Jumptime)
 		canjump = true
@@ -37,7 +37,7 @@ func _physics_process(delta):
 	if player == "Orange":
 		if Input.is_action_pressed("p1_up") and jumptimer.time_left != 0:
 			if velocity.y >= Jumpspeedcap:
-				velocity.y -= Jumpspeed*Timescale
+				velocity.y -= Jumpspeed
 			else:
 				velocity.y = Jumpspeedcap
 
@@ -50,7 +50,7 @@ func _physics_process(delta):
 	elif player == "Blue":
 		if Input.is_action_pressed("p2_up") and jumptimer.time_left != 0:
 			if velocity.y >= Jumpspeedcap:
-				velocity.y -= Jumpspeed*Timescale
+				velocity.y -= Jumpspeed
 			else:
 				velocity.y = Jumpspeedcap
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo3dvk6liew6u"]
+
+[ext_resource type="PackedScene" uid="uid://dsgp3tuk3ns8g" path="res://scenes/levels/test_map.tscn" id="1_lxigm"]
+[ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="2_b1cl4"]
+
+[node name="Main" type="Node"]
+
+[node name="Test Map" parent="." instance=ExtResource("1_lxigm")]
+
+[node name="Main UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Linemaker" parent="." instance=ExtResource("2_b1cl4")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
