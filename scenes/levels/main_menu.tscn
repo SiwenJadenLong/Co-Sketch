@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cw4l35a2swb7x"]
 
-[ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/Art/Placeholder title.png" id="1_fsby3"]
+[ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/Art/Static/Placeholder title.png" id="1_fsby3"]
 [ext_resource type="Script" uid="uid://dr0irou0rwq6m" path="res://assets/Scripts/main_menu.gd" id="1_leamy"]
 
 [sub_resource type="SystemFont" id="SystemFont_fsby3"]

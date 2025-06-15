@@ -44,7 +44,6 @@ func _physics_process(delta):
 		elif Input.is_action_just_released("p1_up"):
 			jumptimer.stop()
 
-		var direction = Input.get_axis("p1_left", "p1_right")
 		horizontalmovement(Input.get_axis("p1_left", "p1_right"))
 	
 	elif player == "Blue":
