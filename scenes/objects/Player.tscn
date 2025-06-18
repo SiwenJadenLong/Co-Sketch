@@ -33,3 +33,6 @@ offset_right = 31.0
 offset_bottom = -16.0
 text = "Player"
 horizontal_alignment = 1
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+texture = ExtResource("2_pvjs5")

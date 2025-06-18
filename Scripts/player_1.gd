@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
 var canjump = true
-enum states {idle, running, gliding, editting}
+enum states {idle, running, gliding, editting, dead}
 var playerstate
 
 @onready var jumptimer = $Timer
+@onready var playerparticles = $CPUParticles2D
 
 #Player movement variables
 @export_enum("Orange","Blue") var player : String
@@ -17,6 +18,8 @@ var playerstate
 @export var Gound_Reistance : int = 40
 @export var Air_Reistance : int = 15
 #@export var Timescale : float = 0.5
+
+
 
 func _ready():
 	playerstate = states.idle
@@ -31,45 +34,51 @@ func _ready():
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		playerstate = states.gliding
 	else:
 		jumptimer.start(Jumptime)
 		canjump = true
 		velocity.y = 0
+	if playerstate != states.editting or playerstate != states.dead:
+		if player == "Orange":
+			if Input.is_action_pressed("p1_up") and jumptimer.time_left != 0:
+				if velocity.y >= Jumpspeedcap:
+					velocity.y -= Jumpspeed
+				else:
+					velocity.y = Jumpspeedcap
 
-	if player == "Orange":
-		if Input.is_action_pressed("p1_up") and jumptimer.time_left != 0:
-			if velocity.y >= Jumpspeedcap:
-				velocity.y -= Jumpspeed
-			else:
-				velocity.y = Jumpspeedcap
+			elif Input.is_action_just_released("p1_up"):
+				jumptimer.stop()
 
-		elif Input.is_action_just_released("p1_up"):
-			jumptimer.stop()
+			horizontalmovement(Input.get_axis("p1_left", "p1_right"))
+		
+		elif player == "Blue":
+			if Input.is_action_pressed("p2_up") and jumptimer.time_left != 0:
+				if velocity.y >= Jumpspeedcap:
+					velocity.y -= Jumpspeed
+				else:
+					velocity.y = Jumpspeedcap
 
-		horizontalmovement(Input.get_axis("p1_left", "p1_right"))
-	
-	elif player == "Blue":
-		if Input.is_action_pressed("p2_up") and jumptimer.time_left != 0:
-			if velocity.y >= Jumpspeedcap:
-				velocity.y -= Jumpspeed
-			else:
-				velocity.y = Jumpspeedcap
+			elif Input.is_action_just_released("p2_up"):
+				jumptimer.stop()
 
-		elif Input.is_action_just_released("p2_up"):
-			jumptimer.stop()
+			horizontalmovement(Input.get_axis("p2_left", "p2_right"))
 
-		horizontalmovement(Input.get_axis("p2_left", "p2_right"))
-
-	move_and_slide()
+		move_and_slide()
 
 func horizontalmovement(direction):
-	if playerstate != states.editting:
-		if direction:
-			if velocity.x <= 200 and velocity.x >= -200:
-				velocity.x += direction * Xacceleration
-			else:
-				velocity.x = direction * 200
-		elif is_on_floor():
-			velocity.x = move_toward(velocity.x, 0, 50)
+	if direction:
+		if velocity.x <= 200 and velocity.x >= -200:
+			velocity.x += direction * Xacceleration
 		else:
-			velocity.x = move_toward(velocity.x, 0, 5)
+			velocity.x = direction * 200
+	elif is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, 50)
+	else:
+		velocity.x = move_toward(velocity.x, 0, 5)
+
+func death():
+	playerparticles.Texture = $Sprite2D.texture
+	playerparticles.emitting = true
+	
+	

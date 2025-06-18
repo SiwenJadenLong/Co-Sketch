@@ -10,7 +10,7 @@ subpixel_positioning = 0
 default_font = SubResource("SystemFont_fsby3")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_leamy"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_leamy"]
 

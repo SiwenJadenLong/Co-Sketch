@@ -15,6 +15,10 @@ run/main_scene="uid://cw4l35a2swb7x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Signalbus="*res://signalbus.gd"
+
 [display]
 
 window/size/viewport_width=1366
@@ -38,6 +42,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 Player="group for player"
+Projectile=""
 
 [input]
 

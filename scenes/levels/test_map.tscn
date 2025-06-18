@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://dsgp3tuk3ns8g"]
 
-[ext_resource type="Script" uid="uid://bn6lwoeq3auyu" path="res://Scripts/test_map.gd" id="1_rp362"]
+[ext_resource type="Script" uid="uid://bn6lwoeq3auyu" path="res://Scripts/map.gd" id="1_rp362"]
 [ext_resource type="TileSet" uid="uid://da7r2pvmgo65o" path="res://tilesets/Placeholder tiles.tres" id="1_s11cq"]
 [ext_resource type="PackedScene" uid="uid://d3yes8cfmhiee" path="res://scenes/objects/Player.tscn" id="2_rp362"]
 [ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="4_ymjof"]
@@ -41,6 +41,5 @@ polygon = PackedVector2Array(-2499.88, -10, -2499.88, 11, 2500.13, 10, 2500.13, 
 
 [node name="Cannon" parent="." instance=ExtResource("4_ymjof")]
 position = Vector2(271, -44)
-rotation = -3.14159
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -8,7 +8,7 @@ var spawnpos: Vector2
 
 func _ready():
 	#global_position = spawnpos
-	speed.rotated(directionrotated)
+	speed = speed.rotated(directionrotated)
 
 func _physics_process(delta):
 	position += speed
