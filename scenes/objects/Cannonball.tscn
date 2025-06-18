@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cbimugcy7cdgs"]
 
-[ext_resource type="Script" uid="uid://bd4d35cpgn8qp" path="res://scenes/objects/cannonball.gd" id="1_ed6wv"]
+[ext_resource type="Script" uid="uid://bd4d35cpgn8qp" path="res://Scripts/cannonball.gd" id="1_ed6wv"]
 [ext_resource type="Texture2D" uid="uid://buoovp3jydwf" path="res://assets/Art/Animated/indigoexplosion.png" id="1_hcmnq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ed6wv"]
@@ -59,7 +59,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [node name="Node2D" type="StaticBody2D"]
@@ -71,3 +71,5 @@ shape = SubResource("CircleShape2D_ed6wv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8xiut")
+autoplay = "default"
+frame_progress = 0.497976

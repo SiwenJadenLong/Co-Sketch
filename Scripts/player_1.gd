@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 var canjump = true
-
+enum states {idle, running, gliding, editting}
+var playerstate
 
 @onready var jumptimer = $Timer
 
@@ -18,6 +19,7 @@ var canjump = true
 #@export var Timescale : float = 0.5
 
 func _ready():
+	playerstate = states.idle
 	if player == "Orange":
 		$Sprite2D.self_modulate = Color(1,1,0)
 		$Label.text = "P1 ORANGE"
@@ -61,12 +63,13 @@ func _physics_process(delta):
 	move_and_slide()
 
 func horizontalmovement(direction):
-	if direction:
-		if velocity.x <= 200 and velocity.x >= -200:
-			velocity.x += direction * Xacceleration
+	if playerstate != states.editting:
+		if direction:
+			if velocity.x <= 200 and velocity.x >= -200:
+				velocity.x += direction * Xacceleration
+			else:
+				velocity.x = direction * 200
+		elif is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, 50)
 		else:
-			velocity.x = direction * 200
-	elif is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, 50)
-	else:
-		velocity.x = move_toward(velocity.x, 0, 5)
+			velocity.x = move_toward(velocity.x, 0, 5)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccu12p6n7mqve"]
 
-[ext_resource type="Script" uid="uid://cslk0ke0hrf8c" path="res://scenes/objects/cannon.gd" id="1_geuh0"]
+[ext_resource type="Script" uid="uid://cslk0ke0hrf8c" path="res://Scripts/cannon.gd" id="1_geuh0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_geuh0"]
 size = Vector2(80, 40)
@@ -19,3 +19,5 @@ offset_bottom = 20.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

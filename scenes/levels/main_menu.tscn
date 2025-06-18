@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cw4l35a2swb7x"]
 
 [ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/Art/Static/Placeholder title.png" id="1_fsby3"]
-[ext_resource type="Script" uid="uid://dr0irou0rwq6m" path="res://assets/Scripts/main_menu.gd" id="1_leamy"]
+[ext_resource type="Script" uid="uid://dr0irou0rwq6m" path="res://Scripts/main_menu.gd" id="1_leamy"]
 
 [sub_resource type="SystemFont" id="SystemFont_fsby3"]
 subpixel_positioning = 0
@@ -9,7 +9,8 @@ subpixel_positioning = 0
 [sub_resource type="Theme" id="Theme_leamy"]
 default_font = SubResource("SystemFont_fsby3")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fsby3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_leamy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_leamy"]
 
@@ -37,9 +38,13 @@ offset_top = 228.0
 offset_right = 799.0
 offset_bottom = 373.0
 theme = SubResource("Theme_leamy")
+theme_override_colors/font_hover_color = Color(0.114897, 0.114897, 0.114897, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0.633333, 0, 1)
 theme_override_font_sizes/font_size = 100
-theme_override_styles/hover = SubResource("StyleBoxEmpty_fsby3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_leamy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_leamy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_leamy")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_leamy")
 text = "START
 "
