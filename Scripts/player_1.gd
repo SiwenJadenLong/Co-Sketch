@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 var canjump = true
+
+#state machine
 enum states {idle, running, gliding, editting, dead}
 var playerstate
 
 @onready var jumptimer = $Timer
-@onready var playerparticles = $CPUParticles2D
 
 #Player movement variables
 @export_enum("Orange","Blue") var player : String
@@ -78,7 +79,14 @@ func horizontalmovement(direction):
 		velocity.x = move_toward(velocity.x, 0, 5)
 
 func death():
-	playerparticles.Texture = $Sprite2D.texture
-	playerparticles.emitting = true
+	$CPUParticles2D.emitting = true
+	Signalbus.playerdeath.emit()
 	
-	
+func hitbyprojectie():
+	death()
+
+
+func _on_hit_detect_area_entered(area):
+	if area.is_in_group("Projectile"):
+		death()
+		

@@ -12,3 +12,7 @@ func _ready():
 
 func _physics_process(delta):
 	position += speed
+
+func _on_area_entered(area):
+	#get_node()
+	pass

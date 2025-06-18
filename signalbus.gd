@@ -1,4 +1,4 @@
 extends Node
 
 signal playerdeath()
-signal levelreset()
+signal levelchange()
