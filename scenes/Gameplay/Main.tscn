@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=8 format=3 uid="uid://bo3dvk6liew6u"]
 
+[ext_resource type="PackedScene" uid="uid://dsgp3tuk3ns8g" path="res://scenes/levels/test_map.tscn" id="1_lxigm"]
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://scenes/Gameplay/main.gd" id="1_waoe8"]
 [ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="2_b1cl4"]
+[ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]
 
 [sub_resource type="Animation" id="Animation_vbrhd"]
 length = 0.001
@@ -41,6 +43,7 @@ _data = {
 
 [node name="Main" type="Node"]
 script = ExtResource("1_waoe8")
+currentlevel = ExtResource("1_lxigm")
 
 [node name="Level" type="Node" parent="."]
 
@@ -50,6 +53,57 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Pause Menu" type="Control" parent="Main UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Main UI/Pause Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -683.0
+offset_top = -384.0
+offset_right = 683.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.593134, 0.593134, 0.593134, 0.180392)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main UI/Pause Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -384.0
+offset_right = 250.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+theme = ExtResource("3_va4b4")
+theme_override_constants/separation = 0
+
+[node name="Resume" type="Button" parent="Main UI/Pause Menu/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "Pause"
+
 [node name="Linemaker" parent="." instance=ExtResource("2_b1cl4")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -58,3 +112,5 @@ offset_bottom = 40.0
 libraries = {
 &"": SubResource("AnimationLibrary_kdjhs")
 }
+
+[connection signal="pressed" from="Main UI/Pause Menu/VBoxContainer/Resume" to="." method="on_resume_button_pressed"]
