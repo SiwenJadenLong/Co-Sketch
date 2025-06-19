@@ -7,12 +7,10 @@ var directionrotated: float
 var spawnpos: Vector2
 
 func _ready():
-	#global_position = spawnpos
 	speed = speed.rotated(directionrotated)
 
 func _physics_process(delta):
 	position += speed
 
-func _on_area_entered(area):
-	#get_node()
-	pass
+func _left_screen():
+	queue_free()
