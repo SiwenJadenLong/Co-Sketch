@@ -1,23 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=6 format=3 uid="uid://bo3dvk6liew6u"]
 
-[ext_resource type="PackedScene" uid="uid://dsgp3tuk3ns8g" path="res://scenes/levels/test_map.tscn" id="1_lxigm"]
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://scenes/Gameplay/main.gd" id="1_waoe8"]
 [ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="2_b1cl4"]
-
-[sub_resource type="Animation" id="Animation_va4b4"]
-resource_name = "generictransition ahh"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasModulate:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_vbrhd"]
 length = 0.001
@@ -34,6 +18,21 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_va4b4"]
+resource_name = "generictransition ahh"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kdjhs"]
 _data = {
 &"RESET": SubResource("Animation_vbrhd"),
@@ -43,7 +42,7 @@ _data = {
 [node name="Main" type="Node"]
 script = ExtResource("1_waoe8")
 
-[node name="Test Map" parent="." instance=ExtResource("1_lxigm")]
+[node name="Level" type="Node" parent="."]
 
 [node name="Main UI" type="Control" parent="."]
 layout_mode = 3

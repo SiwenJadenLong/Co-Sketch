@@ -3,7 +3,7 @@ extends CharacterBody2D
 var canjump = true
 
 #state machine
-enum states {idle, running, gliding, editting, dead}
+enum states {idle, running, gliding, editting, gameover}
 var playerstate
 
 @onready var jumptimer = $Timer
@@ -40,7 +40,8 @@ func _physics_process(delta):
 		jumptimer.start(Jumptime)
 		canjump = true
 		velocity.y = 0
-	if playerstate != states.editting or playerstate != states.dead:
+	if playerstate != states.editting or playerstate != states.gameover:
+		#Orange player keymap
 		if player == "Orange":
 			if Input.is_action_pressed("p1_up") and jumptimer.time_left != 0:
 				if velocity.y >= Jumpspeedcap:
@@ -53,6 +54,7 @@ func _physics_process(delta):
 
 			horizontalmovement(Input.get_axis("p1_left", "p1_right"))
 		
+		#Blue player keymap
 		elif player == "Blue":
 			if Input.is_action_pressed("p2_up") and jumptimer.time_left != 0:
 				if velocity.y >= Jumpspeedcap:
@@ -66,7 +68,10 @@ func _physics_process(delta):
 			horizontalmovement(Input.get_axis("p2_left", "p2_right"))
 
 		move_and_slide()
+	elif states.gameover:
+		process_mode = Node.PROCESS_MODE_DISABLED
 
+#Handles player inputs for horizontalmovement
 func horizontalmovement(direction):
 	if direction:
 		if velocity.x <= 200 and velocity.x >= -200:
@@ -78,15 +83,13 @@ func horizontalmovement(direction):
 	else:
 		velocity.x = move_toward(velocity.x, 0, 5)
 
+#If this Player dies this function plays
 func death():
 	$CPUParticles2D.emitting = true
+	await $CPUParticles2D.finished
 	Signalbus.playerdeath.emit()
 	
-func hitbyprojectie():
-	death()
-
-
 func _on_hit_detect_area_entered(area):
+	#Runs when this player gets hit by projectile
 	if area.is_in_group("Projectile"):
 		death()
-		

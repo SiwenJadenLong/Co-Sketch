@@ -1,4 +1,4 @@
 extends Node
 
 signal playerdeath()
-signal levelchange()
+signal levelchange(newlevel : Node2D)

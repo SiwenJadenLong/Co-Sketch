@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3yes8cfmhiee"]
+[gd_scene load_steps=7 format=3 uid="uid://d3yes8cfmhiee"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player_1.gd" id="1_a0kq5"]
 [ext_resource type="Texture2D" uid="uid://b1a0u7rv1eewo" path="res://icon.svg" id="2_pvjs5"]
+[ext_resource type="Texture2D" uid="uid://36ynylhj8bsf" path="res://assets/Art/Static/settings_icon.png" id="3_ndxx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oewah"]
 size = Vector2(32, 32)
@@ -48,11 +49,11 @@ horizontal_alignment = 1
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
-texture = ExtResource("2_pvjs5")
+texture = ExtResource("3_ndxx7")
+lifetime = 0.3
 one_shot = true
-explosiveness = 0.2
-use_fixed_seed = true
-seed = 3918962853
+explosiveness = 1.0
+fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_id4ih")
 
 [node name="HitDetect" type="Area2D" parent="."]
