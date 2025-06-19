@@ -7,11 +7,6 @@ var paused = false
 @onready var level = $Level
 
 
-
-func _process(delta):
-	print(paused)
-
-
 func _ready():
 	loadnewlevel()
 	Signalbus.playerdeath.connect(playerdeath);

@@ -33,14 +33,18 @@ func _ready():
 		
 
 func _physics_process(delta):
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		playerstate = states.gliding
-	else:
-		jumptimer.start(Jumptime)
-		canjump = true
-		velocity.y = 0
-	if playerstate != states.editting or playerstate != states.gameover:
+	
+	if playerstate != states.editting and playerstate != states.gameover:
+
+		#Handle gravity and jump timer
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+			playerstate = states.gliding
+		else:
+			jumptimer.start(Jumptime)
+			canjump = true
+			velocity.y = 0
+		
 		#Orange player keymap
 		if player == "Orange":
 			if Input.is_action_pressed("p1_up") and jumptimer.time_left != 0:
@@ -68,8 +72,9 @@ func _physics_process(delta):
 			horizontalmovement(Input.get_axis("p2_left", "p2_right"))
 
 		move_and_slide()
-	elif states.gameover:
-		process_mode = Node.PROCESS_MODE_DISABLED
+#	Freeze player on game over
+	elif playerstate == states.gameover:
+		velocity = Vector2.ZERO
 
 #Handles player inputs for horizontalmovement
 func horizontalmovement(direction):
@@ -85,9 +90,10 @@ func horizontalmovement(direction):
 
 #If this Player dies this function plays
 func death():
+	playerstate = states.gameover
+	Signalbus.playerdeath.emit()
 	$CPUParticles2D.emitting = true
 	await $CPUParticles2D.finished
-	Signalbus.playerdeath.emit()
 	
 func _on_hit_detect_area_entered(area):
 	#Runs when this player gets hit by projectile

@@ -39,7 +39,7 @@ polygon = PackedVector2Array(-2499.88, -10, -2499.88, 11, 2500.13, 10, 2500.13, 
 position = Vector2(271, -44)
 
 [node name="Cannon2" parent="Objects" instance=ExtResource("4_ymjof")]
-position = Vector2(-229, -39)
+position = Vector2(-226, -36)
 rotation = -3.14159
 
 [node name="Players" type="Node" parent="."]
