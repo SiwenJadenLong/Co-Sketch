@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2js4gmkrqyh2"]
+
+[ext_resource type="Script" uid="uid://cvbvujsn8gp4c" path="res://scenes/UI/level_button.gd" id="1_djhdf"]
+
+[node name="Level Button" type="Button"]
+offset_right = 78.0
+offset_bottom = 78.0
+text = "LEVEL (#)"
+icon_alignment = 1
+text_direction = 1
+script = ExtResource("1_djhdf")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

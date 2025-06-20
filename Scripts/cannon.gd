@@ -22,7 +22,7 @@ func _on_timer_timeout():
 	newcannonballinstance.global_position = global_position
 	newcannonballinstance.speed = Vector2.LEFT * projectile_speed
 	newcannonballinstance.directionrotated = rotation
-	get_tree().current_scene.add_child(newcannonballinstance)
+	get_parent().add_child(newcannonballinstance)
 	
 	
 	

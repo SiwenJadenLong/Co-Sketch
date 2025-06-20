@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=3 uid="uid://pmgwnk3ja7gw"]
+
+[ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="1_qo2fb"]
+
+[node name="Pause_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qo2fb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -683.0
+offset_top = -384.0
+offset_right = 683.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24, 0.24, 0.24, 0.745098)
+
+[node name="Pause Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -227.0
+offset_right = 173.5
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qo2fb")
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Resume" type="Button" parent="Pause Buttons"]
+layout_mode = 2
+action_mode = 0
+text = "Pause"
+
+[node name="Restart" type="Button" parent="Pause Buttons"]
+layout_mode = 2
+text = "Restart
+"
+
+[node name="Level Select" type="Button" parent="Pause Buttons"]
+layout_mode = 2
+text = "Level Select"
+
+[node name="MainMenu" type="Button" parent="Pause Buttons"]
+layout_mode = 2
+text = "Main Menu"
