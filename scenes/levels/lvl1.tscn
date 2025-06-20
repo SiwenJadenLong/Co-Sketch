@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bn6lwoeq3auyu" path="res://Scripts/map.gd" id="1_rp362"]
 [ext_resource type="TileSet" uid="uid://da7r2pvmgo65o" path="res://tilesets/Placeholder tiles.tres" id="1_s11cq"]
 [ext_resource type="PackedScene" uid="uid://d3yes8cfmhiee" path="res://scenes/objects/Player.tscn" id="2_rp362"]
-[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="4_ymjof"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/Cannon.tscn" id="4_ymjof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymjof"]
 size = Vector2(5000, 20)
@@ -50,4 +50,6 @@ position = Vector2(64, 0)
 [node name="Player2" parent="Players" instance=ExtResource("2_rp362")]
 player = "Blue"
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="tree_entered" from="Camera2D" to="." method="_on_camera_2d_tree_entered"]

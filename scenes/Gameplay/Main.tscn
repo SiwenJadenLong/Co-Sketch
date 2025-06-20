@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bo3dvk6liew6u"]
 
-[ext_resource type="PackedScene" uid="uid://dsgp3tuk3ns8g" path="res://scenes/levels/test_map.tscn" id="1_lxigm"]
-[ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://scenes/Gameplay/main.gd" id="1_waoe8"]
+[ext_resource type="PackedScene" uid="uid://dsgp3tuk3ns8g" path="res://scenes/levels/lvl1.tscn" id="1_lxigm"]
+[ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="2_b1cl4"]
 [ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]
 
@@ -46,10 +46,8 @@ process_mode = 1
 script = ExtResource("1_waoe8")
 currentlevel = ExtResource("1_lxigm")
 
-[node name="Level" type="Node" parent="."]
+[node name="Levelcontainer" type="Node" parent="."]
 process_mode = 1
-
-[node name="Test Map" parent="Level" instance=ExtResource("1_lxigm")]
 
 [node name="Main UI" type="Control" parent="."]
 process_mode = 3
