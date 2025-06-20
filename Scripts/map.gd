@@ -1,4 +1,5 @@
 extends Node2D
+#var startingpos : Vector2 = 
 
 #Placeholder player respawn
 #func _ready():

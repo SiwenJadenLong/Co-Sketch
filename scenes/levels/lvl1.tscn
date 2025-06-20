@@ -52,4 +52,3 @@ player = "Blue"
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="tree_entered" from="Camera2D" to="." method="_on_camera_2d_tree_entered"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=8 format=3 uid="uid://bo3dvk6liew6u"]
 
-[ext_resource type="PackedScene" uid="uid://dsgp3tuk3ns8g" path="res://scenes/levels/lvl1.tscn" id="1_lxigm"]
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="2_b1cl4"]
-[ext_resource type="PackedScene" uid="uid://pmgwnk3ja7gw" path="res://scenes/UI/pause_menu.tscn" id="3_vbrhd"]
-[ext_resource type="PackedScene" uid="uid://05iqd5hxgkpx" path="res://scenes/UI/level_select.tscn" id="4_kdjhs"]
+[ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]
+[ext_resource type="PackedScene" uid="uid://c2js4gmkrqyh2" path="res://scenes/UI/level_button.tscn" id="4_vbrhd"]
 
 [sub_resource type="Animation" id="Animation_vbrhd"]
 length = 0.001
@@ -45,7 +44,6 @@ _data = {
 [node name="Main" type="Node"]
 process_mode = 1
 script = ExtResource("1_waoe8")
-currentlevel = ExtResource("1_lxigm")
 
 [node name="Levelcontainer" type="Node2D" parent="."]
 process_mode = 1
@@ -55,17 +53,167 @@ process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Pause_Menu" parent="Main_UI" instance=ExtResource("3_vbrhd")]
+[node name="Pause_Menu" type="Control" parent="Main_UI"]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_va4b4")
+
+[node name="ColorRect" type="ColorRect" parent="Main_UI/Pause_Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -683.0
+offset_top = -384.0
+offset_right = 683.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24, 0.24, 0.24, 0.745098)
+
+[node name="Pause Buttons" type="VBoxContainer" parent="Main_UI/Pause_Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -227.0
+offset_right = 173.5
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_va4b4")
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Resume" type="Button" parent="Main_UI/Pause_Menu/Pause Buttons"]
+layout_mode = 2
+action_mode = 0
+text = "Pause"
+
+[node name="Restart" type="Button" parent="Main_UI/Pause_Menu/Pause Buttons"]
+layout_mode = 2
+text = "Restart
+"
+
+[node name="Level Select" type="Button" parent="Main_UI/Pause_Menu/Pause Buttons"]
+layout_mode = 2
+text = "Level Select"
+
+[node name="MainMenu" type="Button" parent="Main_UI/Pause_Menu/Pause Buttons"]
+layout_mode = 2
+text = "Main Menu"
 
 [node name="Stats" type="Control" parent="Main_UI"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Level_Select" parent="Main_UI" instance=ExtResource("4_kdjhs")]
+[node name="Level_Select" type="Control" parent="Main_UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -683.0
+offset_top = -384.0
+offset_right = 683.0
+offset_bottom = 384.0
+theme = ExtResource("3_va4b4")
+
+[node name="ColorRect" type="ColorRect" parent="Main_UI/Level_Select"]
+layout_mode = 1
+offset_right = 1366.0
+offset_bottom = 768.0
+color = Color(0.2862, 0.35388, 0.54, 1)
+
+[node name="Level Grid" type="GridContainer" parent="Main_UI/Level_Select"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -45.5
+offset_right = 294.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 4
+
+[node name="Level Button" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+levelnumber = "1"
+
+[node name="Level Button2" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+levelnumber = "2"
+
+[node name="Level Button3" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Level Button4" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Level Button5" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Level Button6" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Level Button7" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Level Button8" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Level Button9" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Level Button10" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Level Button11" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Exit Button" type="Button" parent="Main_UI/Level_Select"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 21.0
+offset_right = 118.0
+offset_bottom = 112.0
+text = "X"
 
 [node name="Linemaker" parent="." instance=ExtResource("2_b1cl4")]
+visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 process_mode = 3
@@ -75,3 +223,9 @@ process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_kdjhs")
 }
+
+[connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Level Select" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Main_UI/Level_Select/Exit Button" to="." method="level_select_exit_pressed"]

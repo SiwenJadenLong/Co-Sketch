@@ -1,12 +1,11 @@
 extends Node
 
-@export var currentlevel : PackedScene
 var paused = false
 @onready var main_ui = $Main_UI
 @onready var pause_menu = $Main_UI/Pause_Menu
 @onready var levelcontainer = $Levelcontainer
 var level_instance
-
+var currentlevel : String
 
 func _ready():
 	load_new_level("lvl1")
@@ -14,7 +13,7 @@ func _ready():
 	Signalbus.levelchange.connect(load_new_level);
 	
 func playerdeath():
-	
+	load_new_level(currentlevel)
 	$AnimationPlayer.play("generictransition ahh");
 
 
@@ -31,7 +30,9 @@ func load_new_level(level_name : String):
 	if level_resource:
 		level_instance = level_resource.instantiate()
 		levelcontainer.add_child(level_instance)
+	currentlevel = level_name
 	
+	hideallpopupui()
 #----------------------------------------------------------------------
 
 # Pausing-----------------------------------
@@ -39,6 +40,13 @@ func _input(event):
 #	Pause Menu
 	if event.is_action("Pause"):
 		togglepause()
+
+func hideallpopupui():
+	paused = false;
+	levelcontainer.process_mode = Node.PROCESS_MODE_INHERIT;
+	pause_menu.visible = false;
+	get_tree().paused = false;
+	$Main_UI/Level_Select.visible = false
 
 #toggling pause, freezes Level node
 func togglepause():
@@ -57,7 +65,7 @@ func togglepause():
 #-----------------------------------
 
 #Pause Menu Code-----------------------------------
-func on_resume_button_pressed():
+func _on_resume_pressed():
 	togglepause()
 	
 func _on_restart_pressed():
@@ -69,7 +77,7 @@ func _on_main_menu_pressed():
 func _on_level_select_pressed():
 	$Main_UI/Level_Select.visible = true
 
-#-----------------------------------
+#----Level Select code----------------
 func level_select_exit_pressed():
 	$Main_UI/Level_Select.visible = false
-#Level Select code-----------------------------------
+#-----------------------------------
