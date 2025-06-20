@@ -1,13 +1,8 @@
 extends Node2D
-#var startingpos : Vector2 = 
-
 #Placeholder player respawn
 #func _ready():
 	#Signalbus.playerdeath.connect(reset);
 
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("Player"):
-		body.position = Vector2(0,0);
 
 #Freeze Objects
 func stopobjects():
@@ -16,3 +11,8 @@ func stopobjects():
 
 func _on_tree_entered():
 	$Camera2D.make_current()
+
+
+func _on_killzone_body_entered(body):
+	if body.is_in_group("Player"):
+		body.position = Vector2(0,0);
