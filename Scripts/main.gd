@@ -5,6 +5,7 @@ var paused = false
 @onready var pause_menu = $Main_UI/Pause_Menu
 @onready var levelcontainer = $Levelcontainer
 @onready var main_menu: Control = $"Main_UI/Main Menu"
+@onready var stats: Control = $Main_UI/Stats
 
 var level_instance
 var currentlevelname : String
@@ -23,12 +24,12 @@ func playerdeath():
 
 #Loading and unloading new levels-----------------------------------
 func unload_level():
+	stats.hide()
 	if (is_instance_valid(level_instance)):
 		level_instance.queue_free()
 	level_instance = null
 
 func load_new_level(level_name : String):
-	
 	unload_level()
 	var level_path := "res://scenes/levels/%s.tscn" % level_name
 	var level_resource := load(level_path)
@@ -36,7 +37,7 @@ func load_new_level(level_name : String):
 		level_instance = level_resource.instantiate()
 		levelcontainer.add_child(level_instance)
 	currentlevelname = level_name
-	
+	stats.show()
 	hideallpopupui()
 #----------------------------------------------------------------------
 

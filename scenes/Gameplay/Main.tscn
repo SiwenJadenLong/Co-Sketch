@@ -11,8 +11,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_va4b4"]
 font_size = 30
+font_color = Color(0, 0, 0, 1)
 shadow_size = 4
-shadow_color = Color(0, 0, 0, 0.611765)
+shadow_color = Color(0.437763, 0.437763, 0.437763, 0.611765)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdjhs"]
 bg_color = Color(0.25, 0.4, 1, 1)
