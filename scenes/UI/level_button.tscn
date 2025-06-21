@@ -4,7 +4,7 @@
 
 [node name="Level Button" type="Button"]
 offset_right = 78.0
-offset_bottom = 31.0
+offset_bottom = 78.0
 text = "LEVEL (#)"
 script = ExtResource("1_djhdf")
 

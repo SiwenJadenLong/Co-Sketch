@@ -44,6 +44,10 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 Player="group for player"
 Projectile=""
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 "Edit Toggle"={

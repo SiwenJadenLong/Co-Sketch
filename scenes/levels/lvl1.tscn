@@ -25,7 +25,8 @@ tile_set = ExtResource("1_s11cq")
 [node name="Objects" type="Node" parent="."]
 
 [node name="Cannon" parent="Objects" instance=ExtResource("4_ymjof")]
-position = Vector2(271, -44)
+position = Vector2(271, -144)
+rotation = 0.261799
 
 [node name="Cannon2" parent="Objects" instance=ExtResource("4_ymjof")]
 position = Vector2(-226, -36)
