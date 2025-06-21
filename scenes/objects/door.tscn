@@ -25,6 +25,7 @@ offset_top = -48.0
 offset_right = 16.0
 offset_bottom = -25.6667
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "DOOR"
 horizontal_alignment = 1
 

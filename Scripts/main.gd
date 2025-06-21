@@ -4,6 +4,8 @@ var paused = false
 @onready var main_ui = $Main_UI
 @onready var pause_menu = $Main_UI/Pause_Menu
 @onready var levelcontainer = $Levelcontainer
+@onready var main_menu: Control = $"Main_UI/Main Menu"
+
 var level_instance
 var currentlevelname : String
 
@@ -80,8 +82,9 @@ func _on_restart_pressed():
 	load_new_level(currentlevelname)
 	
 func _on_main_menu_pressed():
-	togglepause()
-	get_tree().change_scene_to_file("res://scenes/levels/main_menu.tscn")
+	call_deferred("unload_level")
+	main_menu.show()
+	
 
 func _on_level_select_pressed():
 	$Main_UI/Level_Select.visible = true
