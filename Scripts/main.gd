@@ -9,7 +9,7 @@ var currentlevelname : String
 
 #Connect signals and load lvl1 as default
 func _ready():
-	load_new_level("lvl1")
+	call_deferred("load_new_level", "lvl1")
 	Signalbus.playerdeath.connect(playerdeath);
 	Signalbus.levelchange.connect(load_new_level);
 

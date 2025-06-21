@@ -10,12 +10,6 @@ func _ready():
 	$Timer.wait_time = firing_timer
 	shootingdirection.rotated(rotation)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	pass
-
-
 func _on_timer_timeout():
 #	Create instance of cannonball projectile
 	var newcannonballinstance = CANNONBALL.instantiate()
