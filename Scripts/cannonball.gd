@@ -10,7 +10,7 @@ func _ready():
 	speed = speed.rotated(directionrotated)
 
 func _physics_process(delta):
-	position += speed
+	position += (speed*100) * delta
 
 func _left_screen():
 	queue_free()

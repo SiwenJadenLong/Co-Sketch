@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymjof"]
 size = Vector2(5000, 20)
 
-[node name="Killzone" type="Area2D"]
+[node name="Killzone" type="Area2D" groups=["playerkill"]]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

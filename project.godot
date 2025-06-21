@@ -42,7 +42,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 [global_group]
 
 Player="group for player"
-Projectile=""
+playerkill=""
 
 [gui]
 

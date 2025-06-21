@@ -12,6 +12,7 @@ var playerstate
 @export_enum("Orange","Blue") var player : String
 
 @export var Xacceleration : float = 50
+@export var Xmaxspeed : float = 200
 @export var Jumptime : float = 0.08
 @export var Jumpspeed : int = 80
 @export var Jumpspeedcap : int = -500
@@ -33,7 +34,7 @@ func _ready():
 		
 
 func _physics_process(delta):
-	
+	#FIXME Fix dis Bhop jumping higher
 	if playerstate != states.editting and playerstate != states.gameover:
 
 		#Handle gravity and jump timer
@@ -43,7 +44,6 @@ func _physics_process(delta):
 		else:
 			jumptimer.start(Jumptime)
 			canjump = true
-			velocity.y = 0
 		
 		#Orange player keymap
 		if player == "Orange":
@@ -53,8 +53,8 @@ func _physics_process(delta):
 				else:
 					velocity.y = Jumpspeedcap
 
-			elif Input.is_action_just_released("p1_up"):
-				jumptimer.stop()
+			#elif Input.is_action_just_released("p1_up"):
+				#jumptimer.stop()
 
 			horizontalmovement(Input.get_axis("p1_left", "p1_right"))
 		
@@ -79,10 +79,10 @@ func _physics_process(delta):
 #Handles player inputs for horizontalmovement
 func horizontalmovement(direction):
 	if direction:
-		if velocity.x <= 200 and velocity.x >= -200:
+		if velocity.x <= Xmaxspeed and velocity.x >= -Xmaxspeed:
 			velocity.x += direction * Xacceleration
 		else:
-			velocity.x = direction * 200
+			velocity.x = direction * Xmaxspeed
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, 50)
 	else:
@@ -90,12 +90,13 @@ func horizontalmovement(direction):
 
 #If this Player dies this function plays
 func death():
+#	TODO Make Celeste animation work
+	$CPUParticles2D.emitting = true
 	playerstate = states.gameover
 	Signalbus.playerdeath.emit()
 	$CPUParticles2D.emitting = true
-	await $CPUParticles2D.finished
 	
 func _on_hit_detect_area_entered(area):
 	#Runs when this player gets hit by projectile
-	if area.is_in_group("Projectile"):
+	if area.is_in_group("playerkill"):
 		death()

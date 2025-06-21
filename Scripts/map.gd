@@ -11,8 +11,3 @@ func stopobjects():
 
 func _on_tree_entered():
 	$Camera2D.make_current()
-
-
-func _on_killzone_body_entered(body):
-	if body.is_in_group("Player"):
-		body.position = Vector2(0,0);

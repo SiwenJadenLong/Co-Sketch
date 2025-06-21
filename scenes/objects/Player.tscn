@@ -19,7 +19,7 @@ gravity = Vector3(0, 0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id4ih"]
 size = Vector2(32, 32)
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" groups=["Player", "playerkill"]]
 collision_layer = 2
 script = ExtResource("1_a0kq5")
 player = "Orange"

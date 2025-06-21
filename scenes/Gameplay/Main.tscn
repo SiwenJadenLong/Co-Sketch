@@ -1,14 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=12 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="2_b1cl4"]
+[ext_resource type="StyleBox" uid="uid://btfqpfqkvq0s6" path="res://assets/Resources/Default Panel.tres" id="3_kdjhs"]
 [ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]
+[ext_resource type="Script" uid="uid://c3kpo6p4f7eux" path="res://scenes/Gameplay/stopwatch.gd" id="3_vbrhd"]
 [ext_resource type="PackedScene" uid="uid://c2js4gmkrqyh2" path="res://scenes/UI/level_button.tscn" id="4_vbrhd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_va4b4"]
 font_size = 30
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 0.611765)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdjhs"]
+bg_color = Color(0.25, 0.4, 1, 1)
 
 [sub_resource type="Animation" id="Animation_vbrhd"]
 length = 0.001
@@ -34,7 +39,7 @@ tracks/0/path = NodePath("CanvasModulate:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 1),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
@@ -53,27 +58,12 @@ script = ExtResource("1_waoe8")
 [node name="Levelcontainer" type="Node2D" parent="."]
 process_mode = 1
 
-[node name="Main_UI" type="Control" parent="."]
+[node name="Main_UI" type="CanvasLayer" parent="."]
 process_mode = 3
-visible = false
-custom_minimum_size = Vector2(1366, 768)
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -683.0
-offset_top = -384.0
-offset_right = 683.0
-offset_bottom = 384.0
-pivot_offset = Vector2(683, 384)
-size_flags_horizontal = 4
-size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="Pause_Menu" type="Control" parent="Main_UI"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -81,20 +71,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_va4b4")
 
-[node name="ColorRect" type="ColorRect" parent="Main_UI/Pause_Menu"]
+[node name="Panel" type="Panel" parent="Main_UI/Pause_Menu"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -683.0
-offset_top = -384.0
-offset_right = 683.0
-offset_bottom = 384.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.24, 0.24, 0.24, 0.745098)
+theme_override_styles/panel = ExtResource("3_kdjhs")
 
 [node name="Pause Buttons" type="VBoxContainer" parent="Main_UI/Pause_Menu"]
 layout_mode = 1
@@ -132,7 +116,7 @@ layout_mode = 2
 text = "Main Menu"
 
 [node name="Stats" type="Control" parent="Main_UI"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -158,9 +142,10 @@ layout_mode = 2
 text = "TIME"
 label_settings = SubResource("LabelSettings_va4b4")
 horizontal_alignment = 1
+script = ExtResource("3_vbrhd")
 
 [node name="Level_Select" type="Control" parent="Main_UI"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -174,11 +159,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_va4b4")
 
-[node name="ColorRect" type="ColorRect" parent="Main_UI/Level_Select"]
+[node name="Panel" type="Panel" parent="Main_UI/Level_Select"]
 layout_mode = 1
 offset_right = 1366.0
 offset_bottom = 768.0
-color = Color(0.2862, 0.35388, 0.54, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_kdjhs")
 
 [node name="Level Grid" type="GridContainer" parent="Main_UI/Level_Select"]
 layout_mode = 1
@@ -271,9 +256,6 @@ process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_kdjhs")
 }
-
-[node name="Main Camera" type="Camera2D" parent="."]
-anchor_mode = 0
 
 [connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Restart" to="." method="_on_restart_pressed"]
