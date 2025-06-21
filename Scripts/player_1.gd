@@ -1,34 +1,39 @@
 extends CharacterBody2D
+class_name playercharacter
 
 var canjump = true
 
 #state machine
 enum states {idle, running, gliding, editting, gameover}
-var playerstate
+var playerstate = states.idle
 
-@onready var jumptimer = $Timer
+@onready var jump_timer = $Timer
 
 #Player movement variables
-@export_enum("Orange","Blue") var player : String
+@export_enum("Orange","Blue") var playercolor : String
 
-@export var Xacceleration : float = 50
-@export var Xmaxspeed : float = 200
-@export var Jumptime : float = 0.08
-@export var Jumpspeed : int = 80
-@export var Jumpspeedcap : int = -500
-@export var Camera_Speed : int = 1
-@export var Gound_Reistance : int = 40
-@export var Air_Reistance : int = 15
+@export_subgroup("X Movement")
+@export var x_acceleration : float = 50
+@export var x_maxspeed : float = 200
+
+@export_subgroup("Jumping")
+@export var jump_time : float = 0.08
+@export var jump_speed : int = 80
+@export var jump_speed_cap : int = -500
+
+@export_subgroup("Resistance")
+@export var ground_reistance : int = 40
+@export var air_reistance : int = 15
 #@export var Timescale : float = 0.5
 
 
 
 func _ready():
-	playerstate = states.idle
-	if player == "Orange":
+#	Set player as OrangeP1 or Blue P2, Text and self modulate
+	if playercolor == "Orange":
 		$Sprite2D.self_modulate = Color(1,1,0)
 		$Label.text = "P1 ORANGE"
-	elif player == "Blue":
+	elif playercolor == "Blue":
 		$Sprite2D.self_modulate = Color(1.0, 0.6, 0.0)
 		$Label.text = "P2 BLUE"
 		
@@ -42,47 +47,47 @@ func _physics_process(delta):
 			velocity += get_gravity() * delta
 			playerstate = states.gliding
 		else:
-			jumptimer.start(Jumptime)
+			jump_timer.start(jump_time)
 			canjump = true
 		
 		#Orange player keymap
-		if player == "Orange":
-			if Input.is_action_pressed("p1_up") and jumptimer.time_left != 0:
-				if velocity.y >= Jumpspeedcap:
-					velocity.y -= Jumpspeed
+		if playercolor == "Orange":
+			if Input.is_action_pressed("p1_up") and jump_timer.time_left != 0:
+				if velocity.y >= jump_speed_cap:
+					velocity.y -= jump_speed
 				else:
-					velocity.y = Jumpspeedcap
+					velocity.y = jump_speed_cap
 
 			#elif Input.is_action_just_released("p1_up"):
-				#jumptimer.stop()
+				#jump_timer.stop()
 
 			horizontalmovement(Input.get_axis("p1_left", "p1_right"))
 		
 		#Blue player keymap
-		elif player == "Blue":
-			if Input.is_action_pressed("p2_up") and jumptimer.time_left != 0:
-				if velocity.y >= Jumpspeedcap:
-					velocity.y -= Jumpspeed
+		elif playercolor == "Blue":
+			if Input.is_action_pressed("p2_up") and jump_timer.time_left != 0:
+				if velocity.y >= jump_speed_cap:
+					velocity.y -= jump_speed
 				else:
-					velocity.y = Jumpspeedcap
+					velocity.y = jump_speed_cap
 
 			elif Input.is_action_just_released("p2_up"):
-				jumptimer.stop()
+				jump_timer.stop()
 
 			horizontalmovement(Input.get_axis("p2_left", "p2_right"))
 
 		move_and_slide()
-#	Freeze player on game over
+#	Freeze player on game over #FIXME In practice doesn't work since entire level is paused 
 	elif playerstate == states.gameover:
 		velocity = Vector2.ZERO
 
 #Handles player inputs for horizontalmovement
 func horizontalmovement(direction):
 	if direction:
-		if velocity.x <= Xmaxspeed and velocity.x >= -Xmaxspeed:
-			velocity.x += direction * Xacceleration
+		if velocity.x <= x_maxspeed and velocity.x >= -x_maxspeed:
+			velocity.x += direction * x_acceleration
 		else:
-			velocity.x = direction * Xmaxspeed
+			velocity.x = direction * x_maxspeed
 	elif is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, 50)
 	else:

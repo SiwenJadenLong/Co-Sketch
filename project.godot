@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Co-Sketch"
-run/main_scene="uid://cw4l35a2swb7x"
+run/main_scene="uid://bo3dvk6liew6u"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.0779898, 0.117949, 0.306535, 1)
 config/icon="res://icon.svg"
 
 [autoload]

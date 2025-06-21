@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name projectile
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @export var speed: Vector2

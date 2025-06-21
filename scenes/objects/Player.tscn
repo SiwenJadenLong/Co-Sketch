@@ -22,7 +22,6 @@ size = Vector2(32, 32)
 [node name="Player" type="CharacterBody2D" groups=["Player", "playerkill"]]
 collision_layer = 2
 script = ExtResource("1_a0kq5")
-player = "Orange"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
