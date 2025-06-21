@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=19 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="2_b1cl4"]
@@ -6,17 +6,13 @@
 [ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]
 [ext_resource type="Script" uid="uid://c3kpo6p4f7eux" path="res://scenes/Gameplay/stopwatch.gd" id="3_vbrhd"]
 [ext_resource type="PackedScene" uid="uid://c2js4gmkrqyh2" path="res://scenes/UI/level_button.tscn" id="4_vbrhd"]
-[ext_resource type="Script" uid="uid://dr0irou0rwq6m" path="res://Scripts/main_menu.gd" id="6_u0cjw"]
 [ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/Art/Static/Placeholder title.png" id="7_7tkoj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_va4b4"]
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 shadow_size = 4
-shadow_color = Color(0.437763, 0.437763, 0.437763, 0.611765)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdjhs"]
-bg_color = Color(0.25, 0.4, 1, 1)
+shadow_color = Color(1, 1, 1, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_fsby3"]
 subpixel_positioning = 0
@@ -31,6 +27,9 @@ default_font = SubResource("SystemFont_fsby3")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkd6t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_leamy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdjhs"]
+bg_color = Color(0.25, 0.4, 1, 1)
 
 [sub_resource type="Animation" id="Animation_vbrhd"]
 length = 0.001
@@ -163,6 +162,61 @@ label_settings = SubResource("LabelSettings_va4b4")
 horizontal_alignment = 1
 script = ExtResource("3_vbrhd")
 
+[node name="Main Menu" type="Control" parent="Main_UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="TextureRect" parent="Main_UI/Main Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_7tkoj")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_UI/Main Menu"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 128.0
+offset_right = 473.0
+offset_bottom = 412.0
+
+[node name="Start" type="Button" parent="Main_UI/Main Menu/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_leamy")
+theme_override_colors/font_hover_color = Color(0.114897, 0.114897, 0.114897, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0.633333, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_721jg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_geflf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkd6t")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_leamy")
+text = "Start
+"
+alignment = 0
+
+[node name="Level Select" type="Button" parent="Main_UI/Main Menu/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_leamy")
+theme_override_colors/font_hover_color = Color(0.114897, 0.114897, 0.114897, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0.633333, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_721jg")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_geflf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkd6t")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_leamy")
+text = "Level Select
+"
+alignment = 0
+
 [node name="Level_Select" type="Control" parent="Main_UI"]
 visible = false
 layout_mode = 3
@@ -265,44 +319,6 @@ offset_right = 118.0
 offset_bottom = 112.0
 text = "X"
 
-[node name="Main Menu" type="Control" parent="Main_UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("6_u0cjw")
-
-[node name="Sprite2D" type="TextureRect" parent="Main_UI/Main Menu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_7tkoj")
-expand_mode = 2
-
-[node name="Start" type="Button" parent="Main_UI/Main Menu"]
-layout_mode = 0
-offset_left = 170.0
-offset_top = 127.0
-offset_right = 727.0
-offset_bottom = 272.0
-theme = SubResource("Theme_leamy")
-theme_override_colors/font_hover_color = Color(0.114897, 0.114897, 0.114897, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0.633333, 0, 1)
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_721jg")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_geflf")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkd6t")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_leamy")
-text = "START
-"
-alignment = 0
-
 [node name="Linemaker" parent="." instance=ExtResource("2_b1cl4")]
 visible = false
 
@@ -319,5 +335,6 @@ libraries = {
 [connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Level Select" to="." method="_on_level_select_pressed"]
 [connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Main_UI/Main Menu/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main_UI/Main Menu/VBoxContainer/Level Select" to="." method="_on_main_menu_level_select_pressed"]
 [connection signal="pressed" from="Main_UI/Level_Select/Exit Button" to="." method="level_select_exit_pressed"]
-[connection signal="pressed" from="Main_UI/Main Menu/Start" to="Main_UI/Main Menu" method="_on_start_pressed"]

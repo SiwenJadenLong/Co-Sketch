@@ -94,3 +94,13 @@ func _on_level_select_pressed():
 func level_select_exit_pressed():
 	$Main_UI/Level_Select.visible = false
 #-----------------------------------
+
+
+#Main Menu Code-----------------------------------
+func _on_start_pressed() -> void:
+	Signalbus.levelchange.emit("lvl1");
+	main_menu.hide()
+
+func _on_main_menu_level_select_pressed() -> void:
+	$Main_UI/Level_Select.visible = true
+#-----------------------------------
