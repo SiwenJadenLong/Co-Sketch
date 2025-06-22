@@ -1,74 +1,80 @@
-extends Node
+extends Node;
 
-var paused = false
-@onready var main_ui = $Main_UI
-@onready var pause_menu = $Main_UI/Pause_Menu
-@onready var levelcontainer = $Levelcontainer
-@onready var main_menu: Control = $"Main_UI/Main Menu"
-@onready var stats: Control = $Main_UI/Stats
+var paused = false;
+var canPause = true;
 
-var level_instance
-var currentlevelname : String
+@onready var levelContainer = $levelContainer;
+
+@onready var mainUI = $mainUI;
+
+@onready var pauseMenu = $mainUI/pauseMenu;
+@onready var stats: Control = $mainUI/stats;
+@onready var mainMenu: Control = $mainUI/mainMenu;
+@onready var levelSelect: Control = $mainUI/levelSelect;
+
+var levelInstance;
+var currentLevelName : String;
 
 #Connect signals and load lvl1 as default
 func _ready():
-	#call_deferred("load_new_level", "lvl1")
-	Signalbus.playerdeath.connect(playerdeath);
-	Signalbus.levelchange.connect(load_new_level);
+	#call_deferred("loadNewLevel", "lvl1")
+	SignalBus.playerDeath.connect(playerDeath);
+	SignalBus.levelChange.connect(loadNewLevel);
 
 #On player death signal, load new level and play placeholder transition
-func playerdeath():
-	call_deferred("load_new_level", currentlevelname)
+func playerDeath():
+	call_deferred("loadNewLevel", currentLevelName);
 	$AnimationPlayer.play("generictransition ahh");
 
 
 #Loading and unloading new levels-----------------------------------
-func unload_level():
+func unloadLevel():
 	stats.hide()
-	if (is_instance_valid(level_instance)):
-		level_instance.queue_free()
-	level_instance = null
+	if (is_instance_valid(levelInstance)):
+		levelInstance.queue_free();
+	levelInstance = null;
 
-func load_new_level(level_name : String):
-	unload_level()
-	var level_path := "res://scenes/levels/%s.tscn" % level_name
-	var level_resource := load(level_path)
-	if level_resource:
-		level_instance = level_resource.instantiate()
-		levelcontainer.add_child(level_instance)
-	currentlevelname = level_name
-	stats.show()
-	hideallpopupui()
+func loadNewLevel(levelName : String):
+	unloadLevel();
+	var levelPath := "res://scenes/levels/%s.tscn" % levelName;
+	var levelResource := load(levelPath);
+	if levelResource:
+		levelInstance = levelResource.instantiate();
+		levelContainer.add_child(levelInstance);
+	currentLevelName = levelName;
+	stats.show();
+	hideallpopupui();
 #----------------------------------------------------------------------
 
 # Pausing-----------------------------------
 func _input(event):
 #	Pause Menu
-	if event.is_action("Pause"):
-		togglepause()
+	if event.is_action("Pause") and canPause:
+		togglePause();
 
 func hideallpopupui():
 	paused = false;
-	levelcontainer.process_mode = Node.PROCESS_MODE_INHERIT;
-	pause_menu.visible = false;
+	levelContainer.process_mode = Node.PROCESS_MODE_INHERIT;
+	pauseMenu.hide();
 	get_tree().paused = false;
-	$Main_UI/Level_Select.visible = false
+	levelSelect.hide();
+	mainMenu.hide();
 
 #toggling pause, freezes Level node
-func togglepause():
-	paused = !paused
+func togglePause():
+	paused = !paused;
 	if paused:
-		levelcontainer.process_mode = Node.PROCESS_MODE_DISABLED;
-		pause_menu.visible = true;
+		levelContainer.process_mode = Node.PROCESS_MODE_DISABLED;
+		pauseMenu.visible = true;
 		get_tree().paused = true;
-		Signalbus.gamepaused.emit(true)
+		SignalBus.gamePaused.emit(true);
 	elif !paused:
-		levelcontainer.process_mode = Node.PROCESS_MODE_INHERIT
-		pause_menu.visible = false;
+		levelContainer.process_mode = Node.PROCESS_MODE_INHERIT;
+		pauseMenu.visible = false;
 		get_tree().paused = false;
-		Signalbus.gamepaused.emit(false)
+		SignalBus.gamePaused.emit(false);
 	else:
-		print("how did you get here?")
+		print("how did you get here?");
 
 #-----------------------------------
 
@@ -76,31 +82,33 @@ func togglepause():
 
 
 #Pause Menu Code-----------------------------------
-func _on_resume_pressed():
-	togglepause()
+func pauseMenuResumePressed():
+	togglePause();
 	
-func _on_restart_pressed():
-	call_deferred("load_new_level", currentlevelname)
+func pauseMenuRestartPressed():
+	SignalBus.levelChange.emit(currentLevelName);
+	#call_deferred("loadNewLevel", currentLevelName)
 	
-func _on_main_menu_pressed():
-	call_deferred("unload_level")
-	main_menu.show()
-	
+func pauseMenuLevelSelectPressed():
+	levelSelect.visible = true;
 
-func _on_level_select_pressed():
-	$Main_UI/Level_Select.visible = true
+func pauseMenuMainMenuPressed():
+	call_deferred("unloadLevel");
+	mainMenu.show();
+
+#-----------------------------------
 
 #----Level Select code----------------
-func level_select_exit_pressed():
-	$Main_UI/Level_Select.visible = false
+func levelSelectExitPressed():
+	levelSelect.visible = false;
 #-----------------------------------
 
 
 #Main Menu Code-----------------------------------
-func _on_start_pressed() -> void:
-	Signalbus.levelchange.emit("lvl1");
-	main_menu.hide()
+func mainMenuStartPressed():
+	SignalBus.levelChange.emit("lvl1");
+	mainMenu.hide();
 
-func _on_main_menu_level_select_pressed() -> void:
-	$Main_UI/Level_Select.visible = true
+func mainMenuLevelSelectPressed() -> void:
+	levelSelect.visible = true;
 #-----------------------------------

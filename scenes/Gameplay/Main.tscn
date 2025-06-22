@@ -1,17 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=22 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
-[ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="2_b1cl4"]
 [ext_resource type="StyleBox" uid="uid://btfqpfqkvq0s6" path="res://assets/Resources/Default Panel.tres" id="3_kdjhs"]
 [ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]
-[ext_resource type="Script" uid="uid://c3kpo6p4f7eux" path="res://scenes/Gameplay/stopwatch.gd" id="3_vbrhd"]
+[ext_resource type="Script" uid="uid://c3kpo6p4f7eux" path="res://Scripts/stopWatch.gd" id="4_7tkoj"]
+[ext_resource type="Script" uid="uid://2jrrqnfj8lgm" path="res://Scripts/winScreentimer.gd" id="4_u0cjw"]
 [ext_resource type="PackedScene" uid="uid://c2js4gmkrqyh2" path="res://scenes/UI/level_button.tscn" id="4_vbrhd"]
 [ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/Art/Static/Placeholder title.png" id="7_7tkoj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_va4b4"]
-font_size = 30
+font_size = 60
 font_color = Color(0, 0, 0, 1)
-outline_size = 10
 
 [sub_resource type="SystemFont" id="SystemFont_fsby3"]
 subpixel_positioning = 0
@@ -30,6 +29,13 @@ default_font = SubResource("SystemFont_fsby3")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdjhs"]
 bg_color = Color(0.25, 0.4, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbq0m"]
+bg_color = Color(0.34, 0.582, 1, 0.160784)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kbq0m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0cjw"]
+
 [sub_resource type="Animation" id="Animation_vbrhd"]
 length = 0.001
 
@@ -42,22 +48,22 @@ _data = {
 &"generictransition ahh": SubResource("Animation_va4b4")
 }
 
-[node name="Main" type="Node"]
+[node name="main" type="Node"]
 process_mode = 1
 script = ExtResource("1_waoe8")
 
-[node name="Levelcontainer" type="Node2D" parent="."]
+[node name="levelContainer" type="Node2D" parent="."]
 process_mode = 1
 
-[node name="Main_UI" type="CanvasLayer" parent="."]
+[node name="mainUI" type="CanvasLayer" parent="."]
 process_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Transition layer" type="CanvasModulate" parent="Main_UI"]
+[node name="Transition layer" type="CanvasModulate" parent="mainUI"]
 visible = false
 color = Color(0, 0, 0, 1)
 
-[node name="Pause_Menu" type="Control" parent="Main_UI"]
+[node name="pauseMenu" type="Control" parent="mainUI"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -67,7 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_va4b4")
 
-[node name="Panel" type="Panel" parent="Main_UI/Pause_Menu"]
+[node name="Panel" type="Panel" parent="mainUI/pauseMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,7 +82,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_kdjhs")
 
-[node name="Pause Buttons" type="VBoxContainer" parent="Main_UI/Pause_Menu"]
+[node name="Pause Buttons" type="VBoxContainer" parent="mainUI/pauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -93,25 +99,25 @@ theme = ExtResource("3_va4b4")
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Resume" type="Button" parent="Main_UI/Pause_Menu/Pause Buttons"]
+[node name="Resume" type="Button" parent="mainUI/pauseMenu/Pause Buttons"]
 layout_mode = 2
 action_mode = 0
 text = "Pause"
 
-[node name="Restart" type="Button" parent="Main_UI/Pause_Menu/Pause Buttons"]
+[node name="Restart" type="Button" parent="mainUI/pauseMenu/Pause Buttons"]
 layout_mode = 2
 text = "Restart
 "
 
-[node name="Level Select" type="Button" parent="Main_UI/Pause_Menu/Pause Buttons"]
+[node name="Level Select" type="Button" parent="mainUI/pauseMenu/Pause Buttons"]
 layout_mode = 2
 text = "Level Select"
 
-[node name="MainMenu" type="Button" parent="Main_UI/Pause_Menu/Pause Buttons"]
+[node name="MainMenu" type="Button" parent="mainUI/pauseMenu/Pause Buttons"]
 layout_mode = 2
 text = "Main Menu"
 
-[node name="Stats" type="Control" parent="Main_UI"]
+[node name="stats" type="Control" parent="mainUI"]
 visible = false
 layout_mode = 3
 anchors_preset = 5
@@ -123,7 +129,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 pivot_offset = Vector2(80, 296)
 
-[node name="MarginContainer" type="MarginContainer" parent="Main_UI/Stats"]
+[node name="MarginContainer" type="MarginContainer" parent="mainUI/stats"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -134,14 +140,14 @@ offset_bottom = 83.75
 grow_horizontal = 2
 theme_override_constants/margin_top = 5
 
-[node name="Stopwatch" type="Label" parent="Main_UI/Stats/MarginContainer"]
+[node name="Stopwatch" type="Label" parent="mainUI/stats/MarginContainer"]
 layout_mode = 2
 text = "TIME"
 label_settings = SubResource("LabelSettings_va4b4")
 horizontal_alignment = 1
-script = ExtResource("3_vbrhd")
+script = ExtResource("4_7tkoj")
 
-[node name="Main Menu" type="Control" parent="Main_UI"]
+[node name="mainMenu" type="Control" parent="mainUI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -149,7 +155,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="TextureRect" parent="Main_UI/Main Menu"]
+[node name="Sprite2D" type="TextureRect" parent="mainUI/mainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -159,14 +165,14 @@ grow_vertical = 2
 texture = ExtResource("7_7tkoj")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main_UI/Main Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="mainUI/mainMenu"]
 layout_mode = 0
 offset_left = 174.0
 offset_top = 128.0
-offset_right = 473.0
+offset_right = 738.0
 offset_bottom = 412.0
 
-[node name="Start" type="Button" parent="Main_UI/Main Menu/VBoxContainer"]
+[node name="Start" type="Button" parent="mainUI/mainMenu/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_leamy")
 theme_override_colors/font_hover_color = Color(0.114897, 0.114897, 0.114897, 1)
@@ -181,7 +187,7 @@ text = "Start
 "
 alignment = 0
 
-[node name="Level Select" type="Button" parent="Main_UI/Main Menu/VBoxContainer"]
+[node name="Level Select" type="Button" parent="mainUI/mainMenu/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_leamy")
 theme_override_colors/font_hover_color = Color(0.114897, 0.114897, 0.114897, 1)
@@ -196,7 +202,7 @@ text = "Level Select
 "
 alignment = 0
 
-[node name="Level_Select" type="Control" parent="Main_UI"]
+[node name="levelSelect" type="Control" parent="mainUI"]
 visible = false
 layout_mode = 3
 anchors_preset = 8
@@ -212,13 +218,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_va4b4")
 
-[node name="Panel" type="Panel" parent="Main_UI/Level_Select"]
+[node name="Panel" type="Panel" parent="mainUI/levelSelect"]
 layout_mode = 1
 offset_right = 1366.0
 offset_bottom = 768.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kdjhs")
 
-[node name="Level Grid" type="GridContainer" parent="Main_UI/Level_Select"]
+[node name="Level Grid" type="GridContainer" parent="mainUI/levelSelect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -235,62 +241,62 @@ theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 50
 columns = 4
 
-[node name="Level Button" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
-levelnumber = "1"
+levelNumber = "1"
 
-[node name="Level Button2" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
-layout_mode = 2
-icon_alignment = 1
-text_direction = 1
-levelnumber = "2"
-
-[node name="Level Button3" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button2" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
+levelNumber = "2"
 
-[node name="Level Button4" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button3" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
 
-[node name="Level Button5" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button4" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
 
-[node name="Level Button6" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button5" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
 
-[node name="Level Button7" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button6" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
 
-[node name="Level Button8" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button7" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
 
-[node name="Level Button9" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button8" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
 
-[node name="Level Button10" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button9" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
 
-[node name="Level Button11" parent="Main_UI/Level_Select/Level Grid" instance=ExtResource("4_vbrhd")]
+[node name="Level Button10" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
 
-[node name="Exit Button" type="Button" parent="Main_UI/Level_Select"]
+[node name="Level Button11" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
+layout_mode = 2
+icon_alignment = 1
+text_direction = 1
+
+[node name="Exit Button" type="Button" parent="mainUI/levelSelect"]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 21.0
@@ -298,14 +304,14 @@ offset_right = 118.0
 offset_bottom = 112.0
 text = "X"
 
-[node name="Win_Screen" type="Control" parent="Main_UI"]
+[node name="winScreen" type="Control" parent="mainUI"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1366.0
 offset_bottom = 768.0
 
-[node name="Background" type="Panel" parent="Main_UI/Win_Screen"]
+[node name="Background" type="Panel" parent="mainUI/winScreen"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -313,8 +319,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kbq0m")
 
-[node name="Panel" type="Panel" parent="Main_UI/Win_Screen/Background"]
+[node name="Panel" type="Panel" parent="mainUI/winScreen/Background"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 13
@@ -324,27 +331,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Main_UI/Win_Screen/Background/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="mainUI/winScreen/Background/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main_UI/Win_Screen/Background/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
+alignment = 1
 
-[node name="Label" type="Label" parent="Main_UI/Win_Screen/Background/Panel/MarginContainer/VBoxContainer"]
+[node name="Stopwatch" type="Label" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "TIME"
+label_settings = SubResource("LabelSettings_va4b4")
+horizontal_alignment = 1
+script = ExtResource("4_u0cjw")
+
+[node name="Win_Time" type="Label" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 60
 text = "TIME SPENT"
 horizontal_alignment = 1
 
-[node name="Linemaker" parent="." instance=ExtResource("2_b1cl4")]
-visible = false
+[node name="HSeparator" type="HSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 400
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kbq0m")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="level_select" type="Button" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_va4b4")
+theme_override_font_sizes/font_size = 0
+text = "LEVEL
+SELECT"
+
+[node name="VSeparator" type="VSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_u0cjw")
+
+[node name="next_level" type="Button" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_va4b4")
+text = "NEXT
+LEVEL"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
@@ -352,10 +396,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_kdjhs")
 }
 
-[connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/Level Select" to="." method="_on_level_select_pressed"]
-[connection signal="pressed" from="Main_UI/Pause_Menu/Pause Buttons/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="Main_UI/Main Menu/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Main_UI/Main Menu/VBoxContainer/Level Select" to="." method="_on_main_menu_level_select_pressed"]
-[connection signal="pressed" from="Main_UI/Level_Select/Exit Button" to="." method="level_select_exit_pressed"]
+[connection signal="pressed" from="mainUI/pauseMenu/Pause Buttons/Resume" to="." method="pauseMenuResumePressed"]
+[connection signal="pressed" from="mainUI/pauseMenu/Pause Buttons/Restart" to="." method="pauseMenuRestartPressed"]
+[connection signal="pressed" from="mainUI/pauseMenu/Pause Buttons/Level Select" to="." method="pauseMenuLevelSelectPressed"]
+[connection signal="pressed" from="mainUI/pauseMenu/Pause Buttons/MainMenu" to="." method="pauseMenuMainMenuPressed"]
+[connection signal="pressed" from="mainUI/mainMenu/VBoxContainer/Start" to="." method="mainMenuStartPressed"]
+[connection signal="pressed" from="mainUI/mainMenu/VBoxContainer/Level Select" to="." method="mainMenuLevelSelectPressed"]
+[connection signal="pressed" from="mainUI/levelSelect/Exit Button" to="." method="levelSelectExitPressed"]

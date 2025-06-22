@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bn6lwoeq3auyu" path="res://Scripts/map.gd" id="1_ocvs1"]
 [ext_resource type="TileSet" uid="uid://da7r2pvmgo65o" path="res://tilesets/Placeholder tiles.tres" id="2_7qbot"]
 [ext_resource type="PackedScene" uid="uid://b5487i4avo3b5" path="res://scenes/objects/killzone.tscn" id="3_7qbot"]
-[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/Cannon.tscn" id="3_pub2r"]
-[ext_resource type="PackedScene" uid="uid://d3yes8cfmhiee" path="res://scenes/objects/Player.tscn" id="4_s5sil"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="3_pub2r"]
+[ext_resource type="PackedScene" uid="uid://d3yes8cfmhiee" path="res://scenes/objects/player.tscn" id="4_s5sil"]
 
-[node name="Map" type="Node2D"]
+[node name="map" type="Node2D"]
 script = ExtResource("1_ocvs1")
 
 [node name="foreground" type="TileMapLayer" parent="."]
@@ -23,23 +23,23 @@ position = Vector2(-20, -250)
 
 [node name="Killzone" parent="." instance=ExtResource("3_7qbot")]
 
-[node name="Objects" type="Node" parent="."]
+[node name="objects" type="Node" parent="."]
 
-[node name="Cannon" parent="Objects" instance=ExtResource("3_pub2r")]
+[node name="cannon" parent="objects" instance=ExtResource("3_pub2r")]
 position = Vector2(271, -44)
 
-[node name="Cannon2" parent="Objects" instance=ExtResource("3_pub2r")]
+[node name="cannon2" parent="objects" instance=ExtResource("3_pub2r")]
 position = Vector2(-229, -39)
 rotation = -3.14159
 
-[node name="Players" type="Node" parent="."]
+[node name="players" type="Node" parent="."]
 
-[node name="Player" parent="Players" instance=ExtResource("4_s5sil")]
+[node name="player" parent="players" instance=ExtResource("4_s5sil")]
 position = Vector2(-20, -234)
-playercolor = "Orange"
+playerColor = "Blue"
 
-[node name="Player2" parent="Players" instance=ExtResource("4_s5sil")]
+[node name="player2" parent="players" instance=ExtResource("4_s5sil")]
 position = Vector2(-84, -234)
-playercolor = "Blue"
+playerColor = "Orange"
 
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

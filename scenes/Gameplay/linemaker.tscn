@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ctoxg3ns7dmj5"]
 
-[ext_resource type="Script" uid="uid://ypah0lyw4vuo" path="res://Scripts/linemaker.gd" id="1_iw6di"]
+[ext_resource type="Script" uid="uid://ypah0lyw4vuo" path="res://Scripts/lineMaker.gd" id="1_iw6di"]
 
 [node name="Linemaker" type="Node2D"]
 script = ExtResource("1_iw6di")
