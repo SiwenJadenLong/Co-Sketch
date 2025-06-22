@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buoovp3jydwf"
-path="res://.godot/imported/indigoexplosion.png-424b6391db33ee22289607b911319c60.ctex"
+uid="uid://do0c10ygthsbb"
+path="res://.godot/imported/maintitle.png-7a52972ad965b8432a967cfa097ccb0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Art/Animated/indigoexplosion.png"
-dest_files=["res://.godot/imported/indigoexplosion.png-424b6391db33ee22289607b911319c60.ctex"]
+source_file="res://assets/art/static/maintitle.png"
+dest_files=["res://.godot/imported/maintitle.png-7a52972ad965b8432a967cfa097ccb0f.ctex"]
 
 [params]
 

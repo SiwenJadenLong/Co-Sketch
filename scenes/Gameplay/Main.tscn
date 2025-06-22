@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c3kpo6p4f7eux" path="res://Scripts/stopWatch.gd" id="4_7tkoj"]
 [ext_resource type="Script" uid="uid://2jrrqnfj8lgm" path="res://Scripts/winScreentimer.gd" id="4_u0cjw"]
 [ext_resource type="PackedScene" uid="uid://c2js4gmkrqyh2" path="res://scenes/UI/level_button.tscn" id="4_vbrhd"]
-[ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/Art/Static/Placeholder title.png" id="7_7tkoj"]
+[ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/art/static/maintitle.png" id="7_7tkoj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_va4b4"]
 font_size = 60

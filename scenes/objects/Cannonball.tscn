@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbimugcy7cdgs"]
 
 [ext_resource type="Script" uid="uid://bd4d35cpgn8qp" path="res://Scripts/cannonBall.gd" id="1_ed6wv"]
-[ext_resource type="Texture2D" uid="uid://buoovp3jydwf" path="res://assets/Art/Animated/indigoexplosion.png" id="1_hcmnq"]
+[ext_resource type="Texture2D" uid="uid://buoovp3jydwf" path="res://assets/art/animated/cannonBallPlace.png" id="1_hcmnq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjce8"]
 atlas = ExtResource("1_hcmnq")
