@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d3yes8cfmhiee" path="res://scenes/objects/Player.tscn" id="2_rp362"]
 [ext_resource type="Texture2D" uid="uid://weygx8ktaqxe" path="res://assets/Art/Static/backgroundplace.jpg" id="3_8160f"]
 [ext_resource type="PackedScene" uid="uid://b5487i4avo3b5" path="res://scenes/objects/killzone.tscn" id="3_sw1tr"]
-[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="4_ymjof"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/Cannon.tscn" id="4_ymjof"]
 [ext_resource type="PackedScene" uid="uid://di8x2ilgml1fg" path="res://scenes/objects/door.tscn" id="5_bevmi"]
 
 [node name="Map" type="Node2D"]

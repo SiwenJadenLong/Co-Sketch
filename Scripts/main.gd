@@ -18,7 +18,7 @@ func _ready():
 
 #On player death signal, load new level and play placeholder transition
 func playerdeath():
-	load_new_level(currentlevelname)
+	call_deferred("load_new_level", currentlevelname)
 	$AnimationPlayer.play("generictransition ahh");
 
 
@@ -80,7 +80,7 @@ func _on_resume_pressed():
 	togglepause()
 	
 func _on_restart_pressed():
-	load_new_level(currentlevelname)
+	call_deferred("load_new_level", currentlevelname)
 	
 func _on_main_menu_pressed():
 	call_deferred("unload_level")

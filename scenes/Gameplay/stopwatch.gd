@@ -8,23 +8,21 @@ func _ready():
 	Signalbus.levelchange.connect(levelchanged);
 	Signalbus.gamepaused.connect(togglestopwatch);
 
+#Count time as long as stopwatch is not stopped
 func _process(delta):
 	if !stopped:
 		timeelapsed += delta
-		text = str(timeelapsed).pad_decimals(2)
-	else:
-		text = str(timeelapsed).pad_decimals(2)
+	text = str(timeelapsed).pad_decimals(2)
 
 func playerdeath():
 	resettime()
 
 func levelchanged(levelname : String):
 	resettime()
-	
+
 func resettime():
 	stopped = false
 	timeelapsed = 0
 
 func togglestopwatch(condition):
 	stopped = condition
-		
