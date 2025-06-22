@@ -1,10 +1,8 @@
 extends Node2D;
 
 var winCondition : bool;
-@onready var objects := $objects;
-@onready var players := $players;
-@onready var allobjects : Array[Node] = $players.get_children()
-@onready var allplayers : Array[Node] = $objects.get_children()
+@onready var allObjects : Array[Node] = $objects.get_children()
+@onready var allPlayers : Array[Node] = $players.get_children()
 signal doorOpened;
 
 #Freeze Objects
@@ -16,18 +14,18 @@ func _ready():
 	#dooropened.connect(win)
 #	Placeholder always win
 #	TODO make win condition with coins or smth	
-	for x in allobjects:
+	for x in allObjects:
 		if x is door:
-			x.win_condition = true;
+			x.winCondition = true;
 
-func level_win_check():
-	var level_win := true
-	for object in allobjects:
+func levelWin_check():
+	var levelWin := true
+	for object in allObjects:
 		if object is door:
 			if !object.opendoor:
-				level_win = false;
-	return level_win;
+				levelWin = false;
+	return levelWin;
 
 #func win():
-	#if level_win_check():
+	#if levelWin_check():
 		#

@@ -17,7 +17,7 @@ func _process(delta):
 func playerdeath():
 	resettime();
 
-func levelchanged(levelname : String):
+func levelchanged(_levelname : String):
 	resettime();
 
 func resettime():
