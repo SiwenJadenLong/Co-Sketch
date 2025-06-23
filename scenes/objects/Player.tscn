@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc63gvd8lmpex"]
+[gd_scene load_steps=7 format=3 uid="uid://dc63gvd8lmpex"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player.gd" id="1_a0kq5"]
+[ext_resource type="Texture2D" uid="uid://bu460xa0l0kdb" path="res://assets/art/static/player1.svg" id="2_ndxx7"]
 [ext_resource type="Texture2D" uid="uid://b1a0u7rv1eewo" path="res://icon.svg" id="2_pvjs5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oewah"]
-size = Vector2(32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndxx7"]
+size = Vector2(30, 46)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_id4ih"]
 particle_flag_disable_z = true
@@ -16,7 +17,7 @@ initial_velocity_max = 360.0
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id4ih"]
-size = Vector2(32, 32)
+size = Vector2(30, 46)
 
 [node name="player" type="CharacterBody2D" groups=["Player", "playerkill"]]
 collision_layer = 2
@@ -24,7 +25,7 @@ script = ExtResource("1_a0kq5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_pvjs5")
+texture = ExtResource("2_ndxx7")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
@@ -34,7 +35,7 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
 visibility_layer = 2
-shape = SubResource("RectangleShape2D_oewah")
+shape = SubResource("RectangleShape2D_ndxx7")
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1

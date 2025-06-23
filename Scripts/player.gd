@@ -31,10 +31,10 @@ var playerState = states.idle;
 func _ready():
 #	Set player as OrangeP1 or Blue P2, Text and self modulate
 	if playerColor == "Orange":
-		$Sprite2D.self_modulate = Color(1,1,0);
+		$Sprite2D.texture = load("res://assets/art/static/player1.svg");
 		$Label.text = "P1 ORANGE";
 	elif playerColor == "Blue":
-		$Sprite2D.self_modulate = Color(1.0, 0.6, 0.0);
+		$Sprite2D.texture = load("res://assets/art/static/player2.svg");
 		$Label.text = "P2 BLUE";
 		
 
