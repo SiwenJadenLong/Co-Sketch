@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5ldmsq5b5ee3"
-path="res://.godot/imported/opendoorplace.png-f4fd729d11ca18207533b32f7ac86487.ctex"
+path="res://.godot/imported/openDoorplace.png-8c64ce744f8fce578181a43273f3f846.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/static/opendoorplace.png"
-dest_files=["res://.godot/imported/opendoorplace.png-f4fd729d11ca18207533b32f7ac86487.ctex"]
+source_file="res://assets/art/static/openDoorplace.png"
+dest_files=["res://.godot/imported/openDoorplace.png-8c64ce744f8fce578181a43273f3f846.ctex"]
 
 [params]
 
