@@ -1,31 +1,38 @@
 extends Node2D;
 
 var winCondition : bool;
-@onready var allObjects : Array[Node] = $objects.get_children()
-@onready var allPlayers : Array[Node] = $players.get_children()
-signal doorOpened;
+@export var levelNumber : String;
+@onready var allObjects : Array[Node] = $objects.get_children();
+@onready var allPlayers : Array[Node] = $players.get_children();
 
 #Freeze Objects
 func stopobjects():
 	$objects.process_mode = Node.PROCESS_MODE_DISABLED;
 
+func _process(delta: float) -> void:
+	GlobalVariables.levelTime += delta
+
 #Run on node entering game
 func _ready():
+	GlobalVariables.levelTime = 0
 	#dooropened.connect(win)
 #	Placeholder always win
-#	TODO make win condition with coins or smth	
-	for x in allObjects:
-		if x is door:
-			x.winCondition = true;
-
-func levelWin_check():
-	var levelWin := true
+#	TODO Make win condition with coins or smth	
+	winCondition = true;
 	for object in allObjects:
 		if object is door:
-			if !object.opendoor:
-				levelWin = false;
-	return levelWin;
+			object.doorOpened.connect(levelWinCheck);
 
-#func win():
-	#if levelWin_check():
-		#
+#Checks if win condition is met, then checks if both doors are occupied by correct players
+func levelWinCheck():
+	var levelWin = winCondition
+	for object in allObjects:
+		if object is door:
+			if !object.playerInDoor:
+				levelWin = false;
+	if levelWin:
+		for player in allPlayers:
+			player.lockinputs()
+		stopobjects()
+		SignalBus.levelWon.emit();
+		process_mode = Node.PROCESS_MODE_DISABLED

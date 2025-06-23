@@ -1,10 +1,10 @@
 extends StaticBody2D;
 
-const CANNONBALL = preload("res://scenes/objects/Cannonball.tscn");
+const CANNONBALL : PackedScene= preload("res://scenes/objects/Cannonball.tscn");
 var shootingdirection : Vector2;
 
-@export var projectile_speed : int;
-@export var firing_timer: float;
+@export var projectile_speed : int = 5;
+@export var firing_timer: float = 2.0;
 
 func _ready():
 	$Timer.wait_time = firing_timer;

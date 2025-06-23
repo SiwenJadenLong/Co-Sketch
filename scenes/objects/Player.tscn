@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3yes8cfmhiee"]
+[gd_scene load_steps=6 format=3 uid="uid://dc63gvd8lmpex"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player.gd" id="1_a0kq5"]
 [ext_resource type="Texture2D" uid="uid://b1a0u7rv1eewo" path="res://icon.svg" id="2_pvjs5"]
-[ext_resource type="Texture2D" uid="uid://36ynylhj8bsf" path="res://assets/art/static/settings_icon.png" id="3_ndxx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oewah"]
 size = Vector2(32, 32)
@@ -48,8 +47,9 @@ text = "Player"
 horizontal_alignment = 1
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 emitting = false
-texture = ExtResource("3_ndxx7")
+texture = ExtResource("2_pvjs5")
 lifetime = 0.3
 one_shot = true
 explosiveness = 1.0

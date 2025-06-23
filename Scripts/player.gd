@@ -4,7 +4,7 @@ class_name playerCharacter;
 var canJump = true;
 
 #state machine
-enum states {idle, running, gliding, editing, gameOver};
+enum states {idle, running, gliding, editing, gameOver, locked};
 var playerState = states.idle;
 
 @onready var jumpTimer = $Timer;
@@ -77,8 +77,9 @@ func _physics_process(delta):
 			horizontalmovement(Input.get_axis("p2_left", "p2_right"));
 
 		move_and_slide();
+
 #	Freeze player on game over #FIXME In practice doesn't work since entire level is paused 
-	elif playerState == states.gameOver:
+	elif playerState == states.gameOver or playerState == states.locked:
 		velocity = Vector2.ZERO;
 
 #Handles player inputs for horizontalmovement
@@ -105,3 +106,6 @@ func _on_hit_detect_area_entered(area):
 	#Runs when this player gets hit by projectile
 	if area.is_in_group("playerkill"):
 		death();
+		
+func lockinputs():
+	playerState = states.locked

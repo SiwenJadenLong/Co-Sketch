@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgx3v74vs7b5x"]
+
+[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/levels/LevelTemplete.tscn" id="1_wae2r"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="2_3iyrc"]
+
+[node name="map" instance=ExtResource("1_wae2r")]
+
+[node name="cannon" parent="objects" index="3" instance=ExtResource("2_3iyrc")]
+position = Vector2(264, 31)
+
+[node name="cannon2" parent="objects" index="4" instance=ExtResource("2_3iyrc")]
+position = Vector2(-212, -94)
+rotation = -3.14159

@@ -1,6 +1,6 @@
 extends Button;
 
-@export var levelNumber : String;
+@export var levelNumber : int;
 #
 func _ready():
 	if levelNumber:
@@ -9,4 +9,4 @@ func _ready():
 
 func _on_pressed():
 	if levelNumber:
-		SignalBus.levelChange.emit("lvl%s" % levelNumber);
+		SignalBus.levelChange.emit(levelNumber);
