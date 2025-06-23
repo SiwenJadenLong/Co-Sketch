@@ -18,7 +18,7 @@ var playerState = states.idle;
 
 @export_subgroup("Jumping")
 @export var jumpTime : float = 0.08;
-@export var jumpSpeed : int = 80;
+@export var jumpSpeed : int = 100;
 @export var jumpSpeedCap : int = -500;
 
 @export_subgroup("Resistance")
@@ -39,6 +39,7 @@ func _ready():
 		
 
 func _physics_process(delta):
+	$Label.text = str(velocity.y)
 	#FIXME Fix dis Bhop jumping higher
 	if playerState != states.editing and playerState != states.gameOver:
 
@@ -55,8 +56,6 @@ func _physics_process(delta):
 			if Input.is_action_pressed("p1_up") and jumpTimer.time_left != 0:
 				if velocity.y >= jumpSpeedCap:
 					velocity.y -= jumpSpeed;
-				else:
-					velocity.y = jumpSpeedCap;
 
 			#elif Input.is_action_just_released("p1_up"):
 				#jumpTimer.stop()
@@ -68,9 +67,6 @@ func _physics_process(delta):
 			if Input.is_action_pressed("p2_up") and jumpTimer.time_left != 0:
 				if velocity.y >= jumpSpeedCap:
 					velocity.y -= jumpSpeed;
-				else:
-					velocity.y = jumpSpeedCap;
-
 			elif Input.is_action_just_released("p2_up"):
 				jumpTimer.stop();
 
