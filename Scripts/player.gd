@@ -39,7 +39,6 @@ func _ready():
 		
 
 func _physics_process(delta):
-	$Label.text = str(velocity.y)
 	#FIXME Fix dis Bhop jumping higher
 	if playerState != states.editing and playerState != states.gameOver:
 
