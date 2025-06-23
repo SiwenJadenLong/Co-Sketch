@@ -35,7 +35,10 @@ func _ready():
 		$Sprite2D.texture = load("res://assets/art/static/player1.svg");
 	elif playerColor == "Blue":
 		$Sprite2D.texture = load("res://assets/art/static/player2.svg");
-		
+	
+	var edittingZoneTween = create_tween().bind_node($line).set_ease(Tween.EASE_OUT)
+	edittingZoneTween.tween_property()
+
 
 func _physics_process(delta):
 	#FIXME Fix dis Bhop jumping higher
@@ -53,41 +56,43 @@ func _physics_process(delta):
 	
 	
 	
-	if playerState != states.editing and playerState != states.gameOver:
-
-		#Handle gravity and jump timer
-		if not is_on_floor():
-			velocity += get_gravity() * delta;
-			playerState = states.gliding;
-		else:
-			jumpTimer.start(jumpTime);
-			canJump = true;
-		
-		#Orange player keymap
-		if playerColor == "Orange":
-			if Input.is_action_pressed("p1_up") and jumpTimer.time_left != 0:
-				if velocity.y >= jumpSpeedCap:
-					velocity.y -= jumpSpeed;
-			elif Input.is_action_just_released("p1_up"):
-				jumpTimer.stop()
-
-			horizontalmovement(Input.get_axis("p1_left", "p1_right"));
-		
-		#Blue player keymap
-		elif playerColor == "Blue":
-			if Input.is_action_pressed("p2_up") and jumpTimer.time_left != 0:
-				if velocity.y >= jumpSpeedCap:
-					velocity.y -= jumpSpeed;
-			elif Input.is_action_just_released("p2_up"):
-				jumpTimer.stop();
-
-			horizontalmovement(Input.get_axis("p2_left", "p2_right"));
-
-		move_and_slide();
-
-#	Freeze player on game over #FIXME In practice doesn't work since entire level is paused 
-	elif playerState == states.gameOver or playerState == states.locked:
-		velocity = Vector2.ZERO;
+	
+	
+	#if playerState != states.editing and playerState != states.gameOver:
+#
+		##Handle gravity and jump timer
+		#if not is_on_floor():
+			#velocity += get_gravity() * delta;
+			#playerState = states.gliding;
+		#else:
+			#jumpTimer.start(jumpTime);
+			#canJump = true;
+		#
+		##Orange player keymap
+		#if playerColor == "Orange":
+			#if Input.is_action_pressed("p1_up") and jumpTimer.time_left != 0:
+				#if velocity.y >= jumpSpeedCap:
+					#velocity.y -= jumpSpeed;
+			#elif Input.is_action_just_released("p1_up"):
+				#jumpTimer.stop()
+#
+			#horizontalmovement(Input.get_axis("p1_left", "p1_right"));
+		#
+		##Blue player keymap
+		#elif playerColor == "Blue":
+			#if Input.is_action_pressed("p2_up") and jumpTimer.time_left != 0:
+				#if velocity.y >= jumpSpeedCap:
+					#velocity.y -= jumpSpeed;
+			#elif Input.is_action_just_released("p2_up"):
+				#jumpTimer.stop();
+#
+			#horizontalmovement(Input.get_axis("p2_left", "p2_right"));
+#
+		#move_and_slide();
+#
+##	Freeze player on game over #FIXME In practice doesn't work since entire level is paused 
+	#elif playerState == states.gameOver or playerState == states.locked:
+		#velocity = Vector2.ZERO;
 
 #Handles player inputs for horizontalmovement
 func horizontalmovement(direction):

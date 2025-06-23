@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dc63gvd8lmpex"]
+[gd_scene load_steps=11 format=3 uid="uid://dc63gvd8lmpex"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player.gd" id="1_a0kq5"]
 [ext_resource type="Texture2D" uid="uid://bu460xa0l0kdb" path="res://assets/art/static/player1.svg" id="2_ndxx7"]
@@ -21,10 +21,30 @@ gravity = Vector3(0, 0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id4ih"]
 size = Vector2(30, 46)
 
+[sub_resource type="Gradient" id="Gradient_l17cr"]
+offsets = PackedFloat32Array(0, 0.695833, 0.708333)
+colors = PackedColorArray(0, 0.6175, 0.95, 0, 0, 0.6175, 0.95, 0.152941, 0, 0, 0, 0)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0hum8"]
+gradient = SubResource("Gradient_l17cr")
+width = 600
+height = 600
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="player" type="CharacterBody2D" groups=["Player", "playerkill"]]
 collision_layer = 2
 script = ExtResource("1_a0kq5")
+playerColor = null
+debug = null
+xAcceleration = null
+xMaxspeed = null
+jumpTime = null
+jumpSpeed = null
 jumpSpeedCap = -400
+groundResistance = null
+airReistance = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -83,5 +103,10 @@ process_material = SubResource("ParticleProcessMaterial_id4ih")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetect"]
 shape = SubResource("RectangleShape2D_id4ih")
+
+[node name="editting" type="Node2D" parent="."]
+
+[node name="edittingZone" type="Sprite2D" parent="editting"]
+texture = SubResource("GradientTexture2D_0hum8")
 
 [connection signal="area_entered" from="HitDetect" to="." method="_on_hit_detect_area_entered"]
