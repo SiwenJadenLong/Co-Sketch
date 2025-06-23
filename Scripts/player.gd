@@ -11,6 +11,7 @@ var playerState = states.idle;
 
 #Player movement variables
 @export_enum("Orange","Blue") var playerColor : String;
+@export var debug : bool = false;
 
 @export_subgroup("X Movement")
 @export var xAcceleration : float = 50;
@@ -32,14 +33,26 @@ func _ready():
 #	Set player as OrangeP1 or Blue P2, Text and self modulate
 	if playerColor == "Orange":
 		$Sprite2D.texture = load("res://assets/art/static/player1.svg");
-		$Label.text = "P1 ORANGE";
 	elif playerColor == "Blue":
 		$Sprite2D.texture = load("res://assets/art/static/player2.svg");
-		$Label.text = "P2 BLUE";
 		
 
 func _physics_process(delta):
 	#FIXME Fix dis Bhop jumping higher
+	
+	#---------Text debug code---------
+	if debug:
+		if playerColor == "Orange":
+			$playerLabel.text = "P1 ORANGE";
+		elif playerColor == "Blue":
+			$playerLabel.text = "P2 BLUE";
+		if playerState == states.editing:
+			$editingLabel.text = "editing!";
+		else:
+			$editingLabel.text = "";
+	
+	
+	
 	if playerState != states.editing and playerState != states.gameOver:
 
 		#Handle gravity and jump timer
@@ -55,9 +68,8 @@ func _physics_process(delta):
 			if Input.is_action_pressed("p1_up") and jumpTimer.time_left != 0:
 				if velocity.y >= jumpSpeedCap:
 					velocity.y -= jumpSpeed;
-
-			#elif Input.is_action_just_released("p1_up"):
-				#jumpTimer.stop()
+			elif Input.is_action_just_released("p1_up"):
+				jumpTimer.stop()
 
 			horizontalmovement(Input.get_axis("p1_left", "p1_right"));
 		

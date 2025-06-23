@@ -52,7 +52,7 @@ light_mask = 3
 visibility_layer = 2
 shape = SubResource("RectangleShape2D_ndxx7")
 
-[node name="Label" type="Label" parent="."]
+[node name="playerLabel" type="Label" parent="."]
 texture_filter = 1
 offset_left = -31.0
 offset_top = -46.0
@@ -60,6 +60,13 @@ offset_right = 31.0
 offset_bottom = -23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player"
+horizontal_alignment = 1
+
+[node name="editingLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -67.0
+offset_right = 20.0
+offset_bottom = -44.6667
 horizontal_alignment = 1
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="."]
