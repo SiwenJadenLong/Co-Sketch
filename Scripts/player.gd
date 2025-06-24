@@ -4,10 +4,20 @@ class_name playerCharacter;
 var canJump = true;
 
 #state machine
-enum states {idle, running, gliding, editing, gameOver, locked};
-var playerState = states.idle;
+enum states {
+	onGround, 
+	groundMoving, 
+	falling, 
+	editing, 
+	gameOver, 
+	locked
+	};
+	
+var playerState = states.onGround;
 
 @onready var jumpTimer = $Timer;
+
+@onready var editing: Node2D = $editing
 
 #Player movement variables
 @export_enum("Orange","Blue") var playerColor : String;
@@ -25,8 +35,9 @@ var playerState = states.idle;
 @export_subgroup("Resistance")
 @export var groundResistance : int = 40;
 @export var airReistance : int = 15;
-#@export var Timescale : float = 0.5
 
+@export_subgroup("Drawing")
+@export var drawingRange : int = 300;
 
 
 func _ready():
@@ -36,8 +47,6 @@ func _ready():
 	elif playerColor == "Blue":
 		$Sprite2D.texture = load("res://assets/art/static/player2.svg");
 	
-	var edittingZoneTween = create_tween().bind_node($line).set_ease(Tween.EASE_OUT)
-	edittingZoneTween.tween_property()
 
 
 func _physics_process(delta):
@@ -54,10 +63,29 @@ func _physics_process(delta):
 		else:
 			$editingLabel.text = "";
 	
-	
-	
-	
-	
+	match playerColor:
+		"Orange":
+			match playerState:
+				states.onGround:
+					horizontalmovement(Input.get_axis("p1_left", "p1_right"));
+					move_and_slide();
+					if Input.is_action_just_pressed("Edit Toggle"):
+						playerState = states.editing;
+				states.editing:
+					$editting.showZone()
+					if Input.is_action_just_pressed("Edit Toggle"):
+						playerState = states.onGround;
+						$editting.hideZone()
+		"Blue":
+			pass
+			#match playerState:
+				#states.onGround:
+					#horizontalmovement(Input.get_axis("p2_left", "p2_right"));
+					#move_and_slide();
+					#if Input.is_action_pressed("Edit Toggle"):
+						#playerState = states.editing
+		_:
+			printerr("No playercolor selected")
 	#if playerState != states.editing and playerState != states.gameOver:
 #
 		##Handle gravity and jump timer

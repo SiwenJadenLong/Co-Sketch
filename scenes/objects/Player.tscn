@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc63gvd8lmpex"]
+[gd_scene load_steps=12 format=3 uid="uid://dc63gvd8lmpex"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player.gd" id="1_a0kq5"]
 [ext_resource type="Texture2D" uid="uid://bu460xa0l0kdb" path="res://assets/art/static/player1.svg" id="2_ndxx7"]
 [ext_resource type="Texture2D" uid="uid://b1a0u7rv1eewo" path="res://icon.svg" id="2_pvjs5"]
 [ext_resource type="Texture2D" uid="uid://b21jhcsjmhbub" path="res://assets/art/static/pupils.svg" id="3_b5y4o"]
 [ext_resource type="Texture2D" uid="uid://brckpv6uqie6a" path="res://assets/art/static/irises.svg" id="4_l17cr"]
+[ext_resource type="Script" uid="uid://bu2r725yod8oc" path="res://scenes/objects/editting.gd" id="6_0hum8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndxx7"]
 size = Vector2(30, 46)
@@ -22,29 +23,21 @@ gravity = Vector3(0, 0, 0)
 size = Vector2(30, 46)
 
 [sub_resource type="Gradient" id="Gradient_l17cr"]
-offsets = PackedFloat32Array(0, 0.695833, 0.708333)
-colors = PackedColorArray(0, 0.6175, 0.95, 0, 0, 0.6175, 0.95, 0.152941, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.641667, 0.670833, 0.679167, 0.708333)
+colors = PackedColorArray(0, 0.6175, 0.95, 0, 0, 0.6175, 0.95, 0, 0, 0.6175, 0.95, 0.115393, 0, 0.6175, 0.95, 1, 0, 0, 0, 0)
 metadata/_snap_count = 2
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0hum8"]
 gradient = SubResource("Gradient_l17cr")
-width = 600
-height = 600
+width = 1000
+height = 1000
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="player" type="CharacterBody2D" groups=["Player", "playerkill"]]
 collision_layer = 2
 script = ExtResource("1_a0kq5")
-playerColor = null
-debug = null
-xAcceleration = null
-xMaxspeed = null
-jumpTime = null
-jumpSpeed = null
 jumpSpeedCap = -400
-groundResistance = null
-airReistance = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -105,8 +98,11 @@ process_material = SubResource("ParticleProcessMaterial_id4ih")
 shape = SubResource("RectangleShape2D_id4ih")
 
 [node name="editting" type="Node2D" parent="."]
+visible = false
+script = ExtResource("6_0hum8")
 
 [node name="edittingZone" type="Sprite2D" parent="editting"]
+scale = Vector2(0.1, 0.1)
 texture = SubResource("GradientTexture2D_0hum8")
 
 [connection signal="area_entered" from="HitDetect" to="." method="_on_hit_detect_area_entered"]
