@@ -7,11 +7,16 @@ var canPause = true;
 
 @onready var mainUI = $mainUI;
 
+#MainUI things
 @onready var pauseMenu: Control = $mainUI/pauseMenu;
 @onready var stats: Control = $mainUI/stats;
 @onready var mainMenu: Control = $mainUI/mainMenu;
 @onready var levelSelect: Control = $mainUI/levelSelect;
 @onready var winScreen: Control = $mainUI/winScreen
+
+#Overlay
+@onready var deathMarkers: Node2D = $overLay/deathMarkers;
+@export var deathSequenceTime : float;
 
 var levelInstance;
 
@@ -23,7 +28,12 @@ func _ready():
 
 #On player death signal, load new level and play placeholder transition
 func playerDeath():
-	call_deferred("loadNewLevel", GlobalVariables.currentLevelNumber);
+	deathMarkers.show();
+	await get_tree().create_timer(deathSequenceTime).timeout;
+	levelContainer.process_mode = Node.PROCESS_MODE_DISABLED;
+	deathMarkers.hide();
+	await call_deferred("loadNewLevel", GlobalVariables.currentLevelNumber);
+	levelContainer.process_mode = Node.PROCESS_MODE_PAUSABLE;
 
 
 #Loading and unloading new levels-----------------------------------
@@ -41,6 +51,8 @@ func loadNewLevel(levelnumber : int):
 		levelInstance = levelResource.instantiate();
 		levelContainer.add_child(levelInstance);
 	GlobalVariables.currentLevelNumber = levelnumber;
+#	TODO Make level loader string compatible
+	GlobalVariables.currentLevelName = "lvl%s" % str(levelnumber);
 	stats.show();
 	hideallpopupui();
 #----------------------------------------------------------------------

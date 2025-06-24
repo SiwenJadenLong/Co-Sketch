@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://blos24o3qmrc6"]
+
+[ext_resource type="Texture2D" uid="uid://dn5wxoa8ws4jk" path="res://assets/art/static/orangeDeathMarker.svg" id="1_5vkdq"]
+[ext_resource type="Script" uid="uid://bpmu565urmbo3" path="res://scenes/Gameplay/deathMarker.gd" id="1_q30yu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5lk2"]
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="deathMarker" type="Node2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_q30yu")
+
+[node name="deathMarkerSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_5vkdq")
+
+[node name="playerLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.0
+offset_top = -63.0
+offset_right = 17.0
+offset_bottom = -21.125
+grow_horizontal = 2
+text = "PX"
+label_settings = SubResource("LabelSettings_j5lk2")
+horizontal_alignment = 1

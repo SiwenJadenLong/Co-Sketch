@@ -17,8 +17,11 @@ enum states {
 var playerState = states.onGround;
 
 @onready var jumpTimer = $Timer;
+@onready var editing: Node2D = $editing;
+@onready var playerSprite: Node2D = $playerSprite;
+@onready var physicsHitbox: CollisionShape2D = $physicsHitbox;
 
-@onready var editing: Node2D = $editing
+
 
 #Player movement variables
 @export_enum("Orange","Blue") var playerColor : String;
@@ -40,6 +43,10 @@ var playerState = states.onGround;
 @export_subgroup("Drawing")
 @export var drawingRange : int = 300;
 
+@export_subgroup("Death")
+@export var rotationIntensity : float = 0.1;
+@export var launchIntensity : float = 800;
+
 var horizontalAxis : float;
 var upButton : String;
 var editButton : String;
@@ -48,15 +55,13 @@ var editButton : String;
 func _ready():
 #	Set player as OrangeP1 or Blue P2, Text and self modulate
 	if playerColor == "Orange":
-		$Sprite2D.texture = load("res://assets/art/static/player1.svg");
+		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player1.svg");
 	elif playerColor == "Blue":
-		$Sprite2D.texture = load("res://assets/art/static/player2.svg");
+		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player2.svg");
 	
 
 
 func _physics_process(delta):
-	#FIXME Fix dis Bhop jumping higher
-	
 	#---------Text debug code---------
 	if debug:
 		if playerColor == "Orange":
@@ -112,7 +117,6 @@ func _physics_process(delta):
 					velocity += get_gravity() * delta;
 					move_and_slide();
 					horizontalmovement(horizontalAxis);
-					print(jumpTimer.time_left);
 					if Input.is_action_pressed(upButton) and jumpTimer.time_left != 0:
 						if velocity.y >= jumpSpeedCap:
 							velocity.y -= jumpSpeed;
@@ -129,43 +133,9 @@ func _physics_process(delta):
 				states.locked:
 					move_and_slide();
 				states.gameOver:
-#					TODO Death Animation
-					pass
-	#if playerState != states.editing and playerState != states.gameOver:
-#
-		##Handle gravity and jump timer
-		#if not is_on_floor():
-			#velocity += get_gravity() * delta;
-			#playerState = states.gliding;
-		#else:
-			#jumpTimer.start(jumpTime);
-			#canJump = true;
-		#
-		##Orange player keymap
-		#if playerColor == "Orange":
-			#if Input.is_action_pressed("p1_up") and jumpTimer.time_left != 0:
-				#if velocity.y >= jumpSpeedCap:
-					#velocity.y -= jumpSpeed;
-			#elif Input.is_action_just_released("p1_up"):
-				#jumpTimer.stop()
-#
-			#horizontalmovement(Input.get_axis("p1_left", "p1_right"));
-		#
-		##Blue player keymap
-		#elif playerColor == "Blue":
-			#if Input.is_action_pressed("p2_up") and jumpTimer.time_left != 0:
-				#if velocity.y >= jumpSpeedCap:
-					#velocity.y -= jumpSpeed;
-			#elif Input.is_action_just_released("p2_up"):
-				#jumpTimer.stop();
-#
-			#horizontalmovement(Input.get_axis("p2_left", "p2_right"));
-#
-		#move_and_slide();
-#
-##	Freeze player on game over #FIXME In practice doesn't work since entire level is paused 
-	#elif playerState == states.gameOver or playerState == states.locked:
-		#velocity = Vector2.ZERO;
+					playerSprite.rotation += 0.4;
+					velocity += get_gravity() * delta;
+					move_and_slide();
 
 
 #Handles player inputs for horizontalmovement
@@ -182,11 +152,12 @@ func horizontalmovement(direction):
 
 #If this Player dies this function plays
 func death():
-#	TODO Make Celeste animation work
-	$CPUParticles2D.emitting = true;
+	SignalBus.playerDeathPosition.emit(global_position, playerColor);
+	physicsHitbox.set_deferred("disabled",true);
 	playerState = states.gameOver;
+	process_mode = Node.PROCESS_MODE_ALWAYS;
+	velocity += Vector2(0,launchIntensity).rotated(PI * 15/16);
 	SignalBus.playerDeath.emit();
-	$CPUParticles2D.emitting = true;
 	
 func _on_hit_detect_area_entered(area):
 	#Runs when this player gets hit by projectile
