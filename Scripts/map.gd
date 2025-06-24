@@ -4,18 +4,26 @@ var winCondition : bool;
 @export var levelNumber : String;
 @onready var allObjects : Array[Node] = $objects.get_children();
 @onready var allPlayers : Array[Node] = $players.get_children();
+var stopped;
+
+#Make better level designs
 
 #Freeze Objects
 func stopobjects():
+	stopped = true;
 	$objects.process_mode = Node.PROCESS_MODE_DISABLED;
+	$players.process_mode = Node.PROCESS_MODE_DISABLED;
 
 func _process(delta: float) -> void:
-	GlobalVariables.levelTime += delta
+	if !stopped:
+		GlobalVariables.levelTime += delta
 
 #Run on node entering game
 func _ready():
 	GlobalVariables.levelTime = 0
-	#dooropened.connect(win)
+	SignalBus.playerDeath.connect(stopobjects);
+	
+	
 #	Placeholder always win
 #	TODO Make win condition with coins or smth	
 	winCondition = true;
@@ -32,7 +40,7 @@ func levelWinCheck():
 				levelWin = false;
 	if levelWin:
 		for player in allPlayers:
-			player.lockinputs()
-		stopobjects()
+			player.lockinputs();
+		stopobjects();
 		SignalBus.levelWon.emit();
-		process_mode = Node.PROCESS_MODE_DISABLED
+		process_mode = Node.PROCESS_MODE_PAUSABLE

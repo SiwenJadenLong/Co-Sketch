@@ -1,7 +1,9 @@
 extends Node;
 
 signal playerDeath();
-signal levelChange(new_level_name : String);
+signal playerDeathPosition(deathPosition : Vector2, player : String);
+
+signal levelChange(newLevelName : String);
 signal unloadLevel();
 
 signal gamePaused(condition : bool);
