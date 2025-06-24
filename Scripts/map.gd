@@ -5,6 +5,9 @@ var winCondition : bool;
 @onready var allObjects : Array[Node] = $objects.get_children();
 @onready var allPlayers : Array[Node] = $players.get_children();
 var stopped;
+
+#Make better level designs
+
 #Freeze Objects
 func stopobjects():
 	stopped = true;

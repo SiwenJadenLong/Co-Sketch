@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bu460xa0l0kdb" path="res://assets/art/static/player1.svg" id="2_ndxx7"]
 [ext_resource type="Texture2D" uid="uid://b21jhcsjmhbub" path="res://assets/art/static/pupils.svg" id="3_b5y4o"]
 [ext_resource type="Texture2D" uid="uid://brckpv6uqie6a" path="res://assets/art/static/irises.svg" id="4_l17cr"]
-[ext_resource type="Script" uid="uid://bu2r725yod8oc" path="res://scenes/objects/editting.gd" id="6_0hum8"]
+[ext_resource type="Script" uid="uid://bu2r725yod8oc" path="res://Scripts/editting.gd" id="6_0hum8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndxx7"]
 size = Vector2(30, 46)
@@ -27,7 +27,6 @@ fill_from = Vector2(0.5, 0.5)
 [node name="player" type="CharacterBody2D" groups=["Player", "playerkill"]]
 collision_layer = 2
 script = ExtResource("1_a0kq5")
-jumpSpeedCap = -400
 
 [node name="playerSprite" type="Node2D" parent="."]
 
@@ -35,17 +34,19 @@ jumpSpeedCap = -400
 scale = Vector2(0.250739, 0.25)
 texture = ExtResource("2_ndxx7")
 
-[node name="irises" type="Sprite2D" parent="playerSprite"]
+[node name="eyes" type="Node2D" parent="playerSprite"]
+
+[node name="irises" type="Sprite2D" parent="playerSprite/eyes"]
 position = Vector2(0, 3.5)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_l17cr")
 
-[node name="pupils" type="Sprite2D" parent="playerSprite"]
+[node name="pupils" type="Sprite2D" parent="playerSprite/eyes"]
 position = Vector2(0, 3.5)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_b5y4o")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="jumpTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.5
 one_shot = true

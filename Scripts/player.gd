@@ -16,7 +16,7 @@ enum states {
 	
 var playerState = states.onGround;
 
-@onready var jumpTimer = $Timer;
+@onready var jumpTimer = $jumpTimer;
 @onready var editing: Node2D = $editing;
 @onready var playerSprite: Node2D = $playerSprite;
 @onready var physicsHitbox: CollisionShape2D = $physicsHitbox;
@@ -34,7 +34,7 @@ var playerState = states.onGround;
 @export_subgroup("Jumping")
 @export var jumpTime : float = 0.08;
 @export var jumpSpeed : int = 200;
-@export var jumpSpeedCap : int = -500;
+@export var jumpSpeedCap : int = -400;
 
 @export_subgroup("Resistance")
 @export var groundResistance : int = 40;
@@ -70,20 +70,22 @@ func _physics_process(delta):
 			$playerLabel.text = "P2 BLUE";
 		match playerState:
 			states.onGround:
-				$stateLabel.text = "onGround"
+				$stateLabel.text = "onGround";
 			states.groundMoving: 
-				$stateLabel.text = "groundMoving"
+				$stateLabel.text = "groundMoving";
 			states.jumping:
-				$stateLabel.text = "jumping"
+				$stateLabel.text = "jumping";
 			states.falling:
-				$stateLabel.text = "falling"
+				$stateLabel.text = "falling";
 			states.editing:
-				$stateLabel.text = "editing"
+				$stateLabel.text = "editing";
 			states.gameOver:
-				$stateLabel.text = "gameOver"
+				$stateLabel.text = "gameOver";
 			states.locked:
-				$stateLabel.text = "locked"
+				$stateLabel.text = "locked";
 #	----------------------------------
+
+#TODO Make eye movement and expressions
 
 	match playerColor:
 		"Orange":

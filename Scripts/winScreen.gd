@@ -11,6 +11,9 @@ func _process(delta):
 func _levelWon():
 	show()
 
+#TODO Add Death Counter per player on win screen
+# Characters will stand on opposite sides and squint at each other while the death counter counts up.
+# In the end, whoever has more deaths has the eye cross expression and the other has happy expression
 
 func winScreenLevelSelectPressed() -> void:
 	get_parent().get_node("levelSelect").show()

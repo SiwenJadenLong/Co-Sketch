@@ -46,11 +46,11 @@ position = Vector2(-48, -176)
 rotation = -1.57079
 
 [node name="door" parent="objects" instance=ExtResource("5_bevmi")]
-position = Vector2(168, -48)
+position = Vector2(168, -49)
 correctPlayer = "Orange"
 
 [node name="door2" parent="objects" instance=ExtResource("5_bevmi")]
-position = Vector2(-114, -151)
+position = Vector2(259, -49)
 correctPlayer = "Blue"
 
 [node name="killZone" parent="objects" instance=ExtResource("3_sw1tr")]
@@ -59,11 +59,12 @@ position = Vector2(0, 308)
 [node name="players" type="Node" parent="."]
 
 [node name="Player" parent="players" instance=ExtResource("2_rp362")]
-position = Vector2(64, 0)
+position = Vector2(65, -7)
 playerColor = "Orange"
 debug = true
 
 [node name="Player2" parent="players" instance=ExtResource("2_rp362")]
+position = Vector2(0, -7)
 playerColor = "Blue"
 debug = true
 
