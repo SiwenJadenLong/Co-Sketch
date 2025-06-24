@@ -62,7 +62,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	#---------Text debug code---------
+	#---------Text debug code---------	
 	if debug:
 		if playerColor == "Orange":
 			$playerLabel.text = "P1 ORANGE";
@@ -111,10 +111,13 @@ func _physics_process(delta):
 						playerState = states.jumping;
 					move_and_slide();
 				states.editing:
-					editing.showZone()
+					editing.showZone();
+					$lineMaker.get_node("cursor").visible = true;
+					$lineMaker.process_mode = Node.PROCESS_MODE_INHERIT;
 					if Input.is_action_just_pressed(editButton):
 						playerState = states.onGround;
 						editing.hideZone();
+						$lineMaker.get_node("cursor").visible = false;
 				states.jumping:
 					velocity += get_gravity() * delta;
 					move_and_slide();
