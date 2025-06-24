@@ -28,6 +28,6 @@ func addLinePoint(mousePosition: Vector2) -> void:
 		var newSegmentShape = SegmentShape2D.new();
 		newSegmentShape.a = line.get_point_position(line.get_point_count()-2);
 		newSegmentShape.b = line.get_point_position(line.get_point_count()-1);
-		#collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
+		collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
 		collision.shape = newSegmentShape;
 		lineContainer.add_child(collision);
