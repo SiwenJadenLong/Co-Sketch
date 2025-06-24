@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwtug34apq813"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_gkfx6"]
+b = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D"]
 shape = SubResource("SegmentShape2D_gkfx6")
