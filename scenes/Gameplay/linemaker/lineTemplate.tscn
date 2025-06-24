@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dswjjjwjn2qac"]
 
 [node name="lineTemplate" type="RigidBody2D"]
+gravity_scale = 0.0
 
 [node name="Line2D" type="Line2D" parent="."]
