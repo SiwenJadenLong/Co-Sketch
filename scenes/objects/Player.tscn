@@ -24,7 +24,7 @@ size = Vector2(30, 46)
 
 [sub_resource type="Gradient" id="Gradient_l17cr"]
 offsets = PackedFloat32Array(0, 0.641667, 0.670833, 0.679167, 0.708333)
-colors = PackedColorArray(0, 0.6175, 0.95, 0, 0, 0.6175, 0.95, 0, 0, 0.6175, 0.95, 0.115393, 0, 0.6175, 0.95, 1, 0, 0, 0, 0)
+colors = PackedColorArray(0, 0.6175, 0.95, 0, 0, 0.6175, 0.95, 0, 0, 0.6175, 0.95, 0.227451, 0, 0.6175, 0.95, 0.580392, 0, 0, 0, 0)
 metadata/_snap_count = 2
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0hum8"]
@@ -75,11 +75,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player"
 horizontal_alignment = 1
 
-[node name="editingLabel" type="Label" parent="."]
+[node name="stateLabel" type="Label" parent="."]
 offset_left = -20.0
 offset_top = -67.0
 offset_right = 20.0
 offset_bottom = -44.6667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
 [node name="CPUParticles2D" type="GPUParticles2D" parent="."]
@@ -97,11 +98,11 @@ process_material = SubResource("ParticleProcessMaterial_id4ih")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetect"]
 shape = SubResource("RectangleShape2D_id4ih")
 
-[node name="editting" type="Node2D" parent="."]
+[node name="editing" type="Node2D" parent="."]
 visible = false
 script = ExtResource("6_0hum8")
 
-[node name="edittingZone" type="Sprite2D" parent="editting"]
+[node name="edittingZone" type="Sprite2D" parent="editing"]
 scale = Vector2(0.1, 0.1)
 texture = SubResource("GradientTexture2D_0hum8")
 

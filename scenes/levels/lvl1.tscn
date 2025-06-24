@@ -67,8 +67,10 @@ position = Vector2(0, 308)
 [node name="Player" parent="players" instance=ExtResource("2_rp362")]
 position = Vector2(64, 0)
 playerColor = "Orange"
+debug = true
 
 [node name="Player2" parent="players" instance=ExtResource("2_rp362")]
 playerColor = "Blue"
+debug = true
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
