@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc63gvd8lmpex"]
+[gd_scene load_steps=12 format=3 uid="uid://dc63gvd8lmpex"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player.gd" id="1_a0kq5"]
 [ext_resource type="Texture2D" uid="uid://bu460xa0l0kdb" path="res://assets/art/static/player1.svg" id="2_ndxx7"]
 [ext_resource type="Texture2D" uid="uid://b21jhcsjmhbub" path="res://assets/art/static/pupils.svg" id="3_b5y4o"]
 [ext_resource type="Texture2D" uid="uid://brckpv6uqie6a" path="res://assets/art/static/irises.svg" id="4_l17cr"]
+[ext_resource type="Script" uid="uid://dfsoetpgat4lq" path="res://scenes/objects/pupils.gd" id="5_ssoob"]
 [ext_resource type="Script" path="res://Scripts/editting.gd" id="6_0hum8"]
 [ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="6_ssoob"]
 
@@ -46,6 +47,8 @@ texture = ExtResource("4_l17cr")
 position = Vector2(0, 3.5)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_b5y4o")
+script = ExtResource("5_ssoob")
+eyeTravelDistance = 2.0
 
 [node name="jumpTimer" type="Timer" parent="."]
 process_callback = 0

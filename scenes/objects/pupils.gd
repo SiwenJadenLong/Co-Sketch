@@ -1,0 +1,23 @@
+extends Sprite2D
+
+@onready var cursor: Node2D = get_parent().get_parent().get_parent().get_node("lineMaker").get_node("cursor");
+@onready var player: playerCharacter = get_parent().get_parent().get_parent();
+
+@export var eyeTravelDistance: float;
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if player.playerState == player.states.editing:
+		var direction: Vector2 = Vector2.ZERO.direction_to(cursor.position);
+		var distance: float = cursor.position.length();
+		var setPosition = direction * min(eyeTravelDistance, distance);
+		setPosition.y += 3.5;
+		position = setPosition;
+	else:
+		position = Vector2(0, 3.5);
