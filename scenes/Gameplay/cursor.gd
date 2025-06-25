@@ -11,8 +11,11 @@ var line: Line2D;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-#	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN);
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN);
+	lineContainer.name = "lineContainer";
 	line = lineContainer.summonLine();
+	
+	SignalBus.editingExited.connect(resetLineContainer);
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +28,7 @@ func _input(event: InputEvent) -> void:
 		
 func addLinePoint(mousePosition: Vector2) -> void:
 	line.add_point(mousePosition);
-	if line.get_point_count() == 1:
+	if line.get_point_count() == 1 and !lineContainer.get_parent():
 		get_parent().add_child(lineContainer);
 	if line.get_point_count() > 1:
 		var collision = CollisionShape2D.new();
@@ -35,3 +38,8 @@ func addLinePoint(mousePosition: Vector2) -> void:
 		collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
 		collision.shape = newSegmentShape;
 		lineContainer.add_child(collision);
+		
+func resetLineContainer():
+	lineContainer = lineTemplate.instantiate();
+	line = lineContainer.summonLine();
+	get_parent().add_child(lineContainer);
