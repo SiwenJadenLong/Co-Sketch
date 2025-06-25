@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://p0m3x403thtk"]
+[gd_scene load_steps=5 format=3 uid="uid://p0m3x403thtk"]
 
 [ext_resource type="Script" uid="uid://bn6lwoeq3auyu" path="res://Scripts/map.gd" id="1_vcwsh"]
 [ext_resource type="PackedScene" uid="uid://di8x2ilgml1fg" path="res://scenes/objects/door.tscn" id="5_30pkq"]
 [ext_resource type="Script" uid="uid://dfkluft0hlgrx" path="res://scenes/levels/view_box_border.gd" id="5_qoi8g"]
-[ext_resource type="PackedScene" uid="uid://b5487i4avo3b5" path="res://scenes/objects/killzone.tscn" id="6_2sarb"]
-[ext_resource type="PackedScene" uid="uid://dc63gvd8lmpex" path="res://scenes/objects/Player.tscn" id="7_7nc4o"]
+[ext_resource type="PackedScene" uid="uid://dc63gvd8lmpex" path="res://scenes/objects/player.tscn" id="7_7nc4o"]
 
 [node name="map" type="Node2D"]
 script = ExtResource("1_vcwsh")
@@ -22,9 +21,6 @@ correctPlayer = "Orange"
 position = Vector2(256, -48)
 correctPlayer = "Blue"
 
-[node name="killZone" parent="objects" instance=ExtResource("6_2sarb")]
-position = Vector2(0, 308)
-
 [node name="players" type="Node" parent="."]
 
 [node name="Player" parent="players" instance=ExtResource("7_7nc4o")]
@@ -39,7 +35,7 @@ playerColor = "Blue"
 [node name="viewBoxBorder" type="StaticBody2D" parent="ground"]
 collision_layer = 3
 script = ExtResource("5_qoi8g")
-borderPadding = 100
+borderPadding = 300
 
 [node name="viewBoxBorderCollision" type="CollisionPolygon2D" parent="ground/viewBoxBorder"]
 build_mode = 1
