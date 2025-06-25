@@ -5,13 +5,13 @@ var canJump = true;
 
 #state machine
 enum states {
-	onGround, 
-	groundMoving, 
-	jumping,
-	falling, 
-	editing, 
-	gameOver, 
-	locked
+		onGround, 
+		groundMoving, 
+		jumping,
+		falling, 
+		editing, 
+		gameOver, 
+		locked
 	};
 	
 var playerState = states.onGround;
