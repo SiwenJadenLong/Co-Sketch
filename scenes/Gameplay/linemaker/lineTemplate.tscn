@@ -1,7 +1,11 @@
-[gd_scene format=3 uid="uid://dswjjjwjn2qac"]
+[gd_scene load_steps=2 format=3 uid="uid://dswjjjwjn2qac"]
+
+[ext_resource type="Script" uid="uid://do2dqo4xa5syp" path="res://scenes/Gameplay/linemaker/line_template.gd" id="1_sjocl"]
 
 [node name="lineTemplate" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_sjocl")
 
-[node name="Line2D" type="Line2D" parent="."]
-default_color = Color(1, 0.501961, 0.752941, 1)
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

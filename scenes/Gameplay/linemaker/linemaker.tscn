@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctoxg3ns7dmj5"]
+[gd_scene load_steps=3 format=3 uid="uid://ctoxg3ns7dmj5"]
 
-[ext_resource type="Script" uid="uid://ypah0lyw4vuo" path="res://Scripts/linemaker.gd" id="1_bqtkx"]
 [ext_resource type="Script" uid="uid://dgupgk8yu7f2h" path="res://scenes/Gameplay/cursor.gd" id="2_ps7e8"]
 [ext_resource type="Texture2D" uid="uid://238mwpsnwgoa" path="res://assets/art/static/cursor.svg" id="3_1jdm1"]
 
 [node name="Linemaker" type="Node2D"]
-script = ExtResource("1_bqtkx")
 
 [node name="cursor" type="Node2D" parent="."]
 visible = false

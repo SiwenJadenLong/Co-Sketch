@@ -1,15 +1,18 @@
 extends RigidBody2D
 
+var line: Line2D;
+
+func summonLine() -> Line2D:
+	line = Line2D.new();
+	line.default_color = Color(1, 0.501961, 0.752941, 1);
+	
+	add_child(line);
+	
+	return line;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func _input(event: InputEvent) -> void:
-	if $Line2D.get_point_count() > 1:
-		print("" % [$Line2D.get_point_position()]);
