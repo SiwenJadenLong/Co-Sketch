@@ -1,14 +1,19 @@
 extends Sprite2D
 
-@onready var cursor: Node2D = get_parent().get_parent().get_parent().get_node("lineMaker").get_node("cursor");
+@onready var cursor: Node2D;
 @onready var player: playerCharacter = get_parent().get_parent().get_parent();
 
 @export var eyeTravelDistance: float;
 
 
+func loadCursor():
+	#FIXME Neither of these work
+	
+	cursor = get_parent().get_parent().get_parent().lineMaker.get_node("cursor");
+	# cursor = get_parent().get_parent().get_parent().get_parent().get_parent().get_node("lineMaker").get_node("cursor");
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	call_deferred("loadCursor");
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
