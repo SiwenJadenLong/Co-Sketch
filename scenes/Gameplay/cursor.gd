@@ -7,7 +7,7 @@ extends Node2D
 @onready var lineContainer := lineTemplate.instantiate();
 @onready var line := lineContainer.get_node("Line2D");
 
-@onready var player = get_parent().get_parent();
+@onready var players = get_parent().get_parent().get_node("players").get_children();
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	position = get_global_mouse_position();
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("drawEvent") and player.playerState == player.states.editing:
+	if event.is_action_pressed("drawEvent") and (players[0].playerState == players[0].states.editing or players[1].playerState == players[1].states.editing):
 		addLinePoint(position);
 		
 func addLinePoint(mousePosition: Vector2) -> void:
