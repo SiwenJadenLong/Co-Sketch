@@ -21,8 +21,8 @@ var playerState = states.onGround;
 @onready var playerSprite: Node2D = $playerSprite;
 @onready var physicsHitbox: CollisionShape2D = $physicsHitbox;
 
-var lineMakerPath: String = "res://scenes/Gameplay/linemaker/lineTemplate.tscn";
-var lineMaker: RigidBody2D;
+var lineMakerPath: String = "res://scenes/Gameplay/linemaker/linemaker.tscn";
+var lineMaker: Node2D;
 
 #Player movement variables
 @export_enum("Orange","Blue") var playerColor : String;
@@ -53,7 +53,7 @@ var upButton : String;
 var editButton : String;
 
 func loadLineMaker():
-	var lineMakerObject: RigidBody2D = load(lineMakerPath).instantiate();
+	var lineMakerObject: Node2D = load(lineMakerPath).instantiate();
 	lineMakerObject.name = "lineMaker";
 	get_parent().get_parent().add_child(lineMakerObject);
 	
