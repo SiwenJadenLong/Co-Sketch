@@ -51,6 +51,7 @@ var horizontalAxis : float;
 var upButton : String;
 var editButton : String;
 
+@onready var lineMaker: RigidBody2D = get_parent().get_parent().get_node("lineMaker");
 
 func _ready():
 #	Set player as OrangeP1 or Blue P2, Text and self modulate
@@ -58,7 +59,6 @@ func _ready():
 		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player1.svg");
 	elif playerColor == "Blue":
 		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player2.svg");
-	
 
 
 func _physics_process(delta):
@@ -112,12 +112,12 @@ func _physics_process(delta):
 					move_and_slide();
 				states.editing:
 					editing.showZone();
-					$lineMaker.get_node("cursor").visible = true;
-					$lineMaker.process_mode = Node.PROCESS_MODE_INHERIT;
+					lineMaker.get_node("cursor").visible = true;
+					lineMaker.process_mode = Node.PROCESS_MODE_INHERIT;
 					if Input.is_action_just_pressed(editButton):
 						playerState = states.onGround;
 						editing.hideZone();
-						$lineMaker.get_node("cursor").visible = false;
+						lineMaker.get_node("cursor").visible = false;
 				states.jumping:
 					velocity += get_gravity() * delta;
 					move_and_slide();

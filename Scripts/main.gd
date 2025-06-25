@@ -20,6 +20,9 @@ var canPause = true;
 
 var levelInstance;
 
+#lineMaker
+@onready var lineMakerPath: String = "res://scenes/Gameplay/linemaker/lineTemplate.tscn";
+
 func _ready():
 	SignalBus.playerDeath.connect(playerDeath);
 	SignalBus.levelChange.connect(loadNewLevel);
@@ -55,6 +58,9 @@ func loadNewLevel(levelnumber : int):
 	GlobalVariables.currentLevelName = "lvl%s" % str(levelnumber);
 	stats.show();
 	hideallpopupui();
+	var lineMakerObject: RigidBody2D = load(lineMakerPath).instantiate();
+	lineMakerObject.name = "lineMaker";
+	get_node("./levelContainer/map").add_child(lineMakerObject);
 #----------------------------------------------------------------------
 
 # Pausing-----------------------------------
