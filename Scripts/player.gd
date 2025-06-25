@@ -23,6 +23,7 @@ var playerState = states.onGround;
 
 var lineMakerPath: String = "res://scenes/Gameplay/linemaker/linemaker.tscn";
 var lineMaker: Node2D;
+signal lineMakerFinished;
 
 #Player movement variables
 @export_enum("Orange","Blue") var playerColor : String;
@@ -58,6 +59,8 @@ func loadLineMaker():
 	get_parent().get_parent().add_child(lineMakerObject);
 	
 	lineMaker = get_parent().get_parent().get_node("lineMaker");
+	
+	lineMakerFinished.emit();
 
 func _ready():
 #	Set player as OrangeP1 or Blue P2, Text and self modulate
