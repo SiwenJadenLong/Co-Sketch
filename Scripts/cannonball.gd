@@ -11,6 +11,10 @@ func _ready():
 
 func _physics_process(delta):
 	position += (speed*100) * delta;
-
+	
 func _left_screen():
 	queue_free();
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("drawing"):
+		queue_free();
