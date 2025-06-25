@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dc63gvd8lmpex"]
+[gd_scene load_steps=11 format=3 uid="uid://dc63gvd8lmpex"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player.gd" id="1_a0kq5"]
 [ext_resource type="Texture2D" uid="uid://bu460xa0l0kdb" path="res://assets/art/static/player1.svg" id="2_ndxx7"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://brckpv6uqie6a" path="res://assets/art/static/irises.svg" id="4_l17cr"]
 [ext_resource type="Script" uid="uid://dfsoetpgat4lq" path="res://scenes/objects/pupils.gd" id="5_ssoob"]
 [ext_resource type="Script" path="res://Scripts/editting.gd" id="6_0hum8"]
-[ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker.tscn" id="6_ssoob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndxx7"]
 size = Vector2(30, 46)
@@ -90,7 +89,5 @@ script = ExtResource("6_0hum8")
 [node name="edittingZone" type="Sprite2D" parent="editing"]
 scale = Vector2(0.1, 0.1)
 texture = SubResource("GradientTexture2D_0hum8")
-
-[node name="lineMaker" parent="." instance=ExtResource("6_ssoob")]
 
 [connection signal="area_entered" from="HitDetect" to="." method="_on_hit_detect_area_entered"]
