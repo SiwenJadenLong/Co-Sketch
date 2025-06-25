@@ -6,6 +6,8 @@ var winCondition : bool;
 @onready var allPlayers : Array[Node] = $players.get_children();
 var stopped;
 
+var lineMakerPath: String = "res://scenes/Gameplay/linemaker/lineTemplate.tscn";
+
 #Make better level designs
 
 #Freeze Objects
@@ -23,6 +25,9 @@ func _ready():
 	GlobalVariables.levelTime = 0
 	SignalBus.playerDeath.connect(stopobjects);
 	
+	var lineMakerObject: RigidBody2D = load(lineMakerPath).instantiate();
+	lineMakerObject.name = "lineMaker";
+	add_child(lineMakerObject);
 	
 #	Placeholder always win
 #	TODO Make win condition with coins or smth	

@@ -21,7 +21,7 @@ var playerState = states.onGround;
 @onready var playerSprite: Node2D = $playerSprite;
 @onready var physicsHitbox: CollisionShape2D = $physicsHitbox;
 
-
+var lineMaker: RigidBody2D;
 
 #Player movement variables
 @export_enum("Orange","Blue") var playerColor : String;
@@ -58,7 +58,9 @@ func _ready():
 		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player1.svg");
 	elif playerColor == "Blue":
 		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player2.svg");
-	
+		
+	lineMaker = get_parent().get_parent().get_node("lineMaker");
+	print("");
 
 
 func _physics_process(delta):
