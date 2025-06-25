@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var line: Line2D;
+@onready var players: Array[Node] = get_parent().get_node("cursor").players;
 
 func summonLine() -> Line2D:
 	line = Line2D.new();
@@ -10,9 +11,15 @@ func summonLine() -> Line2D:
 	
 	return line;
 
+func startTimer():
+	$Timer.start();
+
+func _on_timer_timeout() -> void:
+	gravity_scale = 1.0;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	SignalBus.editingExited.connect(startTimer);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

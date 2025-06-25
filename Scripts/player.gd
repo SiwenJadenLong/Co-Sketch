@@ -132,6 +132,7 @@ func _physics_process(delta):
 						playerState = states.onGround;
 						editing.hideZone();
 						lineMaker.get_node("cursor").visible = false;
+						SignalBus.editingExited.emit();
 				states.jumping:
 					velocity += get_gravity() * delta;
 					move_and_slide();

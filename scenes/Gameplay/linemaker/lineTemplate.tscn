@@ -7,5 +7,7 @@ gravity_scale = 0.0
 script = ExtResource("1_sjocl")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.5
 one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

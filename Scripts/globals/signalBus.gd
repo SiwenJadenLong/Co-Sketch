@@ -11,3 +11,5 @@ signal togglePause();
 
 signal lockPause();
 signal levelWon();
+
+signal editingExited();
