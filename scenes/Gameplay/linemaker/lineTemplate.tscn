@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://do2dqo4xa5syp" path="res://scenes/Gameplay/linemaker/line_template.gd" id="1_sjocl"]
 
-[node name="lineTemplate" type="RigidBody2D"]
+[node name="lineTemplate" type="RigidBody2D" groups=["drawing"]]
 gravity_scale = 0.0
 script = ExtResource("1_sjocl")
 
