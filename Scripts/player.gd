@@ -21,10 +21,6 @@ var playerState = states.onGround;
 @onready var playerSprite: Node2D = $playerSprite;
 @onready var physicsHitbox: CollisionShape2D = $physicsHitbox;
 
-@onready var pupils: AnimatedSprite2D = $playerSprite/eyes/pupils
-
-
-
 var lineMakerPath: String = "res://scenes/Gameplay/linemaker/linemaker.tscn";
 var lineMaker: Node2D;
 signal lineMakerFinished;
@@ -171,7 +167,6 @@ func horizontalmovement(direction):
 
 #If this Player dies this function plays
 func death():
-	pupils.play("dead");
 	SignalBus.playerDeathPosition.emit(global_position, playerColor);
 	physicsHitbox.set_deferred("disabled",true);
 	playerState = states.gameOver;

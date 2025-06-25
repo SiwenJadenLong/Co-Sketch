@@ -1,18 +1,18 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbimugcy7cdgs"]
 
-[ext_resource type="Script" uid="uid://bd4d35cpgn8qp" path="res://Scripts/cannonball.gd" id="1_utjx4"]
-[ext_resource type="Texture2D" uid="uid://buoovp3jydwf" path="res://assets/art/animated/cannonBallPlace.png" id="2_g28q8"]
+[ext_resource type="Script" uid="uid://bd4d35cpgn8qp" path="res://Scripts/cannonBall.gd" id="1_ed6wv"]
+[ext_resource type="Texture2D" uid="uid://buoovp3jydwf" path="res://assets/art/animated/cannonBallPlace.png" id="1_hcmnq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjce8"]
-atlas = ExtResource("2_g28q8")
+atlas = ExtResource("1_hcmnq")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41fvk"]
-atlas = ExtResource("2_g28q8")
+atlas = ExtResource("1_hcmnq")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul2lr"]
-atlas = ExtResource("2_g28q8")
+atlas = ExtResource("1_hcmnq")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8xiut"]
@@ -39,7 +39,7 @@ animations = [{
 radius = 5.0
 
 [node name="Cannonball" type="Area2D" groups=["playerkill"]]
-script = ExtResource("1_utjx4")
+script = ExtResource("1_ed6wv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

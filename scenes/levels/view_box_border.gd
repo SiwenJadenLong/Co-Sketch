@@ -1,6 +1,6 @@
+@tool
 extends StaticBody2D
-
-@export var borderPadding : int = 0;
+@export var borderPadding : int;
 @onready var viewBoxBorderCollision: CollisionPolygon2D = $viewBoxBorderCollision;
 
 func _ready() -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://da7r2pvmgo65o" path="res://tilesets/Placeholder tiles.tres" id="2_7qbot"]
 [ext_resource type="PackedScene" uid="uid://b5487i4avo3b5" path="res://scenes/objects/killzone.tscn" id="3_7qbot"]
 [ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="3_pub2r"]
-[ext_resource type="PackedScene" uid="uid://dc63gvd8lmpex" path="res://scenes/objects/player.tscn" id="4_s5sil"]
+[ext_resource type="PackedScene" uid="uid://dc63gvd8lmpex" path="res://scenes/objects/Player.tscn" id="4_s5sil"]
 [ext_resource type="PackedScene" uid="uid://di8x2ilgml1fg" path="res://scenes/objects/door.tscn" id="5_pub2r"]
 
 [node name="map" type="Node2D"]
