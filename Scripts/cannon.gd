@@ -1,8 +1,7 @@
 extends StaticBody2D;
-
-const CANNONBALL : PackedScene= preload("res://scenes/objects/Cannonball.tscn");
 var shootingdirection : Vector2;
 
+@export var projectileObject : PackedScene = preload("res://scenes/objects/Cannonball.tscn");
 @export var projectile_speed : int = 5;
 @export var firing_timer: float = 2.0;
 
@@ -12,7 +11,7 @@ func _ready():
 
 func _on_timer_timeout():
 #	Create instance of cannonball projectile
-	var newcannonballinstance = CANNONBALL.instantiate();
+	var newcannonballinstance = projectileObject.instantiate();
 	newcannonballinstance.global_position = global_position;
 	newcannonballinstance.speed = Vector2.LEFT * projectile_speed;
 	newcannonballinstance.directionrotated = rotation;

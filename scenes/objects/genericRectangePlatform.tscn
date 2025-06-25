@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ud3b3pwegh5a"]
+
+[ext_resource type="Texture2D" path="res://assets/art/static/paperTexturePixeled.jpg" id="1_5u8f3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcqvf"]
+size = Vector2(80, 40)
+
+[node name="GenericRectangePlatform" type="StaticBody2D"]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lcqvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionPolygon2D"]
+position = Vector2(-0.00701857, 0.0250003)
+scale = Vector2(0.041674, 0.0312402)
+texture = ExtResource("1_5u8f3")
