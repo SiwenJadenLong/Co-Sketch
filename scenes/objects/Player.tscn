@@ -1,11 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc63gvd8lmpex"]
+[gd_scene load_steps=13 format=3 uid="uid://dc63gvd8lmpex"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player.gd" id="1_a0kq5"]
 [ext_resource type="Texture2D" uid="uid://bu460xa0l0kdb" path="res://assets/art/static/player1.svg" id="2_ndxx7"]
 [ext_resource type="Texture2D" uid="uid://b21jhcsjmhbub" path="res://assets/art/static/pupils.svg" id="3_b5y4o"]
+[ext_resource type="Texture2D" path="res://assets/art/static/deadPupils.svg" id="4_2rlf8"]
 [ext_resource type="Texture2D" uid="uid://brckpv6uqie6a" path="res://assets/art/static/irises.svg" id="4_l17cr"]
 [ext_resource type="Script" uid="uid://dfsoetpgat4lq" path="res://scenes/objects/pupils.gd" id="5_ssoob"]
 [ext_resource type="Script" path="res://Scripts/editting.gd" id="6_0hum8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ay4w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2rlf8")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b5y4o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ndxx7"]
 size = Vector2(30, 46)
@@ -42,10 +62,12 @@ position = Vector2(0, 3.5)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_l17cr")
 
-[node name="pupils" type="Sprite2D" parent="playerSprite/eyes"]
+[node name="pupils" type="AnimatedSprite2D" parent="playerSprite/eyes"]
 position = Vector2(0, 3.5)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_b5y4o")
+sprite_frames = SubResource("SpriteFrames_0ay4w")
+animation = &"idle"
+autoplay = "idle"
 script = ExtResource("5_ssoob")
 eyeTravelDistance = 2.0
 

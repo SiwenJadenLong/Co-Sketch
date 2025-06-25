@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 @onready var cursor: Node2D;
 @onready var player: playerCharacter = get_parent().get_parent().get_parent();
