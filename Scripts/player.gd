@@ -21,7 +21,9 @@ var playerState = states.onGround;
 @onready var playerSprite: Node2D = $playerSprite;
 @onready var physicsHitbox: CollisionShape2D = $physicsHitbox;
 
-
+var lineMakerPath: String = "res://scenes/Gameplay/linemaker/linemaker.tscn";
+var lineMaker: Node2D;
+signal lineMakerFinished;
 
 #Player movement variables
 @export_enum("Orange","Blue") var playerColor : String;
@@ -51,6 +53,14 @@ var horizontalAxis : float;
 var upButton : String;
 var editButton : String;
 
+func loadLineMaker():
+	var lineMakerObject: Node2D = load(lineMakerPath).instantiate();
+	lineMakerObject.name = "lineMaker";
+	get_parent().get_parent().add_child(lineMakerObject);
+	
+	lineMaker = get_parent().get_parent().get_node("lineMaker");
+	
+	lineMakerFinished.emit();
 
 func _ready():
 #	Set player as OrangeP1 or Blue P2, Text and self modulate
@@ -58,8 +68,8 @@ func _ready():
 		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player1.svg");
 	elif playerColor == "Blue":
 		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player2.svg");
-	
 
+	call_deferred("loadLineMaker");
 
 func _physics_process(delta):
 	#---------Text debug code---------	
@@ -112,12 +122,12 @@ func _physics_process(delta):
 					move_and_slide();
 				states.editing:
 					editing.showZone();
-					$lineMaker.get_node("cursor").visible = true;
-					$lineMaker.process_mode = Node.PROCESS_MODE_INHERIT;
+					lineMaker.get_node("cursor").visible = true;
+					lineMaker.process_mode = Node.PROCESS_MODE_INHERIT;
 					if Input.is_action_just_pressed(editButton):
 						playerState = states.onGround;
 						editing.hideZone();
-						$lineMaker.get_node("cursor").visible = false;
+						lineMaker.get_node("cursor").visible = false;
 				states.jumping:
 					velocity += get_gravity() * delta;
 					move_and_slide();

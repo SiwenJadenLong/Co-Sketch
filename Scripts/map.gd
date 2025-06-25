@@ -23,7 +23,6 @@ func _ready():
 	GlobalVariables.levelTime = 0
 	SignalBus.playerDeath.connect(stopobjects);
 	
-	
 #	Placeholder always win
 #	TODO Make win condition with coins or smth	
 	winCondition = true;
