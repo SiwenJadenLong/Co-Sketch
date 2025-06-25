@@ -58,9 +58,9 @@ var upButton : String;
 var editButton : String;
 
 func loadLineMaker():
-	var lineMakerObject: Node2D = load(lineMakerPath).instantiate();
-	lineMakerObject.name = "lineMaker";
-	get_parent().get_parent().add_child(lineMakerObject);
+#	var lineMakerObject: Node2D = load(lineMakerPath).instantiate();
+#	lineMakerObject.name = "lineMaker";
+#	get_parent().get_parent().add_child(lineMakerObject);
 	
 	lineMaker = get_parent().get_parent().get_node("lineMaker");
 	

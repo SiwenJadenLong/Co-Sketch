@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://p0m3x403thtk"]
+[gd_scene load_steps=6 format=3 uid="uid://p0m3x403thtk"]
 
 [ext_resource type="Script" uid="uid://bn6lwoeq3auyu" path="res://Scripts/map.gd" id="1_vcwsh"]
+[ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker/linemaker.tscn" id="5_4qc4n"]
 [ext_resource type="PackedScene" uid="uid://di8x2ilgml1fg" path="res://scenes/objects/door.tscn" id="5_30pkq"]
-[ext_resource type="Script" uid="uid://dfkluft0hlgrx" path="res://scenes/levels/view_box_border.gd" id="5_qoi8g"]
-[ext_resource type="PackedScene" uid="uid://dc63gvd8lmpex" path="res://scenes/objects/player.tscn" id="7_7nc4o"]
+[ext_resource type="Script" path="res://scenes/levels/view_box_border.gd" id="5_qoi8g"]
+[ext_resource type="PackedScene" uid="uid://dc63gvd8lmpex" path="res://scenes/objects/Player.tscn" id="7_7nc4o"]
 
 [node name="map" type="Node2D"]
 script = ExtResource("1_vcwsh")
@@ -39,5 +40,7 @@ borderPadding = 300
 
 [node name="viewBoxBorderCollision" type="CollisionPolygon2D" parent="ground/viewBoxBorder"]
 build_mode = 1
+
+[node name="lineMaker" parent="." instance=ExtResource("5_4qc4n")]
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
