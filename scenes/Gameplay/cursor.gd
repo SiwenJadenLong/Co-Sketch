@@ -35,7 +35,7 @@ func deletePreviewLine():
 	previewLine.queue_free();
 
 func initPreviewLine():
-	if is_instance_valid(previewLine):
+	if !is_instance_valid(previewLine):
 		previewLine = Line2D.new();
 		previewLine.default_color = Color(0.275, 1.0, 1.0, 0.4);
 	
