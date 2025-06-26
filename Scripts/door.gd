@@ -16,6 +16,8 @@ func _enter_tree():
 
 func _on_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
 	if body.is_in_group("Player") and body.playerColor == correctPlayer:
+		$doorHoldTimer.start();
+		await $doorHoldTimer.timeout;
 		$Sprite2D.texture = openDoor;
 		playerInDoor = true;
 	doorOpened.emit();
