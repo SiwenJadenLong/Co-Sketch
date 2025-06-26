@@ -8,3 +8,6 @@ var orangeDeathCounter: int;
 var blueDeathCounter: int;
 var perLevelOrangeDeathCounter: int;
 var perLevelBlueDeathCounter: int;
+
+var totalLineDistance: float;
+var inkLimit: float;

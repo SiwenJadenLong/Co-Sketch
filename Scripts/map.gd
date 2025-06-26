@@ -2,8 +2,10 @@ extends Node2D;
 
 var winCondition : bool;
 @export var levelNumber : String;
+@export var initInkLimit: float;
 @onready var allObjects : Array[Node] = $objects.get_children();
 @onready var allPlayers : Array[Node] = $players.get_children();
+
 var stopped;
 
 #Make better level designs
@@ -20,6 +22,8 @@ func _process(delta: float) -> void:
 
 #Run on node entering game
 func _ready():
+	GlobalVariables.inkLimit = initInkLimit;
+	
 	GlobalVariables.levelTime = 0
 	SignalBus.playerDeath.connect(stopobjects);
 	
