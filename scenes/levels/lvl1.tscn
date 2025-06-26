@@ -36,12 +36,6 @@ position = Vector2(353, 350)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="viewBoxBorderCollision" parent="ground/viewBoxBorder" index="0"]
-polygon = PackedVector2Array(-635, -423.5, 635, -423.5, 635, 423.5, -635, 423.5)
-
-[node name="Polygon2D" parent="ground/viewBoxBorder" index="1"]
-polygon = PackedVector2Array(-635, -423.5, 635, -423.5, 635, 423.5, -635, 423.5)
-
 [node name="sharpie" parent="." index="7" instance=ExtResource("9_dn8pr")]
 position = Vector2(443, 159)
 
@@ -66,4 +60,3 @@ scale = Vector2(0.5, 0.5)
 [node name="woodenPencil" parent="." index="13" instance=ExtResource("3_0b2i4")]
 position = Vector2(457, 55)
 rotation = -0.481711
-scale = Vector2(1, 1)
