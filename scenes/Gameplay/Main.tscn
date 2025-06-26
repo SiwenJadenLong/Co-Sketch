@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="Script" uid="uid://x76rmtn2xmec" path="res://Scripts/deathMarkers.gd" id="2_6301w"]
-[ext_resource type="Script" uid="uid://dd7wbono7p6cg" path="res://scenes/Gameplay/transitions.gd" id="3_7il0k"]
+[ext_resource type="Script" uid="uid://dd7wbono7p6cg" path="res://Scripts/transitions.gd" id="3_7il0k"]
 [ext_resource type="Script" uid="uid://bwmopnkpq6mpn" path="res://Scripts/pauseMenu.gd" id="3_as2w2"]
 [ext_resource type="StyleBox" uid="uid://btfqpfqkvq0s6" path="res://assets/Resources/Default Panel.tres" id="3_kdjhs"]
 [ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]

@@ -311,6 +311,7 @@ _data = {
 }
 
 [node name="scissors" type="Area2D" groups=["playerkill", "staticLevelObject"]]
+position = Vector2(0, 1)
 
 [node name="bottomSprite" type="Sprite2D" parent="."]
 rotation = 0.872665
