@@ -3,6 +3,7 @@ extends Node2D
 const DEATH_MARKER = preload("res://scenes/Gameplay/deathMarker.tscn")
 var currentLevelName : String = "NO LEVEL";
 
+
 func _ready() -> void:
 	SignalBus.playerDeathPosition.connect(addDeathMarker);
 	
@@ -20,8 +21,12 @@ func addDeathMarker(deathposition : Vector2, playerColor : String):
 	match playerColor:
 		"Orange":
 			newDeathMarker.player = "Orange";
+			GlobalVariables.orangeDeathCounter += 1;
+			GlobalVariables.perLevelOrangeDeathCounter += 1;
 		"Blue":
 			newDeathMarker.player = "Blue";
+			GlobalVariables.blueDeathCounter += 1;
+			GlobalVariables.perLevelBlueDeathCounter += 1;
 	add_child(newDeathMarker);
 
 func clearMarkers():
