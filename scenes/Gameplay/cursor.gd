@@ -28,8 +28,12 @@ func _ready() -> void:
 
 	SignalBus.editingEntered.connect(setPlayerEditor);
 	SignalBus.editingExited.connect(resetLineContainer);
-	SignalBus.editingExited.connect(previewLine.queue_free);
+	SignalBus.editingExited.connect(deletePreviewLine);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func deletePreviewLine():
+	previewLine.clear_points()
+	
 
 func setPlayerEditor(playerColor: String):
 	if playerColor == "Orange":

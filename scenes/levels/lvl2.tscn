@@ -1,17 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca8o3uqin7csg"]
+[gd_scene load_steps=12 format=3 uid="uid://dgx3v74vs7b5x"]
 
 [ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/levels/LevelTemplete.tscn" id="1_syvye"]
 [ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="2_0b2i4"]
 [ext_resource type="PackedScene" uid="uid://0vlwe6pkgpcx" path="res://scenes/objects/levelstatics/ruler.tscn" id="2_w6uo3"]
 [ext_resource type="PackedScene" uid="uid://bs4d12kq8hyx2" path="res://scenes/objects/levelstatics/woodenPencil.tscn" id="3_0b2i4"]
+[ext_resource type="PackedScene" uid="uid://bib4qlldm8vj5" path="res://scenes/objects/cannonBall.tscn" id="4_5ei7m"]
 [ext_resource type="PackedScene" uid="uid://sun1koc5iny8" path="res://scenes/objects/levelstatics/pencilSharpener.tscn" id="4_t6krm"]
 [ext_resource type="PackedScene" uid="uid://cehyued3e0o7t" path="res://scenes/objects/levelstatics/bluePen.tscn" id="5_sw1tr"]
 [ext_resource type="PackedScene" uid="uid://c3go8ov38w3df" path="res://scenes/objects/levelstatics/redPen.tscn" id="7_dn8pr"]
 [ext_resource type="PackedScene" uid="uid://cd66mt6mbhrse" path="res://scenes/objects/levelstatics/ram.tscn" id="8_2eqvk"]
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="9_dn8pr"]
-[ext_resource type="PackedScene" path="res://scenes/objects/scissors.tscn" id="10_2eqvk"]
+[ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/scissors.tscn" id="10_2eqvk"]
 
-[node name="map" instance=ExtResource("1_syvye")]
+[node name="map2" instance=ExtResource("1_syvye")]
 levelNumber = "2"
 
 [node name="door" parent="objects" index="0"]
@@ -25,10 +26,12 @@ position = Vector2(-155, -79)
 
 [node name="cannon" parent="objects" index="3" instance=ExtResource("2_0b2i4")]
 position = Vector2(261, 31)
+projectileObject = ExtResource("4_5ei7m")
 
 [node name="cannon2" parent="objects" index="4" instance=ExtResource("2_0b2i4")]
 position = Vector2(-279, -124)
 rotation = -3.14159
+projectileObject = ExtResource("4_5ei7m")
 
 [node name="woodenPencil" parent="objects" index="5" instance=ExtResource("3_0b2i4")]
 position = Vector2(436, 1)
@@ -70,11 +73,11 @@ debug = true
 borderPadding = 50
 
 [node name="viewBoxBorderCollision" parent="ground/viewBoxBorder" index="0"]
-polygon = PackedVector2Array(49, 49, -49, 49, -49, -49, 49, -49)
+polygon = PackedVector2Array(-585, -249.5, 585, -249.5, 585, 249.5, -585, 249.5)
 
 [node name="Polygon2D" parent="ground/viewBoxBorder" index="1"]
 color = Color(0.9, 0.9, 1, 1)
-polygon = PackedVector2Array(49, 49, -49, 49, -49, -49, 49, -49)
+polygon = PackedVector2Array(-585, -249.5, 585, -249.5, 585, 249.5, -585, 249.5)
 uv = PackedVector2Array(-585, -265.5, 585, -265.5, 610.819, 407.551, -585, 265.5)
 
 [node name="cursor" parent="lineMaker" index="0"]
