@@ -12,4 +12,5 @@ signal togglePause();
 signal lockPause();
 signal levelWon();
 
+signal editingEntered(player: String);
 signal editingExited();

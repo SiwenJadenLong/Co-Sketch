@@ -6,8 +6,12 @@ extends Node2D
 @export var massPerLine : float = 1;
 @export var debug : bool = false;
 
+@export var drawingRadius: float = 250;
+
 @onready var lineContainer := lineTemplate.instantiate();
 @onready var players = get_parent().get_parent().get_node("players").get_children();
+
+var editingPlayerNumber: int;
 
 var line: Line2D;
 var previewLine: Line2D;
@@ -22,10 +26,19 @@ func _ready() -> void:
 	
 	get_parent().add_child.call_deferred(previewLine);
 
-	
+	SignalBus.editingEntered.connect(setPlayerEditor);
 	SignalBus.editingExited.connect(resetLineContainer);
-	
+	SignalBus.editingExited.connect(previewLine.queue_free);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func setPlayerEditor(playerColor: String):
+	if playerColor == "Orange":
+		editingPlayerNumber = 1;
+	elif playerColor == "Blue":
+		editingPlayerNumber = 2;
+	else:
+		printerr("playerColor in setPlayerEditor() is not a valid type");
+
 func _process(delta: float) -> void:
 	position = get_global_mouse_position();
 	
@@ -44,27 +57,28 @@ func _input(event: InputEvent) -> void:
 		addLinePoint(position);
 		
 func addLinePoint(mousePosition: Vector2) -> void:
-	line.add_point(mousePosition);
-	if line.get_point_count() == 1 and !lineContainer.get_parent():
-		get_parent().add_child(lineContainer);
-	if line.get_point_count() > 1:
-		var collision = CollisionShape2D.new();
-		var newSegmentShape = SegmentShape2D.new();
-		collision.disabled = true;
-		newSegmentShape.a = line.get_point_position(line.get_point_count()-2);
-		newSegmentShape.b = line.get_point_position(line.get_point_count()-1);
-		
-		collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
-		collision.shape = newSegmentShape;
-		
-		var combinedPosition : Vector2
-		var numberOfPoints : int = line.get_point_count();
-		for lineIndex in numberOfPoints:
-			combinedPosition += line.get_point_position(lineIndex);\
-		lineContainer.center_of_mass = combinedPosition/numberOfPoints;
-		lineContainer.mass = (numberOfPoints-1) * massPerLine;
-		lineContainer.debug = debug;
-		lineContainer.add_child(collision);
+	if players[editingPlayerNumber - 1].global_position.distance_to(mousePosition) <= drawingRadius:
+		line.add_point(mousePosition);
+		if line.get_point_count() == 1 and !lineContainer.get_parent():
+			get_parent().add_child(lineContainer);
+		if line.get_point_count() > 1:
+			var collision = CollisionShape2D.new();
+			var newSegmentShape = SegmentShape2D.new();
+			collision.disabled = true;
+			newSegmentShape.a = line.get_point_position(line.get_point_count()-2);
+			newSegmentShape.b = line.get_point_position(line.get_point_count()-1);
+			
+			collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
+			collision.shape = newSegmentShape;
+			
+			var combinedPosition : Vector2
+			var numberOfPoints : int = line.get_point_count();
+			for lineIndex in numberOfPoints:
+				combinedPosition += line.get_point_position(lineIndex);\
+			lineContainer.center_of_mass = combinedPosition/numberOfPoints;
+			lineContainer.mass = (numberOfPoints-1) * massPerLine;
+			lineContainer.debug = debug;
+			lineContainer.add_child(collision);
 		
 func resetLineContainer():
 	lineContainer = lineTemplate.instantiate();

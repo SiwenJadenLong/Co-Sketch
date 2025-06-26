@@ -117,6 +117,7 @@ func _physics_process(delta):
 					jumpTimer.start(jumpTime);
 					if Input.is_action_just_pressed(editButton):
 						playerState = states.editing;
+						SignalBus.editingEntered.emit(playerColor);
 					if !is_on_floor():
 						playerState = states.falling;
 					elif Input.is_action_just_pressed(upButton):
