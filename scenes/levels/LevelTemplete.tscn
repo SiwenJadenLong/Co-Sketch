@@ -55,7 +55,7 @@ script = ExtResource("5_qoi8g")
 
 [node name="viewBoxBorderCollision" type="CollisionPolygon2D" parent="ground/viewBoxBorder"]
 build_mode = 1
-polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
+polygon = PackedVector2Array(-635, -299.5, 635, -299.5, 635, 299.5, -635, 299.5)
 
 [node name="Polygon2D" type="Polygon2D" parent="ground/viewBoxBorder"]
 texture_filter = 5
@@ -63,7 +63,7 @@ texture_repeat = 2
 color = Color(0.901961, 0.901961, 1, 1)
 texture = ExtResource("5_vcwsh")
 invert_enabled = true
-polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
+polygon = PackedVector2Array(-635, -299.5, 635, -299.5, 635, 299.5, -635, 299.5)
 
 [node name="lineMaker" parent="." instance=ExtResource("5_4qc4n")]
 

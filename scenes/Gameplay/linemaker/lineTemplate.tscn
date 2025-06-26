@@ -1,13 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dswjjjwjn2qac"]
+[gd_scene load_steps=3 format=3 uid="uid://dswjjjwjn2qac"]
 
 [ext_resource type="Script" uid="uid://do2dqo4xa5syp" path="res://scenes/Gameplay/linemaker/line_template.gd" id="1_sjocl"]
+[ext_resource type="Texture2D" uid="uid://5caudjitv1u" path="res://assets/art/static/centerOfMass.svg" id="2_pv3r8"]
 
 [node name="lineTemplate" type="RigidBody2D" groups=["drawing"]]
 gravity_scale = 0.0
+center_of_mass_mode = 1
 script = ExtResource("1_sjocl")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="centerOfMass" type="Sprite2D" parent="."]
+texture = ExtResource("2_pv3r8")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

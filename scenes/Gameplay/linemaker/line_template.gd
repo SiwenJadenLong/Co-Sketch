@@ -22,4 +22,4 @@ func _ready() -> void:
 	SignalBus.editingExited.connect(startTimer);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$ColorRect.position = center_of_mass;
