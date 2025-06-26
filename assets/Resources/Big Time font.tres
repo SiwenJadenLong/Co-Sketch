@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bopv5knqrlyrk"]
+
+[ext_resource type="FontFile" uid="uid://mpyutpjtpxma" path="res://assets/Resources/HalfTermSchoolsOut-V4q5l.ttf" id="1_650ye"]
+
+[resource]
+font = ExtResource("1_650ye")
+font_size = 70
+font_color = Color(0, 0, 0, 1)
+outline_size = 10
