@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/levelSelect.gd" id="7_as2w2"]
 [ext_resource type="Script" uid="uid://ycodo2nkmy1y" path="res://Scripts/winScreen.gd" id="7_kbq0m"]
 [ext_resource type="Texture2D" uid="uid://co5ogstis7v0s" path="res://assets/art/static/player1Full.svg" id="12_8r8rs"]
-[ext_resource type="LabelSettings" path="res://assets/Resources/PlayerDeaths.tres" id="13_0r74j"]
+[ext_resource type="LabelSettings" uid="uid://dwcqy68hq7t66" path="res://assets/Resources/PlayerDeaths.tres" id="13_0r74j"]
 [ext_resource type="Texture2D" uid="uid://bgdnqecyggx8g" path="res://assets/art/static/player2Full.svg" id="13_acxsw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kbq0m"]

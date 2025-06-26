@@ -1,7 +1,7 @@
 extends StaticBody2D;
 var shootingdirection : Vector2;
 
-@export var projectileObject : PackedScene = preload("res://scenes/objects/Cannonball.tscn");
+@export var projectileObject : PackedScene;
 @export var projectile_speed : int = 5;
 @export var firing_timer: float = 2.0;
 
@@ -15,7 +15,7 @@ func _on_timer_timeout():
 	newcannonballinstance.global_position = global_position;
 	newcannonballinstance.speed = Vector2.LEFT * projectile_speed;
 	newcannonballinstance.directionrotated = rotation;
-	get_parent().add_child(newcannonballinstance);
+	owner.add_child(newcannonballinstance);
 	
 	
 	
