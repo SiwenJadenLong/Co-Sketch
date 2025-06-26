@@ -15,7 +15,7 @@ func enableAllCollision():
 
 func summonLine() -> Line2D:
 	line = Line2D.new();
-	line.default_color = Color(0.275, 1.0, 1.0, 0.424);
+	line.default_color = Color(0.275, 1.0, 1.0, 0.8);
 	
 	add_child(line);
 	

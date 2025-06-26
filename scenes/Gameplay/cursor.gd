@@ -10,18 +10,34 @@ extends Node2D
 @onready var players = get_parent().get_parent().get_node("players").get_children();
 
 var line: Line2D;
+var previewLine: Line2D;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	lineContainer.name = "lineContainer";
 	line = lineContainer.summonLine();
 	
-	SignalBus.editingExited.connect(resetLineContainer);
+	previewLine = Line2D.new();
+	previewLine.default_color = Color(0.275, 1.0, 1.0, 0.4);
 	
+	get_parent().add_child.call_deferred(previewLine);
+
+	
+	SignalBus.editingExited.connect(resetLineContainer);
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position = get_global_mouse_position();
+	
+	if line.get_point_count() == 1:
+		previewLine.points = PackedVector2Array();
+
+		previewLine.add_point(line.points[0]);
+		previewLine.add_point(position);
+	elif line.get_point_count() > 1:
+		previewLine.points[0] = line.points[line.get_point_count() - 1];
+		previewLine.points[1] = position;
+		
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("drawEvent") and (players[0].playerState == players[0].states.editing or players[1].playerState == players[1].states.editing):
