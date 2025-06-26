@@ -21,15 +21,24 @@ func _ready() -> void:
 	lineContainer.name = "lineContainer";
 	line = lineContainer.summonLine();
 	
-	previewLine = Line2D.new();
-	previewLine.default_color = Color(0.275, 1.0, 1.0, 0.4);
+	initPreviewLine();
 	
 	get_parent().add_child.call_deferred(previewLine);
 
+	SignalBus.editingEntered.connect(initPreviewLine);
 	SignalBus.editingEntered.connect(setPlayerEditor);
 	SignalBus.editingExited.connect(resetLineContainer);
-	SignalBus.editingExited.connect(previewLine.queue_free);
+	SignalBus.editingExited.connect(deletePreviewLine);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func deletePreviewLine():
+	previewLine.queue_free();
+
+func initPreviewLine():
+	if is_instance_valid(previewLine):
+		previewLine = Line2D.new();
+		previewLine.default_color = Color(0.275, 1.0, 1.0, 0.4);
+	
 
 func setPlayerEditor(playerColor: String):
 	if playerColor == "Orange":
