@@ -1,85 +1,69 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgx3v74vs7b5x"]
+[gd_scene load_steps=9 format=3 uid="uid://dosfhiqffqged"]
 
 [ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/levels/LevelTemplete.tscn" id="1_syvye"]
-[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="2_0b2i4"]
 [ext_resource type="PackedScene" uid="uid://0vlwe6pkgpcx" path="res://scenes/objects/levelstatics/ruler.tscn" id="2_w6uo3"]
 [ext_resource type="PackedScene" uid="uid://bs4d12kq8hyx2" path="res://scenes/objects/levelstatics/woodenPencil.tscn" id="3_0b2i4"]
-[ext_resource type="PackedScene" uid="uid://bib4qlldm8vj5" path="res://scenes/objects/cannonBall.tscn" id="4_r5frt"]
 [ext_resource type="PackedScene" uid="uid://sun1koc5iny8" path="res://scenes/objects/levelstatics/pencilSharpener.tscn" id="4_t6krm"]
 [ext_resource type="PackedScene" uid="uid://cehyued3e0o7t" path="res://scenes/objects/levelstatics/bluePen.tscn" id="5_sw1tr"]
 [ext_resource type="PackedScene" uid="uid://c3go8ov38w3df" path="res://scenes/objects/levelstatics/redPen.tscn" id="7_dn8pr"]
 [ext_resource type="PackedScene" uid="uid://cd66mt6mbhrse" path="res://scenes/objects/levelstatics/ram.tscn" id="8_2eqvk"]
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="9_dn8pr"]
-[ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/scissors.tscn" id="10_2eqvk"]
 
 [node name="map" instance=ExtResource("1_syvye")]
 
+[node name="TextureRect" parent="." index="0"]
+metadata/_edit_lock_ = true
+
+[node name="camera2D" parent="." index="1"]
+metadata/_edit_lock_ = true
+
 [node name="door" parent="objects" index="0"]
-position = Vector2(-476, -202)
+position = Vector2(-522, -64)
 
 [node name="door2" parent="objects" index="1"]
-position = Vector2(558, -34)
-
-[node name="ruler" parent="objects" index="2" instance=ExtResource("2_w6uo3")]
-position = Vector2(-155, -79)
-
-[node name="cannon" parent="objects" index="3" instance=ExtResource("2_0b2i4")]
-position = Vector2(261, 31)
-projectileObject = ExtResource("4_r5frt")
-
-[node name="cannon2" parent="objects" index="4" instance=ExtResource("2_0b2i4")]
-position = Vector2(-279, -124)
-rotation = -3.14159
-projectileObject = ExtResource("4_r5frt")
-
-[node name="woodenPencil" parent="objects" index="5" instance=ExtResource("3_0b2i4")]
-position = Vector2(436, 1)
-
-[node name="woodenPencil3" parent="objects" index="6" instance=ExtResource("3_0b2i4")]
-position = Vector2(-306, 242)
-
-[node name="pencilSharpener" parent="objects" index="7" instance=ExtResource("4_t6krm")]
-position = Vector2(-169, 146)
-
-[node name="bluePen" parent="objects" index="8" instance=ExtResource("5_sw1tr")]
-position = Vector2(-420, -160)
-
-[node name="redPen" parent="objects" index="9" instance=ExtResource("7_dn8pr")]
-position = Vector2(408, -60)
-rotation = -2.61799
-scale = Vector2(0.5, 0.5)
-
-[node name="ram" parent="objects" index="10" instance=ExtResource("8_2eqvk")]
-position = Vector2(332, -30)
-scale = Vector2(0.4, 0.4)
-
-[node name="sharpie" parent="objects" index="11" instance=ExtResource("9_dn8pr")]
-position = Vector2(63, 77)
-
-[node name="scissors" parent="objects" index="12" instance=ExtResource("10_2eqvk")]
-position = Vector2(398, 24)
-rotation = -1.72115
+position = Vector2(-382, -65)
 
 [node name="Player" parent="players" index="0"]
-position = Vector2(-267, 212)
-debug = true
+position = Vector2(567, 292)
 
 [node name="Player2" parent="players" index="1"]
-position = Vector2(-370, 213)
-debug = true
+position = Vector2(503, 292)
 
-[node name="viewBoxBorder" parent="ground" index="0"]
-borderPadding = 50
+[node name="ruler" parent="players" index="2" instance=ExtResource("2_w6uo3")]
+position = Vector2(353, 350)
+
+[node name="ground" parent="." index="4"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="viewBoxBorderCollision" parent="ground/viewBoxBorder" index="0"]
-polygon = PackedVector2Array(-585, -373.5, 585, -373.5, 585, 373.5, -585, 373.5)
+polygon = PackedVector2Array(-635, -423.5, 635, -423.5, 635, 423.5, -635, 423.5)
 
 [node name="Polygon2D" parent="ground/viewBoxBorder" index="1"]
-color = Color(0.9, 0.9, 1, 1)
-polygon = PackedVector2Array(-585, -373.5, 585, -373.5, 585, 373.5, -585, 373.5)
-uv = PackedVector2Array(-585, -265.5, 585, -265.5, 610.819, 407.551, -585, 265.5)
+polygon = PackedVector2Array(-635, -423.5, 635, -423.5, 635, 423.5, -635, 423.5)
 
-[node name="cursor" parent="lineMaker" index="0"]
-debug = true
+[node name="sharpie" parent="." index="7" instance=ExtResource("9_dn8pr")]
+position = Vector2(443, 159)
 
-[editable path="lineMaker"]
+[node name="ruler" parent="." index="8" instance=ExtResource("2_w6uo3")]
+position = Vector2(-230, 86)
+
+[node name="redPen" parent="." index="9" instance=ExtResource("7_dn8pr")]
+position = Vector2(-464, -19)
+
+[node name="pencilSharpener" parent="." index="10" instance=ExtResource("4_t6krm")]
+position = Vector2(28, 191)
+
+[node name="bluePen" parent="." index="11" instance=ExtResource("5_sw1tr")]
+position = Vector2(-159, 52)
+rotation = 0.475109
+
+[node name="ram" parent="." index="12" instance=ExtResource("8_2eqvk")]
+position = Vector2(109, 268)
+rotation = -1.57079
+scale = Vector2(0.5, 0.5)
+
+[node name="woodenPencil" parent="." index="13" instance=ExtResource("3_0b2i4")]
+position = Vector2(457, 55)
+rotation = -0.481711
+scale = Vector2(1, 1)

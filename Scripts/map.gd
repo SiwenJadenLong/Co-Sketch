@@ -38,8 +38,6 @@ func levelWinCheck():
 			if !object.playerInDoor:
 				levelWin = false;
 	if levelWin:
-		for player in allPlayers:
-			player.lockinputs();
 		call_deferred("stopobjects");
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 		SignalBus.levelWon.emit();

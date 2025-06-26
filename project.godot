@@ -14,7 +14,7 @@ config/name="Co-Sketch"
 run/main_scene="uid://bo3dvk6liew6u"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0.0779898, 0.117949, 0.306535, 1)
-config/icon="res://icon.svg"
+config/icon="uid://co5ogstis7v0s"
 
 [autoload]
 
