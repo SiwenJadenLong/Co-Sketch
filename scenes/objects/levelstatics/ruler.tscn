@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0vlwe6pkgpcx"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_5qp3g"]
+[ext_resource type="Texture2D" uid="uid://drdlr20f8ir7" path="res://assets/art/static/levelObjects/ruler.png" id="2_6i24w"]
+
+[node name="ruler" instance=ExtResource("1_5qp3g")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_6i24w")
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-560, -47, 560, -48, 559, 45, -560, 43, -560, -47)

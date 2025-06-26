@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3go8ov38w3df"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_32f2b"]
+[ext_resource type="Texture2D" uid="uid://bby2ltdxbvgvr" path="res://assets/art/static/levelObjects/redPen.png" id="2_lm5dh"]
+
+[node name="redPen" instance=ExtResource("1_32f2b")]
+
+[node name="Sprite" parent="." index="0"]
+rotation = 3.14159
+texture = ExtResource("2_lm5dh")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(-146, -20, 155, -20, 164, -12, 190, -12, 193, -8, 193, 1, 190, 3, 164, 4, 160, 10, 153, 16, 141, 20, 124, 21, 103, 20, 74, 14, 68, 13, 62, 13, 53, 16, 48, 16, 43, 13, 43, 8, -45, 8, -146, 8, -192, -3, -192, -10)

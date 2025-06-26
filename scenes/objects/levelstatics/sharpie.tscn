@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlfl1f8omo7yw"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_ypj3y"]
+[ext_resource type="Texture2D" uid="uid://chjfbcnp2wais" path="res://assets/art/static/levelObjects/sharpie.png" id="2_ltr2n"]
+
+[node name="sharpie" instance=ExtResource("1_ypj3y")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_ltr2n")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(-185, -19, -187, 20, -162, 26, -105, 29, -41, 28, 153, 24, 169, 20, 185, 14, 188, 4, 188, -6, 186, -15, 181, -20, 162, -25, 139, -28, -42, -29, -107, -28, -161, -24)
