@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bgeo05ltoweyt"]
+
+[node name="objectName" type="StaticBody2D" groups=["staticLevelObject"]]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]

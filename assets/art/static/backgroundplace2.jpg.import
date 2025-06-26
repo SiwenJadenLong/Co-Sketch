@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2bv7shpvy72m"
-path="res://.godot/imported/woodenpencil.png-e9d0e8bac29dc449726d91b0e7991ffc.ctex"
+uid="uid://dv6t1dp61yvkb"
+path="res://.godot/imported/backgroundplace2.jpg-2884db364f8e9be108c9136702610b24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/static/levelObjects/woodenpencil.png"
-dest_files=["res://.godot/imported/woodenpencil.png-e9d0e8bac29dc449726d91b0e7991ffc.ctex"]
+source_file="res://assets/art/static/backgroundplace2.jpg"
+dest_files=["res://.godot/imported/backgroundplace2.jpg-2884db364f8e9be108c9136702610b24.ctex"]
 
 [params]
 

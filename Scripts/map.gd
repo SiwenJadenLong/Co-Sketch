@@ -40,6 +40,6 @@ func levelWinCheck():
 	if levelWin:
 		for player in allPlayers:
 			player.lockinputs();
-		stopobjects();
+		call_deferred("stopobjects");
 		SignalBus.levelWon.emit();
 		process_mode = Node.PROCESS_MODE_PAUSABLE

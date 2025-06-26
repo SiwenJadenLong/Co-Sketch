@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://sun1koc5iny8"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_bv5w3"]
+[ext_resource type="Texture2D" uid="uid://bggrp2qyy2x71" path="res://assets/art/static/levelObjects/pencilSharpener.png" id="2_kgj5g"]
+
+[node name="pencilSharpener" instance=ExtResource("1_bv5w3")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_kgj5g")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(30, -96, -3, -83, -27, -67, -48, -50, -55, -42, -59, -1, -60, 35, -58, 83, -51, 87, -40, 88, 40, 88, 49, 85, 50, 81, 54, -27, 51, -47, 47, -62, 41, -78, 35, -89)

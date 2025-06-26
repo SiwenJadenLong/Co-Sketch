@@ -70,18 +70,16 @@ func _ready():
 #	Set player as OrangeP1 or Blue P2, Text and self modulate
 	if playerColor == "Orange":
 		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player1.svg");
+		$playerLabel.text = "P1 ORANGE";
 	elif playerColor == "Blue":
 		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player2.svg");
+		$playerLabel.text = "P2 BLUE";
 
 	call_deferred("loadLineMaker");
 
 func _physics_process(delta):
 	#---------Text debug code---------	
 	if debug:
-		if playerColor == "Orange":
-			$playerLabel.text = "P1 ORANGE";
-		elif playerColor == "Blue":
-			$playerLabel.text = "P2 BLUE";
 		match playerState:
 			states.onGround:
 				$stateLabel.text = "onGround";

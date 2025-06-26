@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs4d12kq8hyx2"]
+
+[ext_resource type="Texture2D" uid="uid://2bv7shpvy72m" path="res://assets/art/static/levelObjects/woodenpencil.png" id="1_jr3yd"]
+
+[node name="woodenPencil" type="StaticBody2D" groups=["staticLevelObject"]]
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_jr3yd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-200.125, 2, -173.243, -5, 200.125, -8, 200.125, 6, -176.23, 7)

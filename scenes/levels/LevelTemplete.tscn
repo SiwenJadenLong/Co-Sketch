@@ -1,14 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://p0m3x403thtk"]
+[gd_scene load_steps=8 format=3 uid="uid://p0m3x403thtk"]
 
 [ext_resource type="Script" uid="uid://bn6lwoeq3auyu" path="res://Scripts/map.gd" id="1_vcwsh"]
 [ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker/linemaker.tscn" id="5_4qc4n"]
 [ext_resource type="PackedScene" uid="uid://di8x2ilgml1fg" path="res://scenes/objects/door.tscn" id="5_30pkq"]
-[ext_resource type="Script" path="res://scenes/levels/view_box_border.gd" id="5_qoi8g"]
-[ext_resource type="PackedScene" uid="uid://dc63gvd8lmpex" path="res://scenes/objects/Player.tscn" id="7_7nc4o"]
+[ext_resource type="Script" uid="uid://dfkluft0hlgrx" path="res://scenes/levels/view_box_border.gd" id="5_qoi8g"]
+[ext_resource type="Texture2D" uid="uid://weygx8ktaqxe" path="res://assets/art/static/backgroundplace.jpg" id="5_vcwsh"]
+[ext_resource type="PackedScene" uid="uid://prn1pnb2uyra" path="res://scenes/objects/player.tscn" id="7_7nc4o"]
+[ext_resource type="Texture2D" uid="uid://dv6t1dp61yvkb" path="res://assets/art/static/backgroundplace2.jpg" id="7_vcwsh"]
 
 [node name="map" type="Node2D"]
 script = ExtResource("1_vcwsh")
 levelNumber = "1"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1366, 768)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -683.0
+offset_top = -384.0
+offset_right = 683.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_vcwsh")
+stretch_mode = 1
 
 [node name="camera2D" type="Camera2D" parent="."]
 
@@ -36,10 +52,18 @@ playerColor = "Blue"
 [node name="viewBoxBorder" type="StaticBody2D" parent="ground"]
 collision_layer = 3
 script = ExtResource("5_qoi8g")
-borderPadding = 300
 
 [node name="viewBoxBorderCollision" type="CollisionPolygon2D" parent="ground/viewBoxBorder"]
 build_mode = 1
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="ground/viewBoxBorder"]
+texture_filter = 5
+texture_repeat = 2
+color = Color(0.901961, 0.901961, 1, 1)
+texture = ExtResource("5_vcwsh")
+invert_enabled = true
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
 
 [node name="lineMaker" parent="." instance=ExtResource("5_4qc4n")]
 
