@@ -65,11 +65,11 @@ debug = true
 borderPadding = 50
 
 [node name="viewBoxBorderCollision" parent="ground/viewBoxBorder" index="0"]
-polygon = PackedVector2Array(-585, -265.5, 585, -265.5, 585, 265.5, -585, 265.5)
+polygon = PackedVector2Array(-628, -360, 628, -360, 628, 360, -628, 360)
 
 [node name="Polygon2D" parent="ground/viewBoxBorder" index="1"]
 color = Color(0.9, 0.9, 1, 1)
-polygon = PackedVector2Array(-585, -265.5, 585, -265.5, 585, 265.5, -585, 265.5)
+polygon = PackedVector2Array(-628, -360, 628, -360, 628, 360, -628, 360)
 uv = PackedVector2Array(-585, -265.5, 585, -265.5, 610.819, 407.551, -585, 265.5)
 
 [node name="cursor" parent="lineMaker" index="0"]
