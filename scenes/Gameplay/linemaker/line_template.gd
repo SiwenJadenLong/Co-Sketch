@@ -10,7 +10,7 @@ var debug : bool = false;
 
 func enableAllCollision():
 	for child in get_children():
-		if child is CollisionObject2D:
+		if child is CollisionShape2D:
 			child.disabled = false;
 
 func summonLine() -> Line2D:
