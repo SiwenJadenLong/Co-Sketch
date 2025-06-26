@@ -1,18 +1,21 @@
-[gd_scene load_steps=28 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=35 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="Script" uid="uid://x76rmtn2xmec" path="res://Scripts/deathMarkers.gd" id="2_6301w"]
-[ext_resource type="Script" uid="uid://dd7wbono7p6cg" path="res://Scripts/transitions.gd" id="3_7il0k"]
-[ext_resource type="Script" uid="uid://bwmopnkpq6mpn" path="res://Scripts/pauseMenu.gd" id="3_as2w2"]
+[ext_resource type="Script" path="res://Scripts/transitions.gd" id="3_7il0k"]
+[ext_resource type="Script" path="res://Scripts/pauseMenu.gd" id="3_as2w2"]
 [ext_resource type="StyleBox" uid="uid://btfqpfqkvq0s6" path="res://assets/Resources/Default Panel.tres" id="3_kdjhs"]
 [ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]
-[ext_resource type="Script" uid="uid://dv87gvks1sqgl" path="res://Scripts/stats.gd" id="4_kbq0m"]
+[ext_resource type="Script" path="res://Scripts/stats.gd" id="4_kbq0m"]
 [ext_resource type="PackedScene" uid="uid://c2js4gmkrqyh2" path="res://scenes/UI/level_button.tscn" id="4_vbrhd"]
 [ext_resource type="FontFile" uid="uid://mpyutpjtpxma" path="res://assets/Resources/HalfTermSchoolsOut-V4q5l.ttf" id="5_octls"]
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="5_u0cjw"]
 [ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/art/static/maintitle.png" id="7_7tkoj"]
 [ext_resource type="Script" path="res://Scripts/levelSelect.gd" id="7_as2w2"]
 [ext_resource type="Script" uid="uid://ycodo2nkmy1y" path="res://Scripts/winScreen.gd" id="7_kbq0m"]
+[ext_resource type="Texture2D" uid="uid://co5ogstis7v0s" path="res://assets/art/static/player1Full.svg" id="12_8r8rs"]
+[ext_resource type="LabelSettings" uid="uid://dwcqy68hq7t66" path="res://assets/Resources/PlayerDeaths.tres" id="13_0r74j"]
+[ext_resource type="Texture2D" uid="uid://bgdnqecyggx8g" path="res://assets/art/static/player2Full.svg" id="13_acxsw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kbq0m"]
 font_color = Color(1, 1, 1, 0)
@@ -53,7 +56,15 @@ default_font = SubResource("SystemFont_fsby3")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbq0m"]
 bg_color = Color(0.34, 0.582, 1, 0.160784)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kbq0m"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r8rs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkpln"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bqlx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qeedf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acxsw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0cjw"]
 
@@ -310,10 +321,60 @@ theme_override_font_sizes/font_size = 60
 text = "TIME SPENT"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 400
-theme_override_styles/separator = SubResource("StyleBoxEmpty_kbq0m")
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8r8rs")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="P1" type="VBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P1"]
+layout_mode = 2
+texture = ExtResource("12_8r8rs")
+
+[node name="VSeparator" type="VSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P1"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_fkpln")
+
+[node name="perLevelDeaths" type="Label" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P1"]
+layout_mode = 2
+text = "Deaths: 18"
+label_settings = ExtResource("13_0r74j")
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6bqlx")
+
+[node name="P2" type="VBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P2"]
+layout_mode = 2
+texture = ExtResource("13_acxsw")
+
+[node name="VSeparator" type="VSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_qeedf")
+
+[node name="perLevelDeaths" type="Label" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P2"]
+layout_mode = 2
+text = "Deaths: 2"
+label_settings = ExtResource("13_0r74j")
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_acxsw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -56,8 +56,6 @@ func loadNewLevel(levelnumber : int):
 	stats.show();
 	hideallpopupui();
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN);
-	GlobalVariables.perLevelOrangeDeathCounter = 0;
-	GlobalVariables.perLevelBlueDeathCounter = 0;
 #----------------------------------------------------------------------
 
 # Pausing-----------------------------------
