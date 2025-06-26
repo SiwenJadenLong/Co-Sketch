@@ -55,6 +55,7 @@ func loadNewLevel(levelnumber : int):
 	GlobalVariables.currentLevelName = "lvl%s" % str(levelnumber);
 	stats.show();
 	hideallpopupui();
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN);
 #----------------------------------------------------------------------
 
 # Pausing-----------------------------------
@@ -78,10 +79,12 @@ func togglePause():
 	if paused:
 		pauseMenu.show();
 		get_tree().paused = true;
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 		SignalBus.gamePaused.emit(true);
 	else:
 		pauseMenu.hide();
 		get_tree().paused = false;
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN);
 		SignalBus.gamePaused.emit(false);
 
 #-----------------------------------
