@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dswjjjwjn2qac"]
+[gd_scene load_steps=4 format=3 uid="uid://dswjjjwjn2qac"]
 
 [ext_resource type="Script" uid="uid://do2dqo4xa5syp" path="res://scenes/Gameplay/linemaker/line_template.gd" id="1_sjocl"]
 [ext_resource type="Texture2D" uid="uid://5caudjitv1u" path="res://assets/art/static/centerOfMass.svg" id="2_pv3r8"]
+[ext_resource type="LabelSettings" uid="uid://did8y7227hqso" path="res://assets/Resources/debugFont.tres" id="3_6f80m"]
 
 [node name="lineTemplate" type="RigidBody2D" groups=["drawing"]]
 gravity_scale = 0.0
@@ -12,7 +13,21 @@ script = ExtResource("1_sjocl")
 wait_time = 0.5
 one_shot = true
 
-[node name="centerOfMass" type="Sprite2D" parent="."]
+[node name="centerOfMassMarker" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_pv3r8")
+
+[node name="massLabel" type="Label" parent="centerOfMassMarker"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = -70.0
+offset_right = 12.0
+offset_bottom = -28.125
+grow_horizontal = 2
+text = "N/A"
+label_settings = ExtResource("3_6f80m")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

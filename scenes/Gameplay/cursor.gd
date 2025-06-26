@@ -3,6 +3,8 @@ extends Node2D
 # @onready var parent = $".";
 @export var lineTemplate: PackedScene = preload("res://scenes/Gameplay/linemaker/lineTemplate.tscn");
 @export var collisionTemplate: PackedScene = preload("res://scenes/Gameplay/linemaker/hitbox.tscn");
+@export var massPerLine : float = 1;
+@export var debug : bool = false;
 
 @onready var lineContainer := lineTemplate.instantiate();
 @onready var players = get_parent().get_parent().get_node("players").get_children();
@@ -40,11 +42,12 @@ func addLinePoint(mousePosition: Vector2) -> void:
 		collision.shape = newSegmentShape;
 		
 		var combinedPosition : Vector2
-		
-		for lineIndex in line.get_point_count():
-			combinedPosition += line.get_point_position(lineIndex);
-		lineContainer.center_of_mass = combinedPosition/line.get_point_count();
-		
+		var numberOfPoints : int = line.get_point_count();
+		for lineIndex in numberOfPoints:
+			combinedPosition += line.get_point_position(lineIndex);\
+		lineContainer.center_of_mass = combinedPosition/numberOfPoints;
+		lineContainer.mass = (numberOfPoints-1) * massPerLine;
+		lineContainer.debug = debug;
 		lineContainer.add_child(collision);
 		
 func resetLineContainer():

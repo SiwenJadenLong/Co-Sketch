@@ -2,6 +2,11 @@ extends RigidBody2D
 
 var line: Line2D;
 @onready var players: Array[Node] = get_parent().get_node("cursor").players;
+var debug : bool = false;
+
+@onready var centerOfMass: Sprite2D = $centerOfMassMarker;
+@onready var masslabel: Label = $centerOfMassMarker/massLabel;
+
 
 func summonLine() -> Line2D:
 	line = Line2D.new();
@@ -16,10 +21,14 @@ func startTimer():
 
 func _on_timer_timeout() -> void:
 	gravity_scale = 1.0;
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.editingExited.connect(startTimer);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$ColorRect.position = center_of_mass;
+	if debug:
+		centerOfMass.show();
+		centerOfMass.position = center_of_mass;
+		masslabel.text = "%sKG" % mass;

@@ -44,9 +44,11 @@ position = Vector2(-420, -160)
 
 [node name="Player" parent="players" index="0"]
 position = Vector2(-267, 212)
+debug = true
 
 [node name="Player2" parent="players" index="1"]
 position = Vector2(-370, 213)
+debug = true
 
 [node name="viewBoxBorder" parent="ground" index="0"]
 borderPadding = 50
@@ -58,3 +60,8 @@ polygon = PackedVector2Array(-585, -265.5, 585, -265.5, 585, 265.5, -585, 265.5)
 color = Color(0.9, 0.9, 1, 1)
 polygon = PackedVector2Array(-585, -265.5, 585, -265.5, 585, 265.5, -585, 265.5)
 uv = PackedVector2Array(-585, -265.5, 585, -265.5, 610.819, 407.551, -585, 265.5)
+
+[node name="cursor" parent="lineMaker" index="0"]
+debug = true
+
+[editable path="lineMaker"]
