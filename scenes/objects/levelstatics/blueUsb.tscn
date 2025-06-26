@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgw07yacjftr3"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_r2tlt"]
+[ext_resource type="Texture2D" uid="uid://boh50rlr4hsdb" path="res://assets/art/static/levelObjects/usb.png" id="2_kbls7"]
+
+[node name="blueUsb" instance=ExtResource("1_r2tlt")]
+
+[node name="Sprite" parent="." index="0"]
+rotation = -1.5708
+texture = ExtResource("2_kbls7")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(79, -48, 79, -32, 143, -32, 143, 31, 79, 31, 79, 49, -113, 49, -118, 33, -132, 25, -140, 13, -143, 0, -140, -12, -132, -23, -118, -32, -113, -48)

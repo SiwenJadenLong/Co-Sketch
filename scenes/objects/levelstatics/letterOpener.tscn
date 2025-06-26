@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bontyyo8qhjl0"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_xmrxb"]
+[ext_resource type="Texture2D" uid="uid://sw75mxxddm30" path="res://assets/art/static/levelObjects/letterOpener.png" id="2_1afm8"]
+
+[node name="letterOpener" instance=ExtResource("1_xmrxb")]
+
+[node name="Sprite" parent="." index="0"]
+rotation = -1.5708
+texture = ExtResource("2_1afm8")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(-2, -9, 159, -8, 202, -5, 202, 1, 160, 6, -4, 10, -10, 6, -19, 7, -28, 10, -35, 15, -190, 15, -197, 11, -202, 5, -202, 0, -200, -7, -195, -12, -187, -15, -36, -15, -28, -10, -19, -7, -10, -7)

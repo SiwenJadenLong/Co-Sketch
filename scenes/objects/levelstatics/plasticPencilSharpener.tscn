@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ymvbtw6n8hyj"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_ab60y"]
+[ext_resource type="Texture2D" uid="uid://cb2dhf1ec7ywb" path="res://assets/art/static/levelObjects/plasticTapeDispenser.png" id="2_fvk3m"]
+
+[node name="plasticPencilSharpener" instance=ExtResource("1_ab60y")]
+
+[node name="Sprite" parent="." index="0"]
+rotation = -1.5708
+texture = ExtResource("2_fvk3m")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(32, -72, 25, -38, 27, -9, 41, 10, 62, 16, 82, 13, 97, 7, 113, -9, 119, -15, 131, -15, 140, -6, 138, 9, 131, 33, 123, 51, 110, 70, 94, 89, 84, 92, 76, 90, 62, 79, 44, 73, 27, 73, 10, 80, -17, 93, -40, 96, -68, 93, -106, 74, -128, 45, -139, 9, -136, -22, -122, -53, -103, -74, -78, -89, -49, -95, -20, -93)

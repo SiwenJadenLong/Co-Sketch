@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgeo05ltoweyt"]
 
 [node name="objectName" type="StaticBody2D" groups=["staticLevelObject"]]
+texture_filter = 1
 
 [node name="Sprite" type="Sprite2D" parent="."]
 

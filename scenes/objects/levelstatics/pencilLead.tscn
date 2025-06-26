@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cywgftjbo7sds"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_w2jyb"]
+[ext_resource type="Texture2D" uid="uid://bpg8hi6exjm5o" path="res://assets/art/static/levelObjects/pencilLead.png" id="2_vj5o0"]
+
+[node name="pencilLead" instance=ExtResource("1_w2jyb")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_vj5o0")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(-43, -160, 42, -161, 42, 157, -38, 157)

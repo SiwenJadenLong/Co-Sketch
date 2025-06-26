@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccu12p6n7mqve"]
+[gd_scene load_steps=4 format=3 uid="uid://ccu12p6n7mqve"]
 
 [ext_resource type="Script" uid="uid://cslk0ke0hrf8c" path="res://Scripts/cannon.gd" id="1_geuh0"]
+[ext_resource type="PackedScene" uid="uid://bib4qlldm8vj5" path="res://scenes/objects/cannonBall.tscn" id="2_ebaxk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_geuh0"]
 size = Vector2(80, 40)
 
 [node name="cannon" type="StaticBody2D"]
 script = ExtResource("1_geuh0")
+projectileObject = ExtResource("2_ebaxk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_geuh0")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0avyrit42j1x"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_mw664"]
+[ext_resource type="Texture2D" uid="uid://cn5fvtoh5kp50" path="res://assets/art/static/levelObjects/paperclip.png" id="2_xp2i0"]
+
+[node name="paperclip" instance=ExtResource("1_mw664")]
+
+[node name="Sprite" parent="." index="0"]
+rotation = 1.5708
+texture = ExtResource("2_xp2i0")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(77, -18, 89, -12, 95, 0, 91, 11, 78, 17, -85, 14, -94, 8, -95, 0, -91, -10, -84, -15)

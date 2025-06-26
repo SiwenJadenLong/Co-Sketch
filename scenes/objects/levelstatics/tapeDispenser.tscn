@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://u1rrwhwt2drr"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_6cr3g"]
+[ext_resource type="Texture2D" uid="uid://cgs3hoao3ej5x" path="res://assets/art/static/levelObjects/tapeDispensor.png" id="2_6xd3g"]
+
+[node name="tapeDispenser" instance=ExtResource("1_6cr3g")]
+
+[node name="Sprite" parent="." index="0"]
+rotation = -1.5708
+texture = ExtResource("2_6xd3g")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(135, -96, 170, -99, 203, 110, -28, 110, -151, 123, -202, 122, -202, -50, -193, -70, -180, -77, -105, -83, -85, -108, -57, -123, -27, -124, -10, -117, 13, -104, 29, -78, 38, -50, 39, -34, 104, -3, 113, -2, 121, -5, 128, -17)

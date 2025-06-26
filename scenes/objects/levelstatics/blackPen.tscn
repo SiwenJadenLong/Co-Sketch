@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2rjyc6g5b20r"]
+
+[ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_7g15v"]
+[ext_resource type="Texture2D" uid="uid://ktwcitljltra" path="res://assets/art/static/levelObjects/blackPen.png" id="2_24qjy"]
+
+[node name="blackPen" instance=ExtResource("1_7g15v")]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("2_24qjy")
+
+[node name="CollisionShape2D" parent="." index="1"]
+polygon = PackedVector2Array(125, -21, 190, -15, 191, -10, 190, -4, 125, 4, -30, 7, -30, 15, -51, 13, -91, 21, -123, 19, -146, 11, -156, 3, -186, 3, -191, -3, -186, -11, -165, -12, -157, -18)
