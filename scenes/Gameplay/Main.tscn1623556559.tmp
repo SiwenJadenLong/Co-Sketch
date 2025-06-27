@@ -230,11 +230,11 @@ script = ExtResource("3_as2w2")
 randomBackgrounds = Array[Texture2D]([ExtResource("9_cjdp4"), ExtResource("9_px8du"), ExtResource("11_6ec0n"), ExtResource("12_0xqjo"), ExtResource("13_srr2m"), ExtResource("14_rh1bn"), ExtResource("15_0v3nc"), ExtResource("16_ctgk8")])
 
 [node name="background" type="TextureRect" parent="mainUI/pauseMenu"]
-modulate = Color(1, 1, 1, 0.254902)
+modulate = Color(1, 1, 1, 0.454902)
 layout_mode = 0
 offset_right = 1366.0
 offset_bottom = 768.0
-texture = ExtResource("9_cjdp4")
+texture = ExtResource("9_px8du")
 
 [node name="Pause Buttons" type="VBoxContainer" parent="mainUI/pauseMenu"]
 layout_mode = 1
