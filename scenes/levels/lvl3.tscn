@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://od1ncow7ce6u" path="res://scenes/objects/Animated/stapleRemover.tscn" id="2_wae2r"]
 
 [node name="map" instance=ExtResource("1_xmy33")]
+levelNumber = "3"
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(387, -38)
@@ -11,17 +12,18 @@ position = Vector2(387, -38)
 [node name="door2" parent="objects" index="1"]
 position = Vector2(475, -38)
 
-[node name="stapleRemover" parent="objects" index="2" instance=ExtResource("2_wae2r")]
+[node name="stapleRemover2" parent="objects" index="2" instance=ExtResource("2_wae2r")]
+position = Vector2(720, 276)
+rotation = -2.87979
+
+[node name="stapleRemover" parent="objects" index="3" instance=ExtResource("2_wae2r")]
+position = Vector2(-673, -8)
 
 [node name="Player" parent="players" index="0"]
 position = Vector2(-502, 275)
 
 [node name="Player2" parent="players" index="1"]
 position = Vector2(-566, 275)
-
-[node name="ground" parent="." index="4"]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="Polygon2D" parent="ground/viewBoxBorder" index="1"]
 polygon = PackedVector2Array(-633, -344, 633, -344, 633, 344, -633, 344)

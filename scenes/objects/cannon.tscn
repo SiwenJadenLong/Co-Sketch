@@ -21,7 +21,6 @@ offset_bottom = 20.0
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-autostart = true
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchors_preset = 6

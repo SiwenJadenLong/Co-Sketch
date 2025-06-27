@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://di0qhxyxmndq5"]
+[gd_scene load_steps=9 format=3 uid="uid://di0qhxyxmndq5"]
 
+[ext_resource type="Script" uid="uid://yav2tgiqj0nw" path="res://Scripts/scissors.gd" id="1_ea04g"]
 [ext_resource type="Texture2D" uid="uid://bqhrx3pqg662y" path="res://assets/art/static/levelObjects/20250625_123237.png" id="1_eribb"]
 [ext_resource type="Texture2D" uid="uid://cmu1s38g2s7br" path="res://assets/art/static/levelObjects/top scissors.png" id="2_7l6s0"]
 
@@ -312,6 +313,7 @@ _data = {
 
 [node name="scissors" type="Area2D" groups=["playerkill", "staticLevelObject"]]
 position = Vector2(0, 1)
+script = ExtResource("1_ea04g")
 
 [node name="bottomSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_eribb")

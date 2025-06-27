@@ -459,6 +459,7 @@ levelNumber = 3
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
+levelNumber = 4
 
 [node name="Level Button5" parent="mainUI/levelSelect/Level Grid" instance=ExtResource("4_vbrhd")]
 layout_mode = 2

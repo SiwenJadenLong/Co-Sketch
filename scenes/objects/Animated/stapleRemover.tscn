@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://od1ncow7ce6u"]
+[gd_scene load_steps=7 format=3 uid="uid://od1ncow7ce6u"]
 
+[ext_resource type="Script" uid="uid://dxrvli8618y31" path="res://Scripts/stapleRemover.gd" id="1_ntgtc"]
 [ext_resource type="Texture2D" uid="uid://b436o5bxkvbin" path="res://assets/art/static/levelObjects/stapleRemoverLower.png" id="1_xp6fo"]
 [ext_resource type="Texture2D" uid="uid://cu80be3s4s0q5" path="res://assets/art/static/levelObjects/stapleRemoverTop.png" id="2_7b6kb"]
 
@@ -258,6 +259,7 @@ _data = {
 }
 
 [node name="stapleRemover" type="Area2D" groups=["playerkill"]]
+script = ExtResource("1_ntgtc")
 
 [node name="bottom" type="Sprite2D" parent="."]
 rotation = 1.28446
