@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://csho1iirubrk1" path="res://scenes/objects/Killobjects/stamp.tscn" id="9_6r67h"]
 [ext_resource type="PackedScene" uid="uid://cckvww8n4cu5e" path="res://scenes/objects/levelstatics/lipBlam.tscn" id="10_6r67h"]
 [ext_resource type="PackedScene" uid="uid://c2rjyc6g5b20r" path="res://scenes/objects/levelstatics/blackPen.tscn" id="11_etp8i"]
-[ext_resource type="PackedScene" uid="uid://od1ncow7ce6u" path="res://scenes/objects/Killobjects/stapleRemover.tscn" id="12_b65t1"]
+[ext_resource type="PackedScene" uid="uid://od1ncow7ce6u" path="res://scenes/objects/levelstatics/stapleRemover.tscn" id="12_b65t1"]
 [ext_resource type="PackedScene" uid="uid://bs4d12kq8hyx2" path="res://scenes/objects/levelstatics/woodenPencil.tscn" id="13_jbuoe"]
 [ext_resource type="PackedScene" uid="uid://cywgftjbo7sds" path="res://scenes/objects/levelstatics/pencilLead.tscn" id="14_jendw"]
 [ext_resource type="PackedScene" uid="uid://0vlwe6pkgpcx" path="res://scenes/objects/levelstatics/ruler.tscn" id="15_x2qb3"]
