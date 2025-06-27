@@ -53,6 +53,7 @@ func loadNewLevel(levelnumber : int):
 	GlobalVariables.currentLevelNumber = levelnumber;
 #	TODO Make level loader string compatible
 	GlobalVariables.currentLevelName = "lvl%s" % str(levelnumber);
+	GlobalVariables.totalLineDistance = 0;
 	stats.show();
 	hideallpopupui();
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN);
