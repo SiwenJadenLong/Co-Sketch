@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c3go8ov38w3df" path="res://scenes/objects/levelstatics/redPen.tscn" id="7_dn8pr"]
 [ext_resource type="PackedScene" uid="uid://cd66mt6mbhrse" path="res://scenes/objects/levelstatics/ram.tscn" id="8_2eqvk"]
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="9_dn8pr"]
-[ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/scissors.tscn" id="10_2eqvk"]
+[ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/Animated/scissors.tscn" id="10_2eqvk"]
 
 [node name="map2" instance=ExtResource("1_syvye")]
 levelNumber = "2"

@@ -38,7 +38,6 @@ position = Vector2(28, 191)
 [node name="bluePen" parent="objects" index="6" instance=ExtResource("5_sw1tr")]
 position = Vector2(-159, 52)
 rotation = 0.475109
-scale = Vector2(1, 1)
 
 [node name="ram" parent="objects" index="7" instance=ExtResource("8_2eqvk")]
 position = Vector2(109, 268)
@@ -48,23 +47,26 @@ scale = Vector2(0.5, 0.5)
 [node name="woodenPencil" parent="objects" index="8" instance=ExtResource("3_0b2i4")]
 position = Vector2(457, 55)
 rotation = -0.481711
-scale = Vector2(1, 1)
+
+[node name="ruler2" parent="objects" index="9" instance=ExtResource("2_w6uo3")]
+position = Vector2(353, 350)
 
 [node name="Player" parent="players" index="0"]
 position = Vector2(567, 292)
+debug = true
 
 [node name="Player2" parent="players" index="1"]
 position = Vector2(503, 292)
-
-[node name="ruler" parent="players" index="2" instance=ExtResource("2_w6uo3")]
-position = Vector2(353, 350)
+debug = true
 
 [node name="ground" parent="." index="4"]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
+[node name="viewBoxBorder" parent="ground" index="0" groups=["Player", "staticLevelObject"]]
+
 [node name="viewBoxBorderCollision" parent="ground/viewBoxBorder" index="0"]
-polygon = PackedVector2Array(-635, -315.5, 635, -315.5, 635, 315.5, -635, 315.5)
+polygon = PackedVector2Array(-633, -334, 633, -334, 633, 334, -633, 334)
 
 [node name="Polygon2D" parent="ground/viewBoxBorder" index="1"]
-polygon = PackedVector2Array(-635, -315.5, 635, -315.5, 635, 315.5, -635, 315.5)
+polygon = PackedVector2Array(-633, -334, 633, -334, 633, 334, -633, 334)
