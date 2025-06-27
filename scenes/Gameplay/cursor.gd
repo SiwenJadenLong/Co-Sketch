@@ -62,8 +62,11 @@ func _process(delta: float) -> void:
 		
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("drawEvent") and (players[0].playerState == players[0].states.editing or players[1].playerState == players[1].states.editing):
-		addLinePoint(position);
+	if players[0].playerState == players[0].states.editing or players[1].playerState == players[1].states.editing:
+		if event.is_action_pressed("drawEvent"):
+			addLinePoint(position);
+		elif event.is_action_pressed("p%s_delete" % editingPlayerNumber):
+			line.remove_point(line.get_point_count() - 1);
 		
 func addLinePoint(mousePosition: Vector2) -> void:
 	if players[editingPlayerNumber - 1].global_position.distance_to(mousePosition) <= drawingRadius:
