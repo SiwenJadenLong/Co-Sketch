@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="9_dn8pr"]
 
 [node name="map" instance=ExtResource("1_syvye")]
-initInkLimit = 999999.0
-
 initInkLimit = 200.0
 
 [node name="door" parent="objects" index="0"]
