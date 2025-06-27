@@ -53,7 +53,7 @@ collision_layer = 3
 
 [node name="viewBoxBorderCollision" type="CollisionPolygon2D" parent="ground/viewBoxBorder"]
 build_mode = 1
-polygon = PackedVector2Array(-633, -334, 633, -334, 633, 334, -633, 334)
+polygon = PackedVector2Array(-585, -257.5, 585, -257.5, 585, 257.5, -585, 257.5)
 
 [node name="Polygon2D" type="Polygon2D" parent="ground/viewBoxBorder"]
 texture_filter = 5
