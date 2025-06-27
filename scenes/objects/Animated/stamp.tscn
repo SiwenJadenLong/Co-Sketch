@@ -1,0 +1,168 @@
+[gd_scene load_steps=7 format=3 uid="uid://csho1iirubrk1"]
+
+[ext_resource type="Texture2D" uid="uid://c3vcbyfm5vqmg" path="res://assets/art/static/levelObjects/topStamp.png" id="1_l86my"]
+[ext_resource type="Script" uid="uid://cqskyw41q3hv0" path="res://scenes/objects/Animated/stamp.gd" id="1_q41lh"]
+[ext_resource type="Texture2D" uid="uid://cy7v32pqsg23h" path="res://assets/art/static/levelObjects/bottomStamp.png" id="2_q41lh"]
+
+[sub_resource type="Animation" id="Animation_ik4rc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bottom:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionPolygon2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_v031b"]
+resource_name = "stomp"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.390432, 1.7, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, -200), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.390432, 1.7, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, -200), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.390432, 1.7, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 25), Vector2(0, 0), Vector2(0, 0), Vector2(0, -200), Vector2(0, 0), Vector2(0, 25)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bottom:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.377991, 0.31005, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0.377991, 0.31005, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionPolygon2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4oaal"]
+_data = {
+&"RESET": SubResource("Animation_ik4rc"),
+&"stomp": SubResource("Animation_v031b")
+}
+
+[node name="stamp" type="Area2D" groups=["playerkill"]]
+script = ExtResource("1_q41lh")
+
+[node name="bottom" type="Sprite2D" parent="."]
+texture = ExtResource("2_q41lh")
+offset = Vector2(-8.5, -154)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["playerkill"]]
+visible = false
+polygon = PackedVector2Array(-98, -135, -66, -111, -32, -99, 0, -96, 34, -100, 65, -112, 93, -134, 94, -70, 109, -70, 110, 0, -109, 0, -108, -68, -98, -68)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 20)
+
+[node name="top" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, -20)
+texture = ExtResource("1_l86my")
+offset = Vector2(-8.5, -134)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" groups=["staticLevelObject"]]
+visible = false
+position = Vector2(-8.5, -154)
+polygon = PackedVector2Array(-93.5, -78, -35.5, -90, 8.5, -92, 52.5, -89, 106.5, -78, 111.5, -73, 112.5, 6, 91.5, 30, 60.5, 47, 8.5, 57, -41.5, 47, -76.5, 27, -102.5, 8, -102.5, -68)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4oaal")
+}
