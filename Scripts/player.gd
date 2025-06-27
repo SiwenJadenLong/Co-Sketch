@@ -39,7 +39,7 @@ signal lineMakerFinished;
 
 @export_subgroup("Jumping")
 @export var jumpTime : float = 0.15;
-@export var jumpSpeed : int = 200;
+@export var jumpSpeed : int = 150;
 @export var jumpSpeedCap : int = -500;
 @export var gravityMultiplier : float = 1.5;
 
