@@ -66,6 +66,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("drawEvent"):
 			addLinePoint(position);
 		elif event.is_action_pressed("p%s_delete" % editingPlayerNumber) and line.get_point_count() > 1:
+			GlobalVariables.totalLineDistance -= line.points[line.get_point_count() - 1].distance_to(line.points[line.get_point_count() - 2]);
 			line.remove_point(line.get_point_count() - 1);
 			lineContainer.get_node("Segment%sHitbox" % (line.get_point_count())).queue_free();
 		
