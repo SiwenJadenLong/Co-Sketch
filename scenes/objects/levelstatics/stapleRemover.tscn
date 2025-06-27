@@ -283,3 +283,4 @@ disabled = true
 libraries = {
 &"": SubResource("AnimationLibrary_kvfa4")
 }
+autoplay = "attackLoop"
