@@ -38,13 +38,17 @@ signal lineMakerFinished;
 @export var xMaxspeed : float = 200;
 
 @export_subgroup("Jumping")
-@export var jumpTime : float = 0.08;
+@export var jumpTime : float = 0.15;
 @export var jumpSpeed : int = 200;
-@export var jumpSpeedCap : int = -400;
+@export var jumpSpeedCap : int = -500;
+@export var gravityMultiplier : float = 1.5;
 
 @export_subgroup("Resistance")
 @export var groundResistance : int = 40;
 @export var airReistance : int = 15;
+
+@export_subgroup("Physics")
+@export var pushForce : int = 40;
 
 @export_subgroup("Drawing")
 @export var drawingRange : int = 300;
@@ -52,22 +56,21 @@ signal lineMakerFinished;
 @export_subgroup("Death")
 @export var rotationIntensity : float = 0.1;
 @export var launchIntensity : float = 800;
+@export var randomDirection : bool = false;
+@export var launchDirection : float = PI * 15/16;
+
 
 var horizontalAxis : float;
 var upButton : String;
 var editButton : String;
 
 func loadLineMaker():
-#	var lineMakerObject: Node2D = load(lineMakerPath).instantiate();
-#	lineMakerObject.name = "lineMaker";
-#	get_parent().get_parent().add_child(lineMakerObject);
-	
 	lineMaker = get_parent().get_parent().get_node("lineMaker");
 	
 	lineMakerFinished.emit();
 
 func _ready():
-#	Set player as OrangeP1 or Blue P2, Text and self modulate
+#	Set player as OrangeP1 or Blue P2 Text
 	if playerColor == "Orange":
 		$playerSprite/Sprite2D.texture = load("res://assets/art/static/player1.svg");
 		$playerLabel.text = "P1 ORANGE";
@@ -112,8 +115,9 @@ func _physics_process(delta):
 			printerr("No playercolor selected");
 	match playerState:
 				states.onGround:
-					velocity += get_gravity() * delta;
+					velocity += get_gravity() * delta * gravityMultiplier;
 					horizontalmovement(horizontalAxis);
+					checkCollision()
 					jumpTimer.start(jumpTime);
 					if Input.is_action_just_pressed(editButton):
 						playerState = states.editing;
@@ -133,9 +137,10 @@ func _physics_process(delta):
 						lineMaker.get_node("cursor").visible = false;
 						SignalBus.editingExited.emit();
 				states.jumping:
-					velocity += get_gravity() * delta;
+					velocity += get_gravity() * delta * gravityMultiplier;
 					move_and_slide();
 					horizontalmovement(horizontalAxis);
+					checkCollision()
 					if Input.is_action_pressed(upButton) and jumpTimer.time_left != 0:
 						if velocity.y >= jumpSpeedCap:
 							velocity.y -= jumpSpeed;
@@ -145,15 +150,15 @@ func _physics_process(delta):
 				states.falling:
 					move_and_slide();
 					horizontalmovement(horizontalAxis);
-					velocity += get_gravity() * delta;
+					checkCollision()
+					velocity += get_gravity() * delta * gravityMultiplier;
 					if is_on_floor():
 						playerState = states.onGround;
-					velocity += get_gravity() * delta;
 				states.locked:
 					move_and_slide();
 				states.gameOver:
 					playerSprite.rotation += 0.4;
-					velocity += get_gravity() * delta;
+					velocity += get_gravity() * delta * gravityMultiplier;
 					move_and_slide();
 
 
@@ -176,9 +181,19 @@ func death():
 	physicsHitbox.set_deferred("disabled",true);
 	playerState = states.gameOver;
 	process_mode = Node.PROCESS_MODE_ALWAYS;
-	velocity += Vector2(0,launchIntensity).rotated(PI * 15/16);
+	if randomDirection:
+		randomize();
+		launchDirection = randf_range(PI/2, 3*PI/2);
+	velocity += Vector2(0,launchIntensity).rotated(launchDirection);
+	
 	SignalBus.playerDeath.emit();
 	
+func checkCollision():
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i);
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * pushForce)
+
 func _on_hit_detect_area_entered(area):
 	#Runs when this player gets hit by projectile
 	if area.is_in_group("playerkill"):

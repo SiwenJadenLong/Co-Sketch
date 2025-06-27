@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://6atv0ubxykhd"]
+
+[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/levels/LevelTemplete.tscn" id="1_xmy33"]
+
+[node name="map" instance=ExtResource("1_xmy33")]
+
+[node name="Player" parent="players" index="0"]
+position = Vector2(-502, 275)
+
+[node name="Player2" parent="players" index="1"]
+position = Vector2(-566, 275)
+
+[node name="Polygon2D" parent="ground/viewBoxBorder" index="1"]
+polygon = PackedVector2Array(-633, -344, 633, -344, 633, 344, -633, 344)
+uv = PackedVector2Array(-721.8, -324.8, 544.2, -324.8, 544.2, 363.2, -721.8, 363.2)
