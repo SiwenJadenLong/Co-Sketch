@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=73 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="Script" uid="uid://x76rmtn2xmec" path="res://Scripts/deathMarkers.gd" id="2_6301w"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://dm0evmyqgopqq" path="res://assets/art/static/UI/lowResEraser.png" id="17_ewm06"]
 [ext_resource type="Texture2D" uid="uid://c7drhvovx4rx7" path="res://assets/art/static/UI/lowResPencil.png" id="18_muheq"]
 [ext_resource type="Texture2D" uid="uid://bsndmx8wt2jkt" path="res://assets/art/static/UI/highlight1.png" id="19_cxvb2"]
+[ext_resource type="Texture2D" uid="uid://ct3klewejt5pt" path="res://assets/art/static/UI/background textures/lowResCrumbledLinedPaper.png" id="33_0xqjo"]
 [ext_resource type="Texture2D" uid="uid://hw577gk6xgie" path="res://assets/art/static/UI/exit1.png" id="37_6ec0n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r8rs"]
@@ -111,8 +112,7 @@ subpixel_positioning = 0
 [sub_resource type="Theme" id="Theme_leamy"]
 default_font = SubResource("SystemFont_fsby3")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbq0m"]
-bg_color = Color(0.34, 0.582, 1, 0.160784)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdtrv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r8rs"]
 
@@ -432,7 +432,6 @@ wait_time = 1.5
 autostart = true
 
 [node name="winScreen" type="Control" parent="mainUI"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1366.0
@@ -447,17 +446,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_kbq0m")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xdtrv")
 
-[node name="Panel" type="Panel" parent="mainUI/winScreen/Background"]
+[node name="Panel" type="TextureRect" parent="mainUI/winScreen/Background"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -250.0
+offset_right = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("33_0xqjo")
 
 [node name="MarginContainer" type="MarginContainer" parent="mainUI/winScreen/Background/Panel"]
 layout_mode = 1
@@ -568,6 +570,7 @@ text = "NEXT
 LEVEL"
 
 [node name="levelSelect" type="Control" parent="mainUI"]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -602,7 +605,7 @@ offset_right = 294.0
 offset_bottom = 45.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 150
+theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 50
 columns = 5
 
