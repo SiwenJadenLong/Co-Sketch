@@ -46,17 +46,20 @@ func setPlayerEditor(playerColor: String):
 func _process(delta: float) -> void:
 	position = get_global_mouse_position();
 	
-	if line.get_point_count() == 1:
+	if line.get_point_count() == 2:
 		previewLine.points = PackedVector2Array();
 
 		previewLine.add_point(line.points[0]);
 		previewLine.add_point(position);
-	elif line.get_point_count() > 1:
+	elif line.get_point_count() > 2:
 		previewLine.points[0] = line.points[line.get_point_count() - 1];
 		previewLine.points[1] = position;
 		
 	if players[editingPlayerNumber - 1].global_position.distance_to(position) > drawingRadius:
 		previewLine.default_color = Color(1.0, 0.247, 0.294);
+	elif line.get_point_count() > 2 and \
+	position.distance_to(line.get_point_position(line.get_point_count() - 1)) + GlobalVariables.totalLineDistance > GlobalVariables.inkLimit:
+				previewLine.default_color = Color(1.0, 0.247, 0.294);
 	else:
 		previewLine.default_color = Color(0.275, 1.0, 1.0, 0.4);
 		
@@ -72,13 +75,13 @@ func _input(event: InputEvent) -> void:
 		
 func addLinePoint(mousePosition: Vector2) -> void:
 	if players[editingPlayerNumber - 1].global_position.distance_to(mousePosition) <= drawingRadius:
-		line.add_point(mousePosition);
-		if line.get_point_count() == 1 and !lineContainer.get_parent():
+		if line.get_point_count() == 0 and !lineContainer.get_parent():
 			get_parent().add_child(lineContainer);
-		if line.get_point_count() > 1:
-			#TODO Fix checking logic
-			
-#			if mousePosition.distance_to(line.get_point_position(line.get_point_count() - 1)) + GlobalVariables.totalLineDistance <= GlobalVariables.inkLimit:
+			line.add_point(mousePosition);
+		if line.get_point_count() > 0:
+			if mousePosition.distance_to(line.get_point_position(line.get_point_count() - 1)) + GlobalVariables.totalLineDistance <= GlobalVariables.inkLimit:
+				line.add_point(mousePosition);
+				
 				var collision = CollisionShape2D.new();
 				var newSegmentShape = SegmentShape2D.new();
 				collision.disabled = true;
