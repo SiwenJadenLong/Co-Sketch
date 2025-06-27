@@ -13,6 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#TODO Tween this value
+	
 	if up:
 		if preTween <= amplitude:
 			preTween += bobSpeed;
