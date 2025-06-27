@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bs67e1nvqbr7c"]
+[gd_scene load_steps=11 format=3 uid="uid://bs67e1nvqbr7c"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player.gd" id="1_a0kq5"]
 [ext_resource type="Texture2D" uid="uid://bu460xa0l0kdb" path="res://assets/art/static/player1.svg" id="2_ndxx7"]
@@ -26,12 +26,6 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndxx7"]
-size = Vector2(30, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_id4ih"]
-size = Vector2(30, 46)
 
 [sub_resource type="Gradient" id="Gradient_l17cr"]
 offsets = PackedFloat32Array(0, 0.641667, 0.670833, 0.679167, 0.708333)
@@ -78,10 +72,10 @@ process_callback = 0
 wait_time = 0.5
 one_shot = true
 
-[node name="physicsHitbox" type="CollisionShape2D" parent="."]
+[node name="physicsHitbox" type="CollisionPolygon2D" parent="."]
 light_mask = 3
 visibility_layer = 2
-shape = SubResource("RectangleShape2D_ndxx7")
+polygon = PackedVector2Array(0, -23, 15, -9, 15, 23, -15, 23, -15, -9)
 
 [node name="playerLabel" type="Label" parent="."]
 texture_filter = 1
@@ -103,8 +97,8 @@ horizontal_alignment = 1
 
 [node name="HitDetect" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetect"]
-shape = SubResource("RectangleShape2D_id4ih")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="HitDetect"]
+polygon = PackedVector2Array(0, -23, 15, -9, 15, 23, -15, 23, -15, -9)
 
 [node name="editing" type="Node2D" parent="."]
 visible = false
