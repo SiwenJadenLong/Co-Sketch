@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="9_dn8pr"]
 [ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/Animated/scissors.tscn" id="10_2eqvk"]
 
-[node name="map2" instance=ExtResource("1_syvye")]
+[node name="map" instance=ExtResource("1_syvye")]
 levelNumber = "2"
 initInkLimit = 1000.0
 

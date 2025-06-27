@@ -11,13 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://csho1iirubrk1" path="res://scenes/objects/Animated/stamp.tscn" id="9_6r67h"]
 [ext_resource type="PackedScene" uid="uid://cckvww8n4cu5e" path="res://scenes/objects/levelstatics/lipBlam.tscn" id="10_6r67h"]
 [ext_resource type="PackedScene" uid="uid://c2rjyc6g5b20r" path="res://scenes/objects/levelstatics/blackPen.tscn" id="11_etp8i"]
-[ext_resource type="PackedScene" uid="uid://od1ncow7ce6u" path="res://scenes/objects/Animated/stapleRemover.tscn" id="12_b65t1"]
+[ext_resource type="PackedScene" uid="uid://od1ncow7ce6u" path="res://scenes/objects/levelstatics/stapleRemover.tscn" id="12_b65t1"]
 [ext_resource type="PackedScene" uid="uid://bs4d12kq8hyx2" path="res://scenes/objects/levelstatics/woodenPencil.tscn" id="13_jbuoe"]
 [ext_resource type="PackedScene" uid="uid://cywgftjbo7sds" path="res://scenes/objects/levelstatics/pencilLead.tscn" id="14_jendw"]
 [ext_resource type="PackedScene" uid="uid://0vlwe6pkgpcx" path="res://scenes/objects/levelstatics/ruler.tscn" id="15_x2qb3"]
 [ext_resource type="PackedScene" uid="uid://cehyued3e0o7t" path="res://scenes/objects/levelstatics/bluePen.tscn" id="16_jendw"]
 
-[node name="map3" instance=ExtResource("1_ccend")]
+[node name="map" instance=ExtResource("1_ccend")]
+levelNumber = "4"
 initInkLimit = 2500.0
 
 [node name="door" parent="objects" index="0"]
@@ -71,7 +72,6 @@ rotation = -1.0472
 [node name="stapleRemover" parent="objects" index="12" instance=ExtResource("12_b65t1")]
 position = Vector2(537, 334)
 rotation = 3.92699
-attackSpeed = 0.5
 
 [node name="woodenPencil" parent="objects" index="13" instance=ExtResource("13_jbuoe")]
 position = Vector2(1, -152)
@@ -103,7 +103,6 @@ rotation = -1.57079
 position = Vector2(-393, 287)
 rotation = 4.71238
 scale = Vector2(0.5, 0.5)
-attackSpeed = 0.5
 
 [node name="pencilLead" parent="objects" index="20" instance=ExtResource("14_jendw")]
 position = Vector2(-437, -405)
@@ -123,13 +122,11 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(-341, 286)
 rotation = 4.71238
 scale = Vector2(0.5, 0.5)
-attackSpeed = 0.5
 
 [node name="stapleRemover4" parent="objects" index="25" instance=ExtResource("12_b65t1")]
 position = Vector2(-279, 282)
 rotation = 4.71238
 scale = Vector2(0.5, 0.5)
-attackSpeed = 0.5
 
 [node name="Player" parent="players" index="0"]
 position = Vector2(-54, -185)
