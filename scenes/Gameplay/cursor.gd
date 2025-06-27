@@ -55,6 +55,11 @@ func _process(delta: float) -> void:
 		previewLine.points[0] = line.points[line.get_point_count() - 1];
 		previewLine.points[1] = position;
 		
+	if players[editingPlayerNumber - 1].global_position.distance_to(position) > drawingRadius:
+		previewLine.default_color = Color(1.0, 0.247, 0.294);
+	else:
+		previewLine.default_color = Color(0.275, 1.0, 1.0, 0.4);
+		
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("drawEvent") and (players[0].playerState == players[0].states.editing or players[1].playerState == players[1].states.editing):
