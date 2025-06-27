@@ -257,7 +257,7 @@ _data = {
 &"attackLoop": SubResource("Animation_h5g3h")
 }
 
-[node name="stapleRemover" type="Area2D"]
+[node name="stapleRemover" type="Area2D" groups=["playerkill"]]
 
 [node name="bottom" type="Sprite2D" parent="."]
 rotation = 1.28446
@@ -283,3 +283,4 @@ disabled = true
 libraries = {
 &"": SubResource("AnimationLibrary_kvfa4")
 }
+autoplay = "attackLoop"
