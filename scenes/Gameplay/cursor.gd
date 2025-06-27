@@ -75,26 +75,29 @@ func addLinePoint(mousePosition: Vector2) -> void:
 		if line.get_point_count() == 1 and !lineContainer.get_parent():
 			get_parent().add_child(lineContainer);
 		if line.get_point_count() > 1:
-			var collision = CollisionShape2D.new();
-			var newSegmentShape = SegmentShape2D.new();
-			collision.disabled = true;
-			newSegmentShape.a = line.get_point_position(line.get_point_count()-2);
-			newSegmentShape.b = line.get_point_position(line.get_point_count()-1);
+			#TODO Fix checking logic
 			
-			GlobalVariables.totalLineDistance += newSegmentShape.a.distance_to(newSegmentShape.b);
+#			if mousePosition.distance_to(line.get_point_position(line.get_point_count() - 1)) + GlobalVariables.totalLineDistance <= GlobalVariables.inkLimit:
+				var collision = CollisionShape2D.new();
+				var newSegmentShape = SegmentShape2D.new();
+				collision.disabled = true;
+				newSegmentShape.a = line.get_point_position(line.get_point_count()-2);
+				newSegmentShape.b = line.get_point_position(line.get_point_count()-1);
+				
+				GlobalVariables.totalLineDistance += newSegmentShape.a.distance_to(newSegmentShape.b);
+				
+				collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
+				collision.shape = newSegmentShape;
+				
+				var combinedPosition : Vector2
+				var numberOfPoints : int = line.get_point_count();
+				for lineIndex in numberOfPoints:
+					combinedPosition += line.get_point_position(lineIndex);
+				lineContainer.center_of_mass = combinedPosition/numberOfPoints;
+				lineContainer.mass = (numberOfPoints-1) * massPerLine;
+				lineContainer.debug = debug;
+				lineContainer.add_child(collision);
 			
-			collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
-			collision.shape = newSegmentShape;
-			
-			var combinedPosition : Vector2
-			var numberOfPoints : int = line.get_point_count();
-			for lineIndex in numberOfPoints:
-				combinedPosition += line.get_point_position(lineIndex);
-			lineContainer.center_of_mass = combinedPosition/numberOfPoints;
-			lineContainer.mass = (numberOfPoints-1) * massPerLine;
-			lineContainer.debug = debug;
-			lineContainer.add_child(collision);
-		
 func resetLineContainer():
 	lineContainer = lineTemplate.instantiate();
 	line = lineContainer.summonLine();

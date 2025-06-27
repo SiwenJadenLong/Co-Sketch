@@ -17,6 +17,8 @@ metadata/_edit_lock_ = true
 [node name="camera2D" parent="." index="1"]
 metadata/_edit_lock_ = true
 
+initInkLimit = 200.0
+
 [node name="door" parent="objects" index="0"]
 position = Vector2(-522, -64)
 
