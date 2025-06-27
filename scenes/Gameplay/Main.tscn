@@ -1,25 +1,23 @@
-[gd_scene load_steps=35 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=34 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="Script" uid="uid://x76rmtn2xmec" path="res://Scripts/deathMarkers.gd" id="2_6301w"]
-[ext_resource type="Script" uid="uid://dd7wbono7p6cg" path="res://Scripts/transitions.gd" id="3_7il0k"]
-[ext_resource type="Script" uid="uid://bwmopnkpq6mpn" path="res://Scripts/pauseMenu.gd" id="3_as2w2"]
+[ext_resource type="Script" path="res://Scripts/transitions.gd" id="3_7il0k"]
+[ext_resource type="Script" path="res://Scripts/pauseMenu.gd" id="3_as2w2"]
 [ext_resource type="StyleBox" uid="uid://btfqpfqkvq0s6" path="res://assets/Resources/Default Panel.tres" id="3_kdjhs"]
 [ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]
 [ext_resource type="Script" uid="uid://dv87gvks1sqgl" path="res://Scripts/stats.gd" id="4_kbq0m"]
 [ext_resource type="PackedScene" uid="uid://c2js4gmkrqyh2" path="res://scenes/UI/level_button.tscn" id="4_vbrhd"]
 [ext_resource type="LabelSettings" uid="uid://bopv5knqrlyrk" path="res://assets/Resources/Big Time font.tres" id="5_0r74j"]
-[ext_resource type="FontFile" uid="uid://mpyutpjtpxma" path="res://assets/Resources/HalfTermSchoolsOut-V4q5l.ttf" id="5_octls"]
+[ext_resource type="LabelSettings" uid="uid://df5f1gcv7ye7l" path="res://assets/Resources/topBar.tres" id="5_fkpln"]
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="5_u0cjw"]
+[ext_resource type="LabelSettings" path="/home/kayla/Documents/Code/Co-Sketch/assets/Resources/topBar.tres" id="7_6bqlx"]
 [ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/art/static/maintitle.png" id="7_7tkoj"]
 [ext_resource type="Script" path="res://Scripts/levelSelect.gd" id="7_as2w2"]
 [ext_resource type="Script" uid="uid://ycodo2nkmy1y" path="res://Scripts/winScreen.gd" id="7_kbq0m"]
 [ext_resource type="Texture2D" uid="uid://co5ogstis7v0s" path="res://assets/art/static/player1Full.svg" id="12_8r8rs"]
 [ext_resource type="LabelSettings" uid="uid://dwcqy68hq7t66" path="res://assets/Resources/PlayerDeaths.tres" id="13_0r74j"]
 [ext_resource type="Texture2D" uid="uid://bgdnqecyggx8g" path="res://assets/art/static/player2Full.svg" id="13_acxsw"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kbq0m"]
-font_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0cjw"]
 bg_color = Color(0, 0, 0, 1)
@@ -30,12 +28,6 @@ corner_radius_bottom_left = 2
 corner_detail = 10
 expand_margin_left = 2.0
 expand_margin_right = 2.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_fkpln"]
-font = ExtResource("5_octls")
-font_size = 40
-font_color = Color(0, 0, 0, 1)
-outline_size = 5
 
 [sub_resource type="SystemFont" id="SystemFont_fsby3"]
 subpixel_positioning = 0
@@ -121,10 +113,10 @@ theme_override_constants/margin_top = 5
 [node name="HBoxContainer" type="HBoxContainer" parent="mainUI/stats/MarginContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="mainUI/stats/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="mainUI/stats/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Current level"
-label_settings = SubResource("LabelSettings_kbq0m")
+text = "Ink Used: 400"
+label_settings = ExtResource("5_fkpln")
 
 [node name="VSeparator2" type="VSeparator" parent="mainUI/stats/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -148,8 +140,8 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_u0cjw")
 texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Current level"
-label_settings = SubResource("LabelSettings_fkpln")
+text = "Level 1"
+label_settings = ExtResource("7_6bqlx")
 horizontal_alignment = 1
 
 [node name="pauseMenu" type="Control" parent="mainUI"]

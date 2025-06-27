@@ -72,13 +72,15 @@ func addLinePoint(mousePosition: Vector2) -> void:
 			newSegmentShape.a = line.get_point_position(line.get_point_count()-2);
 			newSegmentShape.b = line.get_point_position(line.get_point_count()-1);
 			
+			GlobalVariables.totalLineDistance = newSegmentShape.a.distance_to(newSegmentShape.b);
+			
 			collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
 			collision.shape = newSegmentShape;
 			
 			var combinedPosition : Vector2
 			var numberOfPoints : int = line.get_point_count();
 			for lineIndex in numberOfPoints:
-				combinedPosition += line.get_point_position(lineIndex);\
+				combinedPosition += line.get_point_position(lineIndex);
 			lineContainer.center_of_mass = combinedPosition/numberOfPoints;
 			lineContainer.mass = (numberOfPoints-1) * massPerLine;
 			lineContainer.debug = debug;
