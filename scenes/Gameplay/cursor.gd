@@ -81,7 +81,7 @@ func addLinePoint(mousePosition: Vector2) -> void:
 			newSegmentShape.a = line.get_point_position(line.get_point_count()-2);
 			newSegmentShape.b = line.get_point_position(line.get_point_count()-1);
 			
-			GlobalVariables.totalLineDistance = newSegmentShape.a.distance_to(newSegmentShape.b);
+			GlobalVariables.totalLineDistance += newSegmentShape.a.distance_to(newSegmentShape.b);
 			
 			collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
 			collision.shape = newSegmentShape;
