@@ -19,7 +19,7 @@ var playerState = states.onGround;
 @onready var jumpTimer = $jumpTimer;
 @onready var editing: Node2D = $editing;
 @onready var playerSprite: Node2D = $playerSprite;
-@onready var physicsHitbox: CollisionShape2D = $physicsHitbox;
+@onready var physicsHitbox: CollisionPolygon2D = $physicsHitbox;
 
 @onready var pupils: AnimatedSprite2D = $playerSprite/eyes/pupils
 
