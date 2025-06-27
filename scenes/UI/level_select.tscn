@@ -37,13 +37,11 @@ columns = 4
 
 [node name="Level Button" parent="Level Grid" instance=ExtResource("3_hoiyx")]
 layout_mode = 2
-levelnumber = "1"
 
 [node name="Level Button2" parent="Level Grid" instance=ExtResource("3_hoiyx")]
 layout_mode = 2
 icon_alignment = 1
 text_direction = 1
-levelnumber = "2"
 
 [node name="Exit Button" type="Button" parent="."]
 layout_mode = 0

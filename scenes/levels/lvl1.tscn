@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dosfhiqffqged"]
 
-[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/levels/LevelTemplete.tscn" id="1_syvye"]
+[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/LevelTemplete.tscn" id="1_syvye"]
 [ext_resource type="PackedScene" uid="uid://0vlwe6pkgpcx" path="res://scenes/objects/levelstatics/ruler.tscn" id="2_w6uo3"]
 [ext_resource type="PackedScene" uid="uid://bs4d12kq8hyx2" path="res://scenes/objects/levelstatics/woodenPencil.tscn" id="3_0b2i4"]
 [ext_resource type="PackedScene" uid="uid://sun1koc5iny8" path="res://scenes/objects/levelstatics/pencilSharpener.tscn" id="4_t6krm"]

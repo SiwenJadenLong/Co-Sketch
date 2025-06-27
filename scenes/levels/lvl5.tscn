@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpyiakoktkjte"]
+
+[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/LevelTemplete.tscn" id="1_fw58d"]
+[ext_resource type="PackedScene" uid="uid://cxo4mmi1n4xwh" path="res://scenes/objects/Killobjects/paperShredder.tscn" id="2_usnf5"]
+[ext_resource type="PackedScene" uid="uid://c3go8ov38w3df" path="res://scenes/objects/levelstatics/redPen.tscn" id="3_mx2a8"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="4_jq4rj"]
+[ext_resource type="PackedScene" uid="uid://u1rrwhwt2drr" path="res://scenes/objects/levelstatics/tapeDispenser.tscn" id="5_7fw37"]
+[ext_resource type="PackedScene" uid="uid://cckvww8n4cu5e" path="res://scenes/objects/levelstatics/lipBlam.tscn" id="6_jq4rj"]
+[ext_resource type="PackedScene" uid="uid://bgw07yacjftr3" path="res://scenes/objects/levelstatics/blueUsb.tscn" id="7_7fw37"]
+
+[node name="map" instance=ExtResource("1_fw58d")]
+initInkLimit = 6000.0
+
+[node name="door" parent="objects" index="0"]
+position = Vector2(501, 30)
+
+[node name="door2" parent="objects" index="1"]
+position = Vector2(589, 30)
+
+[node name="paperShredder" parent="objects" index="2" instance=ExtResource("2_usnf5")]
+position = Vector2(111, 331)
+scale = Vector2(10.52, 1)
+
+[node name="redPen" parent="objects" index="3" instance=ExtResource("3_mx2a8")]
+position = Vector2(633, 76)
+
+[node name="cannon" parent="objects" index="4" instance=ExtResource("4_jq4rj")]
+position = Vector2(589, 109)
+rotation = 6.28318
+
+[node name="tapeDispenser" parent="objects" index="5" instance=ExtResource("5_7fw37")]
+position = Vector2(-583, -46)
+
+[node name="cannon2" parent="objects" index="6" instance=ExtResource("4_jq4rj")]
+position = Vector2(-278, -334)
+rotation = -1.57079
+
+[node name="cannon3" parent="objects" index="7" instance=ExtResource("4_jq4rj")]
+position = Vector2(-115, -334)
+rotation = -1.57079
+
+[node name="cannon4" parent="objects" index="8" instance=ExtResource("4_jq4rj")]
+position = Vector2(111, -334)
+rotation = -1.57079
+
+[node name="cannon5" parent="objects" index="9" instance=ExtResource("4_jq4rj")]
+position = Vector2(304, -334)
+rotation = -1.57079
+
+[node name="lipBlam2" parent="objects" index="10" instance=ExtResource("6_jq4rj")]
+position = Vector2(0, 200)
+rotation = 1.57079
+
+[node name="Player" parent="players" index="0"]
+position = Vector2(-520, 305)
+
+[node name="Player2" parent="players" index="1"]
+position = Vector2(-584, 305)
+
+[node name="blueUsb" parent="." index="7" instance=ExtResource("7_7fw37")]
+position = Vector2(0, 5)
+rotation = -1.57079
+scale = Vector2(0.5, 0.5)

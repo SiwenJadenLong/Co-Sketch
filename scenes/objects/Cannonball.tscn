@@ -36,7 +36,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ed6wv"]
-radius = 5.0
+radius = 8.0
 
 [node name="Cannonball" type="Area2D" groups=["playerkill"]]
 script = ExtResource("1_utjx4")
@@ -45,7 +45,7 @@ script = ExtResource("1_utjx4")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_8xiut")
 autoplay = "default"
-frame_progress = 0.748491
+frame_progress = 0.423583
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ed6wv")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://6atv0ubxykhd"]
 
-[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/levels/LevelTemplete.tscn" id="1_xmy33"]
-[ext_resource type="PackedScene" uid="uid://od1ncow7ce6u" path="res://scenes/objects/Animated/stapleRemover.tscn" id="2_wae2r"]
+[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/LevelTemplete.tscn" id="1_xmy33"]
+[ext_resource type="PackedScene" uid="uid://od1ncow7ce6u" path="res://scenes/objects/Killobjects/stapleRemover.tscn" id="2_wae2r"]
 
 [node name="map" instance=ExtResource("1_xmy33")]
 levelNumber = "3"
