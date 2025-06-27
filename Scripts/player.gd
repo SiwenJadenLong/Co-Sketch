@@ -80,7 +80,7 @@ func _ready():
 
 	call_deferred("loadLineMaker");
 
-func _physics_process(delta):
+func _physics_process(delta : float):
 	#---------Text debug code---------	
 	if debug:
 		match playerState:
@@ -115,7 +115,7 @@ func _physics_process(delta):
 			printerr("No playercolor selected");
 	match playerState:
 				states.onGround:
-					velocity += get_gravity() * delta * gravityMultiplier;
+					applyGravity(delta);
 					horizontalmovement(horizontalAxis);
 					checkCollision()
 					jumpTimer.start(jumpTime);
@@ -128,6 +128,9 @@ func _physics_process(delta):
 						playerState = states.jumping;
 					move_and_slide();
 				states.editing:
+					move_and_slide()
+					resistance()
+					applyGravity(delta);
 					editing.showZone();
 					lineMaker.get_node("cursor").visible = true;
 					lineMaker.process_mode = Node.PROCESS_MODE_INHERIT;
@@ -137,13 +140,16 @@ func _physics_process(delta):
 						lineMaker.get_node("cursor").visible = false;
 						SignalBus.editingExited.emit();
 				states.jumping:
-					velocity += get_gravity() * delta * gravityMultiplier;
+					applyGravity(delta);
 					move_and_slide();
 					horizontalmovement(horizontalAxis);
 					checkCollision()
 					if Input.is_action_pressed(upButton) and jumpTimer.time_left != 0:
 						if velocity.y >= jumpSpeedCap:
 							velocity.y -= jumpSpeed;
+					elif Input.is_action_just_pressed(editButton):
+						playerState = states.editing;
+						SignalBus.editingEntered.emit(playerColor);
 					elif Input.is_action_just_released(upButton):
 							jumpTimer.stop();
 							playerState = states.falling;
@@ -151,14 +157,17 @@ func _physics_process(delta):
 					move_and_slide();
 					horizontalmovement(horizontalAxis);
 					checkCollision()
-					velocity += get_gravity() * delta * gravityMultiplier;
-					if is_on_floor():
+					applyGravity(delta);
+					if Input.is_action_just_pressed(editButton):
+						playerState = states.editing;
+						SignalBus.editingEntered.emit(playerColor);
+					elif is_on_floor():
 						playerState = states.onGround;
 				states.locked:
 					move_and_slide();
 				states.gameOver:
 					playerSprite.rotation += 0.4;
-					velocity += get_gravity() * delta * gravityMultiplier;
+					applyGravity(delta);
 					move_and_slide();
 
 
@@ -169,10 +178,18 @@ func horizontalmovement(direction):
 			velocity.x += direction * xAcceleration;
 		else:
 			velocity.x = direction * xMaxspeed;
-	elif is_on_floor():
-		velocity.x = move_toward(velocity.x, 0, 50);
 	else:
-		velocity.x = move_toward(velocity.x, 0, 5);
+		resistance()
+
+func resistance():
+	if is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, groundResistance);
+	else:
+		velocity.x = move_toward(velocity.x, 0, airReistance);
+
+#Apply add velocity by gravity times gravity multiplier
+func applyGravity(delta : float):
+	velocity += get_gravity() * delta * gravityMultiplier;
 
 #If this Player dies this function plays
 func death():

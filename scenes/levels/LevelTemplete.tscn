@@ -64,6 +64,7 @@ invert_enabled = true
 polygon = PackedVector2Array(-635, -307.5, 635, -307.5, 635, 307.5, -635, 307.5)
 
 [node name="lineMaker" parent="." instance=ExtResource("5_4qc4n")]
+top_level = true
 
 [node name="doorHoldTimer" type="Timer" parent="."]
 
