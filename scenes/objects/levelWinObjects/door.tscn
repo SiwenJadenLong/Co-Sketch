@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://di8x2ilgml1fg"]
+
+[ext_resource type="Script" uid="uid://xo8odklcdrjn" path="res://Scripts/door.gd" id="1_taevt"]
+[ext_resource type="Texture2D" uid="uid://8m20lesuv6ru" path="res://assets/art/static/levelObjects/interactable/closedDoorplace.png" id="2_5nc7h"]
+[ext_resource type="Texture2D" uid="uid://c7dyn8fxslmar" path="res://assets/art/static/levelObjects/interactable/openDoorplace.png" id="2_sdp2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aji8h"]
+size = Vector2(50, 50)
+
+[node name="door" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_taevt")
+openDoor = ExtResource("2_sdp2h")
+closedDoor = ExtResource("2_5nc7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aji8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_5nc7h")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = -25.6667
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="doorHoldTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

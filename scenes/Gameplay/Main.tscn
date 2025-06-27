@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=39 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="Script" uid="uid://x76rmtn2xmec" path="res://Scripts/deathMarkers.gd" id="2_6301w"]
@@ -9,13 +9,22 @@
 [ext_resource type="Script" uid="uid://dv87gvks1sqgl" path="res://Scripts/stats.gd" id="4_kbq0m"]
 [ext_resource type="LabelSettings" uid="uid://bopv5knqrlyrk" path="res://assets/Resources/Big Time font.tres" id="5_0r74j"]
 [ext_resource type="FontFile" uid="uid://mpyutpjtpxma" path="res://assets/Resources/HalfTermSchoolsOut-V4q5l.ttf" id="5_fkpln"]
-[ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="5_u0cjw"]
-[ext_resource type="Texture2D" uid="uid://do0c10ygthsbb" path="res://assets/art/static/maintitle.png" id="7_7tkoj"]
+[ext_resource type="Script" uid="uid://b5cc58y1geqse" path="res://Scripts/mainMenu.gd" id="5_u0cjw"]
 [ext_resource type="Script" uid="uid://dgmq2vk28tnxd" path="res://Scripts/levelSelect.gd" id="7_as2w2"]
 [ext_resource type="Script" uid="uid://ycodo2nkmy1y" path="res://Scripts/winScreen.gd" id="7_kbq0m"]
+[ext_resource type="Texture2D" uid="uid://djnmo8x0n1e0f" path="res://assets/art/static/UI/background main menu.png" id="11_fkpln"]
+[ext_resource type="Texture2D" uid="uid://ctulae2r0l2fu" path="res://assets/art/static/UI/highres-Co-Sketch1.png" id="11_px8du"]
+[ext_resource type="Texture2D" uid="uid://cyhaxdhnqaq5p" path="res://assets/art/static/UI/lowResStart.png" id="12_6bqlx"]
 [ext_resource type="Texture2D" uid="uid://co5ogstis7v0s" path="res://assets/art/static/player1Full.svg" id="12_8r8rs"]
+[ext_resource type="Texture2D" uid="uid://bk5caw23cbcrl" path="res://assets/art/static/UI/highres-Co-Sketch2.png" id="12_ewm06"]
 [ext_resource type="LabelSettings" uid="uid://dwcqy68hq7t66" path="res://assets/Resources/PlayerDeaths.tres" id="13_0r74j"]
 [ext_resource type="Texture2D" uid="uid://bgdnqecyggx8g" path="res://assets/art/static/player2Full.svg" id="13_acxsw"]
+[ext_resource type="Texture2D" uid="uid://dvv3uj64xmpq" path="res://assets/art/static/UI/lowResLevelSelect.png" id="13_qeedf"]
+[ext_resource type="Texture2D" uid="uid://chtlcgdr22ng6" path="res://assets/art/static/UI/lowResSettings.png" id="14_45pn6"]
+[ext_resource type="Texture2D" uid="uid://cyp7lwgc70bqe" path="res://assets/art/static/UI/lowResQuit.png" id="15_ifw20"]
+[ext_resource type="Texture2D" uid="uid://dm0evmyqgopqq" path="res://assets/art/static/UI/lowResEraser.png" id="17_ewm06"]
+[ext_resource type="Texture2D" uid="uid://c7drhvovx4rx7" path="res://assets/art/static/UI/lowResPencil.png" id="18_muheq"]
+[ext_resource type="Texture2D" uid="uid://bsndmx8wt2jkt" path="res://assets/art/static/UI/highlight1.png" id="19_cxvb2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r8rs"]
 bg_color = Color(0.207843, 0.780392, 1, 1)
@@ -45,14 +54,6 @@ subpixel_positioning = 0
 
 [sub_resource type="Theme" id="Theme_leamy"]
 default_font = SubResource("SystemFont_fsby3")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_721jg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geflf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkd6t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_leamy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbq0m"]
 bg_color = Color(0.34, 0.582, 1, 0.160784)
@@ -225,53 +226,82 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_u0cjw")
+logo1 = ExtResource("11_px8du")
+logo2 = ExtResource("12_ewm06")
 
-[node name="Sprite2D" type="TextureRect" parent="mainUI/mainMenu"]
+[node name="background" type="TextureRect" parent="mainUI/mainMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_7tkoj")
+texture = ExtResource("11_fkpln")
 expand_mode = 2
+
+[node name="highLight" type="TextureRect" parent="mainUI/mainMenu"]
+modulate = Color(1, 1, 1, 0.462745)
+layout_mode = 0
+offset_left = 377.0
+offset_top = 275.0
+offset_right = 651.0
+offset_bottom = 336.0
+texture = ExtResource("19_cxvb2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="mainUI/mainMenu"]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 128.0
-offset_right = 738.0
-offset_bottom = 412.0
+offset_left = 399.0
+offset_top = 271.0
+offset_right = 963.0
+offset_bottom = 592.0
+theme_override_constants/separation = 28
 
-[node name="Start" type="Button" parent="mainUI/mainMenu/VBoxContainer"]
+[node name="Start" type="TextureButton" parent="mainUI/mainMenu/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_leamy")
-theme_override_colors/font_hover_color = Color(0.114897, 0.114897, 0.114897, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0.633333, 0, 1)
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_721jg")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_geflf")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkd6t")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_leamy")
-text = "Start
-"
-alignment = 0
+texture_normal = ExtResource("12_6bqlx")
 
-[node name="Level Select" type="Button" parent="mainUI/mainMenu/VBoxContainer"]
+[node name="levelSelect" type="TextureButton" parent="mainUI/mainMenu/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_leamy")
-theme_override_colors/font_hover_color = Color(0.114897, 0.114897, 0.114897, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(1, 0.633333, 0, 1)
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_721jg")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_geflf")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkd6t")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_leamy")
-text = "Level Select
-"
-alignment = 0
+texture_normal = ExtResource("13_qeedf")
+
+[node name="Settings" type="TextureButton" parent="mainUI/mainMenu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_45pn6")
+
+[node name="Quit" type="TextureButton" parent="mainUI/mainMenu/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("15_ifw20")
+
+[node name="title" type="TextureRect" parent="mainUI/mainMenu"]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 77.0
+offset_right = 4407.0
+offset_bottom = 1480.0
+scale = Vector2(0.15, 0.146)
+texture = ExtResource("11_px8du")
+
+[node name="littleguys" type="HBoxContainer" parent="mainUI/mainMenu"]
+layout_mode = 0
+offset_left = 1014.0
+offset_top = 84.0
+offset_right = 1223.0
+offset_bottom = 260.0
+theme_override_constants/separation = 20
+
+[node name="TextureRect2" type="TextureRect" parent="mainUI/mainMenu/littleguys"]
+layout_mode = 2
+texture = ExtResource("17_ewm06")
+
+[node name="TextureRect3" type="TextureRect" parent="mainUI/mainMenu/littleguys"]
+layout_mode = 2
+texture = ExtResource("18_muheq")
+
+[node name="Timer" type="Timer" parent="mainUI/mainMenu"]
+wait_time = 1.5
+autostart = true
 
 [node name="winScreen" type="Control" parent="mainUI"]
 visible = false
@@ -461,8 +491,18 @@ text = "X"
 [connection signal="pressed" from="mainUI/pauseMenu/Pause Buttons/Restart" to="mainUI/pauseMenu" method="pauseMenuRestartPressed"]
 [connection signal="pressed" from="mainUI/pauseMenu/Pause Buttons/Level Select" to="mainUI/pauseMenu" method="pauseMenuLevelSelectPressed"]
 [connection signal="pressed" from="mainUI/pauseMenu/Pause Buttons/MainMenu" to="mainUI/pauseMenu" method="pauseMenuMainMenuPressed"]
+[connection signal="mouse_entered" from="mainUI/mainMenu" to="mainUI/mainMenu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="mainUI/mainMenu/VBoxContainer/Start" to="mainUI/mainMenu" method="_on_start_focus_entered"]
+[connection signal="mouse_entered" from="mainUI/mainMenu/VBoxContainer/Start" to="mainUI/mainMenu" method="_on_start_mouse_entered"]
 [connection signal="pressed" from="mainUI/mainMenu/VBoxContainer/Start" to="mainUI/mainMenu" method="mainMenuStartPressed"]
-[connection signal="pressed" from="mainUI/mainMenu/VBoxContainer/Level Select" to="mainUI/mainMenu" method="mainMenuLevelSelectPressed"]
+[connection signal="focus_entered" from="mainUI/mainMenu/VBoxContainer/levelSelect" to="mainUI/mainMenu" method="_on_level_select_focus_entered"]
+[connection signal="mouse_entered" from="mainUI/mainMenu/VBoxContainer/levelSelect" to="mainUI/mainMenu" method="_on_level_select_mouse_entered"]
+[connection signal="pressed" from="mainUI/mainMenu/VBoxContainer/levelSelect" to="mainUI/mainMenu" method="mainMenuLevelSelectPressed"]
+[connection signal="focus_entered" from="mainUI/mainMenu/VBoxContainer/Settings" to="mainUI/mainMenu" method="_on_settings_focus_entered"]
+[connection signal="mouse_entered" from="mainUI/mainMenu/VBoxContainer/Settings" to="mainUI/mainMenu" method="_on_settings_mouse_entered"]
+[connection signal="focus_entered" from="mainUI/mainMenu/VBoxContainer/Quit" to="mainUI/mainMenu" method="_on_quit_focus_entered"]
+[connection signal="mouse_entered" from="mainUI/mainMenu/VBoxContainer/Quit" to="mainUI/mainMenu" method="_on_quit_mouse_entered"]
+[connection signal="timeout" from="mainUI/mainMenu/Timer" to="mainUI/mainMenu" method="_on_timer_timeout"]
 [connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/level_select" to="mainUI/winScreen" method="winScreenLevelSelectPressed"]
 [connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/next_level" to="mainUI/winScreen" method="winScreenNextLevelPressed"]
 [connection signal="pressed" from="mainUI/levelSelect/Exit Button" to="mainUI/levelSelect" method="levelSelectExitPressed"]

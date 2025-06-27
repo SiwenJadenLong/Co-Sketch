@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://csho1iirubrk1"]
 
-[ext_resource type="Texture2D" uid="uid://c3vcbyfm5vqmg" path="res://assets/art/static/levelObjects/topStamp.png" id="1_l86my"]
+[ext_resource type="Texture2D" uid="uid://c3vcbyfm5vqmg" path="res://assets/art/static/levelObjects/multipart/topStamp.png" id="1_l86my"]
 [ext_resource type="Script" uid="uid://cqskyw41q3hv0" path="res://Scripts/stamp.gd" id="1_q41lh"]
-[ext_resource type="Texture2D" uid="uid://cy7v32pqsg23h" path="res://assets/art/static/levelObjects/bottomStamp.png" id="2_q41lh"]
+[ext_resource type="Texture2D" uid="uid://cy7v32pqsg23h" path="res://assets/art/static/levelObjects/multipart/bottomStamp.png" id="2_q41lh"]
 
 [sub_resource type="Animation" id="Animation_ik4rc"]
 length = 0.001

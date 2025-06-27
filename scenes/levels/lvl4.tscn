@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ymvbtw6n8hyj" path="res://scenes/objects/levelstatics/plasticPencilSharpener.tscn" id="2_i8kah"]
 [ext_resource type="PackedScene" uid="uid://ccm4byyiutv1s" path="res://scenes/objects/levelstatics/redUsb.tscn" id="3_5axt1"]
 [ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/Killobjects/scissors.tscn" id="4_vvg6j"]
-[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="5_6r67h"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/Killobjects/cannon.tscn" id="5_6r67h"]
 [ext_resource type="PackedScene" uid="uid://u1rrwhwt2drr" path="res://scenes/objects/levelstatics/tapeDispenser.tscn" id="6_etp8i"]
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="7_b65t1"]
 [ext_resource type="PackedScene" uid="uid://c3go8ov38w3df" path="res://scenes/objects/levelstatics/redPen.tscn" id="8_vvg6j"]

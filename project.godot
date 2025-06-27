@@ -47,6 +47,7 @@ Player="group for player"
 playerkill=""
 drawing=""
 staticLevelObject=""
+coin=""
 
 [gui]
 

@@ -2,8 +2,8 @@ extends Node
 
 var player : String;
 
-const ORANGE_DEATH_MARKER = preload("res://assets/art/static/orangeDeathMarker.svg")
-const BLUE_DEATH_MARKER = preload("res://assets/art/static/blueDeathMarker.svg")
+@export var ORANGE_DEATH_MARKER : Texture2D;
+@export var BLUE_DEATH_MARKER : Texture2D;
 
 func _ready() -> void:
 	match player:

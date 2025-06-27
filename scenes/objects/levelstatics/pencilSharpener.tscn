@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://sun1koc5iny8"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_bv5w3"]
-[ext_resource type="Texture2D" uid="uid://bggrp2qyy2x71" path="res://assets/art/static/levelObjects/pencilSharpener.png" id="2_kgj5g"]
+[ext_resource type="Texture2D" uid="uid://bggrp2qyy2x71" path="res://assets/art/static/levelObjects/static/pencilSharpener.png" id="2_kgj5g"]
 
 [node name="pencilSharpener" instance=ExtResource("1_bv5w3")]
 

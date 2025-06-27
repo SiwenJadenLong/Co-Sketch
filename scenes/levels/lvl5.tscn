@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/LevelTemplete.tscn" id="1_fw58d"]
 [ext_resource type="PackedScene" uid="uid://cxo4mmi1n4xwh" path="res://scenes/objects/Killobjects/paperShredder.tscn" id="2_usnf5"]
 [ext_resource type="PackedScene" uid="uid://c3go8ov38w3df" path="res://scenes/objects/levelstatics/redPen.tscn" id="3_mx2a8"]
-[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="4_jq4rj"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/Killobjects/cannon.tscn" id="4_jq4rj"]
 [ext_resource type="PackedScene" uid="uid://u1rrwhwt2drr" path="res://scenes/objects/levelstatics/tapeDispenser.tscn" id="5_7fw37"]
 [ext_resource type="PackedScene" uid="uid://cckvww8n4cu5e" path="res://scenes/objects/levelstatics/lipBlam.tscn" id="6_jq4rj"]
 [ext_resource type="PackedScene" uid="uid://bgw07yacjftr3" path="res://scenes/objects/levelstatics/blueUsb.tscn" id="7_7fw37"]

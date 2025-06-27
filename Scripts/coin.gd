@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name coin
 @export var amplitude: int;
 @export var bobSpeed: float;
 var up: bool = true;

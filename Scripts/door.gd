@@ -5,8 +5,8 @@ signal doorOpened;
 #Select if door Orange or Blue
 @export_enum("Orange","Blue") var correctPlayer : String;
 
-@onready var openDoor = preload("res://assets/art/static/openDoorplace.png");
-@onready var closedDoor = preload("res://assets/art/static/closedDoorplace.png");
+@export var openDoor : Texture2D;
+@export var closedDoor : Texture2D;
 
 var playerInDoor : bool;
 

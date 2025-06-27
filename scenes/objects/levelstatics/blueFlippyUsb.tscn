@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://br7rq2xhklrhh"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_dvtiv"]
-[ext_resource type="Texture2D" uid="uid://dckfkowpenygp" path="res://assets/art/static/levelObjects/blueFlippyUsb.png" id="2_hklje"]
-[ext_resource type="Texture2D" uid="uid://c4gug16te26gn" path="res://assets/art/static/levelObjects/blueFlippyUsbTop.png" id="3_38yxh"]
+[ext_resource type="Texture2D" uid="uid://dckfkowpenygp" path="res://assets/art/static/levelObjects/static/blueFlippyUsb.png" id="2_hklje"]
+[ext_resource type="Texture2D" uid="uid://c4gug16te26gn" path="res://assets/art/static/levelObjects/static/blueFlippyUsbTop.png" id="3_38yxh"]
 
 [node name="objectName" instance=ExtResource("1_dvtiv")]
 
