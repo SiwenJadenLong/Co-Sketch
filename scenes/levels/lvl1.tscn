@@ -10,12 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="9_dn8pr"]
 
 [node name="map" instance=ExtResource("1_syvye")]
-
-[node name="TextureRect" parent="." index="0"]
-metadata/_edit_lock_ = true
-
-[node name="camera2D" parent="." index="1"]
-metadata/_edit_lock_ = true
+initInkLimit = 999999.0
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(-522, -64)
@@ -58,10 +53,6 @@ debug = true
 [node name="Player2" parent="players" index="1"]
 position = Vector2(503, 292)
 debug = true
-
-[node name="ground" parent="." index="4"]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="viewBoxBorder" parent="ground" index="0" groups=["Player", "staticLevelObject"]]
 

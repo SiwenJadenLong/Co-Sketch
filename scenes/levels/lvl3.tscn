@@ -5,6 +5,7 @@
 
 [node name="map" instance=ExtResource("1_xmy33")]
 levelNumber = "3"
+initInkLimit = 4000.0
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(387, -38)

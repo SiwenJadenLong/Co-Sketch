@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cehyued3e0o7t" path="res://scenes/objects/levelstatics/bluePen.tscn" id="16_jendw"]
 
 [node name="map3" instance=ExtResource("1_ccend")]
+initInkLimit = 2500.0
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(-104, -186)

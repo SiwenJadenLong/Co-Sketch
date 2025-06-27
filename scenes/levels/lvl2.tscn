@@ -13,6 +13,7 @@
 
 [node name="map2" instance=ExtResource("1_syvye")]
 levelNumber = "2"
+initInkLimit = 1000.0
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(-476, -202)
