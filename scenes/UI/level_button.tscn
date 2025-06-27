@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2js4gmkrqyh2"]
 
-[ext_resource type="Script" uid="uid://cvbvujsn8gp4c" path="res://Scripts/levelButton.gd" id="1_djhdf"]
+[ext_resource type="Script" path="res://Scripts/levelButton.gd" id="1_djhdf"]
 
 [node name="Level Button" type="Button"]
 offset_right = 78.0

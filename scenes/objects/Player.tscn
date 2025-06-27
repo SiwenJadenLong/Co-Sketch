@@ -42,7 +42,6 @@ fill_from = Vector2(0.5, 0.5)
 [node name="player" type="CharacterBody2D" groups=["Player", "playerkill"]]
 collision_layer = 2
 script = ExtResource("1_a0kq5")
-pushForce = 100
 randomDirection = true
 
 [node name="playerSprite" type="Node2D" parent="."]

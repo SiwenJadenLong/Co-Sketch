@@ -134,6 +134,6 @@ position = Vector2(-54, -185)
 [node name="Player2" parent="players" index="1"]
 position = Vector2(80, -231)
 
-[node name="bluePen" parent="." index="8" instance=ExtResource("16_jendw")]
+[node name="bluePen" parent="." index="7" instance=ExtResource("16_jendw")]
 position = Vector2(-271, 36)
 rotation = -0.261799

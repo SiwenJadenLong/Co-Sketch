@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=34 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="Script" uid="uid://x76rmtn2xmec" path="res://Scripts/deathMarkers.gd" id="2_6301w"]
@@ -17,14 +17,15 @@
 [ext_resource type="LabelSettings" uid="uid://dwcqy68hq7t66" path="res://assets/Resources/PlayerDeaths.tres" id="13_0r74j"]
 [ext_resource type="Texture2D" uid="uid://bgdnqecyggx8g" path="res://assets/art/static/player2Full.svg" id="13_acxsw"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_6bqlx"]
-font = ExtResource("5_fkpln")
-font_size = 30
-font_color = Color(0, 0, 0, 1)
-outline_size = 5
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r8rs"]
+bg_color = Color(0.207843, 0.780392, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0cjw"]
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -32,6 +33,12 @@ corner_radius_bottom_left = 2
 corner_detail = 10
 expand_margin_left = 2.0
 expand_margin_right = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_acxsw"]
+font = ExtResource("5_fkpln")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_fsby3"]
 subpixel_positioning = 0
@@ -86,6 +93,7 @@ process_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="stats" type="Control" parent="mainUI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,14 +103,8 @@ grow_vertical = 2
 pivot_offset = Vector2(80, 296)
 script = ExtResource("4_kbq0m")
 
-[node name="Panel" type="Panel" parent="mainUI/stats"]
-layout_mode = 2
-offset_left = 471.5
-offset_top = 5.0
-offset_right = 894.5
-offset_bottom = 88.0
-
 [node name="MarginContainer" type="MarginContainer" parent="mainUI/stats"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -113,13 +115,25 @@ offset_bottom = 83.75
 grow_horizontal = 2
 theme_override_constants/margin_top = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="mainUI/stats/MarginContainer"]
+[node name="Panel" type="Panel" parent="mainUI/stats/MarginContainer"]
+visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="mainUI/stats/MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="mainUI/stats/MarginContainer"]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
-text = "Ink Used: 400"
-label_settings = SubResource("LabelSettings_6bqlx")
+alignment = 1
+
+[node name="inkBar" type="ProgressBar" parent="mainUI/stats/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_fkpln")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/fill = SubResource("StyleBoxFlat_8r8rs")
 
 [node name="VSeparator2" type="VSeparator" parent="mainUI/stats/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -141,9 +155,11 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_u0cjw")
 
 [node name="currentLevel" type="Label" parent="mainUI/stats/MarginContainer/HBoxContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Level 1"
+label_settings = SubResource("LabelSettings_acxsw")
 horizontal_alignment = 1
 
 [node name="pauseMenu" type="Control" parent="mainUI"]
@@ -186,7 +202,7 @@ alignment = 1
 [node name="Resume" type="Button" parent="mainUI/pauseMenu/Pause Buttons"]
 layout_mode = 2
 action_mode = 0
-text = "Pause"
+text = "Resume"
 
 [node name="Restart" type="Button" parent="mainUI/pauseMenu/Pause Buttons"]
 layout_mode = 2

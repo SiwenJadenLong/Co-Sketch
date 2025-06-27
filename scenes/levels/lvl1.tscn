@@ -48,11 +48,9 @@ position = Vector2(353, 350)
 
 [node name="Player" parent="players" index="0"]
 position = Vector2(567, 292)
-debug = true
 
 [node name="Player2" parent="players" index="1"]
 position = Vector2(503, 292)
-debug = true
 
 [node name="viewBoxBorder" parent="ground" index="0" groups=["Player", "staticLevelObject"]]
 
