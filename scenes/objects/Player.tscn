@@ -68,7 +68,6 @@ sprite_frames = SubResource("SpriteFrames_0ay4w")
 animation = &"idle"
 autoplay = "idle"
 script = ExtResource("5_ssoob")
-eyeTravelDistance = 2.0
 
 [node name="jumpTimer" type="Timer" parent="."]
 process_callback = 0
