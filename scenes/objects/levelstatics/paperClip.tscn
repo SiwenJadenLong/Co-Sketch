@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0avyrit42j1x"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_mw664"]
-[ext_resource type="Texture2D" uid="uid://cn5fvtoh5kp50" path="res://assets/art/static/levelObjects/paperclip.png" id="2_xp2i0"]
+[ext_resource type="Texture2D" uid="uid://cn5fvtoh5kp50" path="res://assets/art/static/levelObjects/static/paperclip.png" id="2_xp2i0"]
 
 [node name="paperclip" instance=ExtResource("1_mw664")]
 

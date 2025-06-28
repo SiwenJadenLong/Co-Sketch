@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwy57aiavebjp"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_go4gp"]
-[ext_resource type="Texture2D" uid="uid://2ccgbqxnbyyq" path="res://assets/art/static/levelObjects/correctionFluid.png" id="2_aprfn"]
+[ext_resource type="Texture2D" uid="uid://2ccgbqxnbyyq" path="res://assets/art/static/levelObjects/multipart/correctionFluid.png" id="2_aprfn"]
 
 [node name="correction fluid" instance=ExtResource("1_go4gp")]
 

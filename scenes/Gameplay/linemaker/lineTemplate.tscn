@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dswjjjwjn2qac"]
 
 [ext_resource type="Script" uid="uid://do2dqo4xa5syp" path="res://scenes/Gameplay/linemaker/line_template.gd" id="1_sjocl"]
-[ext_resource type="Texture2D" uid="uid://5caudjitv1u" path="res://assets/art/static/centerOfMass.svg" id="2_pv3r8"]
+[ext_resource type="Texture2D" uid="uid://5caudjitv1u" path="res://assets/art/static/UI/centerOfMass.svg" id="2_pv3r8"]
 [ext_resource type="LabelSettings" uid="uid://did8y7227hqso" path="res://assets/Resources/debugFont.tres" id="3_6f80m"]
 
 [node name="lineTemplate" type="RigidBody2D" groups=["drawing"]]

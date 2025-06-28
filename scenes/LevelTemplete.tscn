@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://p0m3x403thtk"]
+
+[ext_resource type="Script" uid="uid://bn6lwoeq3auyu" path="res://Scripts/map.gd" id="1_vcwsh"]
+[ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker/linemaker.tscn" id="5_4qc4n"]
+[ext_resource type="PackedScene" uid="uid://di8x2ilgml1fg" path="res://scenes/objects/levelWinObjects/door.tscn" id="5_30pkq"]
+[ext_resource type="Texture2D" uid="uid://weygx8ktaqxe" path="res://assets/art/static/backgroundplace.jpg" id="5_vcwsh"]
+[ext_resource type="PackedScene" uid="uid://bs67e1nvqbr7c" path="res://scenes/objects/player.tscn" id="7_7nc4o"]
+[ext_resource type="Texture2D" uid="uid://dv6t1dp61yvkb" path="res://assets/art/static/backgroundplace2.jpg" id="7_vcwsh"]
+
+[node name="map2" type="Node2D"]
+script = ExtResource("1_vcwsh")
+levelNumber = "1"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1366, 768)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -683.0
+offset_top = -384.0
+offset_right = 683.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_vcwsh")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="camera2D" type="Camera2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="objects" type="Node" parent="."]
+
+[node name="door" parent="objects" instance=ExtResource("5_30pkq")]
+position = Vector2(168, -48)
+correctPlayer = "Orange"
+
+[node name="door2" parent="objects" instance=ExtResource("5_30pkq")]
+position = Vector2(256, -48)
+correctPlayer = "Blue"
+
+[node name="players" type="Node" parent="."]
+
+[node name="Player" parent="players" instance=ExtResource("7_7nc4o")]
+position = Vector2(64, 0)
+playerColor = "Orange"
+
+[node name="Player2" parent="players" instance=ExtResource("7_7nc4o")]
+playerColor = "Blue"
+
+[node name="ground" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="viewBoxBorder" type="StaticBody2D" parent="ground"]
+collision_layer = 3
+
+[node name="viewBoxBorderCollision" type="CollisionPolygon2D" parent="ground/viewBoxBorder"]
+build_mode = 1
+polygon = PackedVector2Array(-633, -334, 633, -334, 633, 334, -633, 334)
+
+[node name="Polygon2D" type="Polygon2D" parent="ground/viewBoxBorder"]
+texture_filter = 5
+texture_repeat = 2
+color = Color(0.996078, 0.996078, 0.890196, 1)
+texture = ExtResource("5_vcwsh")
+invert_enabled = true
+polygon = PackedVector2Array(-635, -334, 635, -334, 635, 334, -635, 334)
+
+[node name="lineMaker" parent="." instance=ExtResource("5_4qc4n")]
+top_level = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cckvww8n4cu5e"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_sdq5m"]
-[ext_resource type="Texture2D" uid="uid://bof5qauncc25g" path="res://assets/art/static/levelObjects/lipBalm.png" id="2_voex3"]
+[ext_resource type="Texture2D" uid="uid://bof5qauncc25g" path="res://assets/art/static/levelObjects/static/lipBalm.png" id="2_voex3"]
 
 [node name="lipBlam" instance=ExtResource("1_sdq5m")]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://u1rrwhwt2drr"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_6cr3g"]
-[ext_resource type="Texture2D" uid="uid://cgs3hoao3ej5x" path="res://assets/art/static/levelObjects/tapeDispensor.png" id="2_6xd3g"]
+[ext_resource type="Texture2D" uid="uid://cgs3hoao3ej5x" path="res://assets/art/static/levelObjects/static/tapeDispensor.png" id="2_6xd3g"]
 
 [node name="tapeDispenser" instance=ExtResource("1_6cr3g")]
 

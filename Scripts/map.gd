@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 #Run on node entering game
 func _ready():
 	GlobalVariables.inkLimit = initInkLimit;
+	GlobalVariables.totalLineDistance= 0;
 	
 	GlobalVariables.levelTime = 0
 	SignalBus.playerDeath.connect(stopobjects);

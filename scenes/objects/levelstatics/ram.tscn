@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd66mt6mbhrse"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_3w6nr"]
-[ext_resource type="Texture2D" uid="uid://bvne1ygq46k68" path="res://assets/art/static/levelObjects/ram.png" id="2_x4527"]
+[ext_resource type="Texture2D" uid="uid://bvne1ygq46k68" path="res://assets/art/static/levelObjects/static/ram.png" id="2_x4527"]
 
 [node name="ram" instance=ExtResource("1_3w6nr")]
 

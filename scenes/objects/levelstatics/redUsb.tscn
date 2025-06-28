@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccm4byyiutv1s"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_7o8pp"]
-[ext_resource type="Texture2D" uid="uid://l0pxw44nx3mc" path="res://assets/art/static/levelObjects/redUsb.png" id="2_4svk5"]
+[ext_resource type="Texture2D" uid="uid://l0pxw44nx3mc" path="res://assets/art/static/levelObjects/static/redUsb.png" id="2_4svk5"]
 
 [node name="redUsb" instance=ExtResource("1_7o8pp")]
 

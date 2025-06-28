@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cywgftjbo7sds"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_w2jyb"]
-[ext_resource type="Texture2D" uid="uid://bpg8hi6exjm5o" path="res://assets/art/static/levelObjects/pencilLead.png" id="2_vj5o0"]
+[ext_resource type="Texture2D" uid="uid://bpg8hi6exjm5o" path="res://assets/art/static/levelObjects/static/pencilLead.png" id="2_vj5o0"]
 
 [node name="pencilLead" instance=ExtResource("1_w2jyb")]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://od1ncow7ce6u"]
 
-[ext_resource type="Texture2D" uid="uid://b436o5bxkvbin" path="res://assets/art/static/levelObjects/stapleRemoverLower.png" id="1_xp6fo"]
-[ext_resource type="Texture2D" uid="uid://cu80be3s4s0q5" path="res://assets/art/static/levelObjects/stapleRemoverTop.png" id="2_7b6kb"]
+[ext_resource type="Texture2D" uid="uid://b436o5bxkvbin" path="res://assets/art/static/levelObjects/multipart/stapleRemoverLower.png" id="1_xp6fo"]
+[ext_resource type="Texture2D" uid="uid://cu80be3s4s0q5" path="res://assets/art/static/levelObjects/multipart/stapleRemoverTop.png" id="2_7b6kb"]
 
 [sub_resource type="Animation" id="Animation_tw72v"]
 length = 0.001
@@ -283,3 +283,4 @@ disabled = true
 libraries = {
 &"": SubResource("AnimationLibrary_kvfa4")
 }
+autoplay = "attackLoop"

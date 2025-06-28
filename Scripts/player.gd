@@ -48,7 +48,7 @@ signal lineMakerFinished;
 @export var airReistance : int = 15;
 
 @export_subgroup("Physics")
-@export var pushForce : int = 40;
+@export var pushForce : int = 100;
 
 @export_subgroup("Drawing")
 @export var drawingRange : int = 300;

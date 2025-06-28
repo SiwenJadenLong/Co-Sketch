@@ -1,11 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2js4gmkrqyh2"]
+[gd_scene load_steps=17 format=3 uid="uid://c2js4gmkrqyh2"]
 
+[ext_resource type="Theme" uid="uid://dos2n8l3uv48h" path="res://assets/Resources/buttontextonbackground.tres" id="1_bxn4f"]
 [ext_resource type="Script" uid="uid://cvbvujsn8gp4c" path="res://Scripts/levelButton.gd" id="1_djhdf"]
+[ext_resource type="Texture2D" uid="uid://ctie363mb5iu3" path="res://assets/art/static/UI/backing1.png" id="2_btco6"]
+[ext_resource type="Texture2D" uid="uid://chdtfc5fiyth5" path="res://assets/art/static/UI/backing2.png" id="3_bxn4f"]
+[ext_resource type="Texture2D" uid="uid://c1jwawa44d2du" path="res://assets/art/static/UI/backing3.png" id="4_8srgy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxn4f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8srgy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnhi3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uaoc4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yvvmx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jh8k1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsyhk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lkull"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trfwb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twalo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6mnk"]
 
 [node name="Level Button" type="Button"]
-offset_right = 78.0
+texture_filter = 1
+offset_right = 182.0
 offset_bottom = 78.0
+theme = ExtResource("1_bxn4f")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bxn4f")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8srgy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bnhi3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uaoc4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_yvvmx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_jh8k1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vsyhk")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lkull")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_trfwb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_twalo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r6mnk")
 text = "LEVEL (#)"
 script = ExtResource("1_djhdf")
+randomButtonBackground = Array[Texture2D]([ExtResource("2_btco6"), ExtResource("3_bxn4f"), ExtResource("4_8srgy")])
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 199.0
+offset_bottom = 93.0
+texture = ExtResource("4_8srgy")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

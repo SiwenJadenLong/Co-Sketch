@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlfl1f8omo7yw"]
 
 [ext_resource type="PackedScene" uid="uid://bgeo05ltoweyt" path="res://scenes/objects/levelstatics/objectPolygonTemplete.tscn" id="1_ypj3y"]
-[ext_resource type="Texture2D" uid="uid://chjfbcnp2wais" path="res://assets/art/static/levelObjects/sharpie.png" id="2_ltr2n"]
+[ext_resource type="Texture2D" uid="uid://chjfbcnp2wais" path="res://assets/art/static/levelObjects/static/sharpie.png" id="2_ltr2n"]
 
 [node name="sharpie" instance=ExtResource("1_ypj3y")]
 

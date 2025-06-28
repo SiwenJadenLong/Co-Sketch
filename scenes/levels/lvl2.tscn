@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dgx3v74vs7b5x"]
 
-[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/levels/LevelTemplete.tscn" id="1_syvye"]
-[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="2_0b2i4"]
+[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/LevelTemplete.tscn" id="1_syvye"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/Killobjects/cannon.tscn" id="2_0b2i4"]
 [ext_resource type="PackedScene" uid="uid://0vlwe6pkgpcx" path="res://scenes/objects/levelstatics/ruler.tscn" id="2_w6uo3"]
 [ext_resource type="PackedScene" uid="uid://bs4d12kq8hyx2" path="res://scenes/objects/levelstatics/woodenPencil.tscn" id="3_0b2i4"]
 [ext_resource type="PackedScene" uid="uid://sun1koc5iny8" path="res://scenes/objects/levelstatics/pencilSharpener.tscn" id="4_t6krm"]
@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c3go8ov38w3df" path="res://scenes/objects/levelstatics/redPen.tscn" id="7_dn8pr"]
 [ext_resource type="PackedScene" uid="uid://cd66mt6mbhrse" path="res://scenes/objects/levelstatics/ram.tscn" id="8_2eqvk"]
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="9_dn8pr"]
-[ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/Animated/scissors.tscn" id="10_2eqvk"]
+[ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/Killobjects/scissors.tscn" id="10_2eqvk"]
 
-[node name="map2" instance=ExtResource("1_syvye")]
+[node name="map" instance=ExtResource("1_syvye")]
 levelNumber = "2"
 initInkLimit = 1000.0
 
@@ -61,17 +61,12 @@ rotation = -1.72115
 
 [node name="Player" parent="players" index="0"]
 position = Vector2(-267, 212)
-debug = true
 
 [node name="Player2" parent="players" index="1"]
 position = Vector2(-370, 213)
-debug = true
 
 [node name="Polygon2D" parent="ground/viewBoxBorder" index="1"]
 color = Color(0.9, 0.9, 1, 1)
 polygon = PackedVector2Array(-633, -334, 633, -334, 633, 334, -633, 334)
-
-[node name="cursor" parent="lineMaker" index="0"]
-debug = true
 
 [editable path="lineMaker"]

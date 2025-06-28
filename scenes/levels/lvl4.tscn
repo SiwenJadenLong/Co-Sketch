@@ -1,23 +1,25 @@
-[gd_scene load_steps=17 format=3 uid="uid://dnv6docjmd1x7"]
+[gd_scene load_steps=18 format=3 uid="uid://dnv6docjmd1x7"]
 
-[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/levels/LevelTemplete.tscn" id="1_ccend"]
+[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/LevelTemplete.tscn" id="1_ccend"]
 [ext_resource type="PackedScene" uid="uid://ymvbtw6n8hyj" path="res://scenes/objects/levelstatics/plasticPencilSharpener.tscn" id="2_i8kah"]
 [ext_resource type="PackedScene" uid="uid://ccm4byyiutv1s" path="res://scenes/objects/levelstatics/redUsb.tscn" id="3_5axt1"]
-[ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/Animated/scissors.tscn" id="4_vvg6j"]
-[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/cannon.tscn" id="5_6r67h"]
+[ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/Killobjects/scissors.tscn" id="4_vvg6j"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/Killobjects/cannon.tscn" id="5_6r67h"]
 [ext_resource type="PackedScene" uid="uid://u1rrwhwt2drr" path="res://scenes/objects/levelstatics/tapeDispenser.tscn" id="6_etp8i"]
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="7_b65t1"]
 [ext_resource type="PackedScene" uid="uid://c3go8ov38w3df" path="res://scenes/objects/levelstatics/redPen.tscn" id="8_vvg6j"]
-[ext_resource type="PackedScene" uid="uid://csho1iirubrk1" path="res://scenes/objects/Animated/stamp.tscn" id="9_6r67h"]
+[ext_resource type="PackedScene" uid="uid://csho1iirubrk1" path="res://scenes/objects/Killobjects/stamp.tscn" id="9_6r67h"]
 [ext_resource type="PackedScene" uid="uid://cckvww8n4cu5e" path="res://scenes/objects/levelstatics/lipBlam.tscn" id="10_6r67h"]
 [ext_resource type="PackedScene" uid="uid://c2rjyc6g5b20r" path="res://scenes/objects/levelstatics/blackPen.tscn" id="11_etp8i"]
-[ext_resource type="PackedScene" uid="uid://od1ncow7ce6u" path="res://scenes/objects/Animated/stapleRemover.tscn" id="12_b65t1"]
+[ext_resource type="PackedScene" uid="uid://od1ncow7ce6u" path="res://scenes/objects/levelstatics/stapleRemover.tscn" id="12_b65t1"]
 [ext_resource type="PackedScene" uid="uid://bs4d12kq8hyx2" path="res://scenes/objects/levelstatics/woodenPencil.tscn" id="13_jbuoe"]
 [ext_resource type="PackedScene" uid="uid://cywgftjbo7sds" path="res://scenes/objects/levelstatics/pencilLead.tscn" id="14_jendw"]
 [ext_resource type="PackedScene" uid="uid://0vlwe6pkgpcx" path="res://scenes/objects/levelstatics/ruler.tscn" id="15_x2qb3"]
 [ext_resource type="PackedScene" uid="uid://cehyued3e0o7t" path="res://scenes/objects/levelstatics/bluePen.tscn" id="16_jendw"]
+[ext_resource type="PackedScene" uid="uid://cxo4mmi1n4xwh" path="res://scenes/objects/Killobjects/paperShredder.tscn" id="17_x2qb3"]
 
-[node name="map3" instance=ExtResource("1_ccend")]
+[node name="map" instance=ExtResource("1_ccend")]
+levelNumber = "4"
 initInkLimit = 2500.0
 
 [node name="door" parent="objects" index="0"]
@@ -71,7 +73,6 @@ rotation = -1.0472
 [node name="stapleRemover" parent="objects" index="12" instance=ExtResource("12_b65t1")]
 position = Vector2(537, 334)
 rotation = 3.92699
-attackSpeed = 0.5
 
 [node name="woodenPencil" parent="objects" index="13" instance=ExtResource("13_jbuoe")]
 position = Vector2(1, -152)
@@ -80,11 +81,13 @@ position = Vector2(1, -152)
 position = Vector2(-244, 14)
 scale = Vector2(0.5, 0.5)
 stomping = true
+speedMultiplier = 0.5
 
 [node name="stamp4" parent="objects" index="15" instance=ExtResource("9_6r67h")]
 position = Vector2(-377, 34)
 scale = Vector2(0.5, 0.5)
 stomping = true
+speedMultiplier = 0.5
 
 [node name="cannon3" parent="objects" index="16" instance=ExtResource("5_6r67h")]
 position = Vector2(-591, -290)
@@ -99,44 +102,30 @@ offsetDelay = 1.0
 position = Vector2(-500, -291)
 rotation = -1.57079
 
-[node name="stapleRemover2" parent="objects" index="19" instance=ExtResource("12_b65t1")]
-position = Vector2(-393, 287)
-rotation = 4.71238
-scale = Vector2(0.5, 0.5)
-attackSpeed = 0.5
-
-[node name="pencilLead" parent="objects" index="20" instance=ExtResource("14_jendw")]
+[node name="pencilLead" parent="objects" index="19" instance=ExtResource("14_jendw")]
 position = Vector2(-437, -405)
 
-[node name="redPen2" parent="objects" index="21" instance=ExtResource("8_vvg6j")]
+[node name="redPen2" parent="objects" index="20" instance=ExtResource("8_vvg6j")]
 position = Vector2(-765, 58)
 rotation = 3.14159
 
-[node name="ruler" parent="objects" index="22" instance=ExtResource("15_x2qb3")]
+[node name="ruler" parent="objects" index="21" instance=ExtResource("15_x2qb3")]
 position = Vector2(-708, 209)
 
-[node name="redUsb2" parent="objects" index="23" instance=ExtResource("3_5axt1")]
+[node name="redUsb2" parent="objects" index="22" instance=ExtResource("3_5axt1")]
 position = Vector2(-455, 61)
 scale = Vector2(0.5, 0.5)
 
-[node name="stapleRemover3" parent="objects" index="24" instance=ExtResource("12_b65t1")]
-position = Vector2(-341, 286)
-rotation = 4.71238
-scale = Vector2(0.5, 0.5)
-attackSpeed = 0.5
+[node name="bluePen" parent="objects" index="23" instance=ExtResource("16_jendw")]
+position = Vector2(-271, 36)
+rotation = -0.261799
 
-[node name="stapleRemover4" parent="objects" index="25" instance=ExtResource("12_b65t1")]
-position = Vector2(-279, 282)
-rotation = 4.71238
-scale = Vector2(0.5, 0.5)
-attackSpeed = 0.5
+[node name="paperShredder" parent="objects" index="24" instance=ExtResource("17_x2qb3")]
+position = Vector2(-351, 334)
+scale = Vector2(1.91525, 0.814989)
 
 [node name="Player" parent="players" index="0"]
 position = Vector2(-54, -185)
 
 [node name="Player2" parent="players" index="1"]
 position = Vector2(80, -231)
-
-[node name="bluePen" parent="." index="8" instance=ExtResource("16_jendw")]
-position = Vector2(-271, 36)
-rotation = -0.261799
