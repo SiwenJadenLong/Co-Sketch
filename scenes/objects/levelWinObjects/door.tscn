@@ -11,8 +11,10 @@ size = Vector2(50, 50)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_taevt")
-openDoor = ExtResource("2_sdp2h")
-closedDoor = ExtResource("2_5nc7h")
+openOrangeDoor = ExtResource("2_sdp2h")
+closedOrangeDoor = ExtResource("2_5nc7h")
+openBlueDoor = ExtResource("2_sdp2h")
+closedBlueDoor = ExtResource("2_5nc7h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_aji8h")

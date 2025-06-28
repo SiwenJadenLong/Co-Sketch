@@ -33,9 +33,11 @@ rotation = -3.14159
 
 [node name="woodenPencil" parent="objects" index="5" instance=ExtResource("3_0b2i4")]
 position = Vector2(436, 1)
+scale = Vector2(1, 1)
 
 [node name="woodenPencil3" parent="objects" index="6" instance=ExtResource("3_0b2i4")]
 position = Vector2(-306, 242)
+scale = Vector2(1, 1)
 
 [node name="pencilSharpener" parent="objects" index="7" instance=ExtResource("4_t6krm")]
 position = Vector2(-169, 146)

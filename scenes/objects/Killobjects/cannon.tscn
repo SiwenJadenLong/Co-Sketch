@@ -2,38 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cslk0ke0hrf8c" path="res://Scripts/cannon.gd" id="1_geuh0"]
 [ext_resource type="PackedScene" uid="uid://bib4qlldm8vj5" path="res://scenes/objects/Killobjects/cannonBall.tscn" id="2_ebaxk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_geuh0"]
-size = Vector2(80, 40)
+[ext_resource type="Texture2D" uid="uid://2ccgbqxnbyyq" path="res://assets/art/static/levelObjects/multipart/correctionFluid.png" id="3_fa7f0"]
 
 [node name="cannon" type="StaticBody2D"]
 script = ExtResource("1_geuh0")
 projectileObject = ExtResource("2_ebaxk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_geuh0")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-22, -17, 35, -17, 40, -6, 40, 6, 35, 17, -22, 17, -25, 6, -40, 6, -40, -6, -26, -6)
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -20.0
-offset_right = -26.0
-offset_bottom = 20.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.384886, 0.384886)
+texture = ExtResource("3_fa7f0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

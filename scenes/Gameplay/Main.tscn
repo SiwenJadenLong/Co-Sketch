@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=75 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="Script" uid="uid://x76rmtn2xmec" path="res://Scripts/deathMarkers.gd" id="2_6301w"]
@@ -38,6 +38,12 @@
 [ext_resource type="Texture2D" uid="uid://cfo7j6m5klnjk" path="res://assets/art/static/UI/background textures/mrcromlageStapler.png" id="32_0xqjo"]
 [ext_resource type="Texture2D" uid="uid://ct3klewejt5pt" path="res://assets/art/static/UI/background textures/lowResCrumbledLinedPaper.png" id="33_0xqjo"]
 [ext_resource type="Texture2D" uid="uid://cqku8g5c7rtby" path="res://assets/art/static/UI/exit2.png" id="37_6ec0n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0xqjo"]
+font = ExtResource("5_fkpln")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r8rs"]
 bg_color = Color(0.207843, 0.780392, 1, 1)
@@ -175,14 +181,16 @@ offset_bottom = 83.75
 grow_horizontal = 2
 theme_override_constants/margin_top = 5
 
-[node name="Panel" type="Panel" parent="mainUI/stats/MarginContainer"]
-visible = false
-layout_mode = 2
-
 [node name="HBoxContainer" type="HBoxContainer" parent="mainUI/stats/MarginContainer"]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 alignment = 1
+
+[node name="Label" type="Label" parent="mainUI/stats/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Ink:"
+label_settings = SubResource("LabelSettings_0xqjo")
 
 [node name="inkBar" type="ProgressBar" parent="mainUI/stats/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
@@ -479,7 +487,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 70
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer"]
@@ -504,7 +512,7 @@ horizontal_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8r8rs")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
@@ -526,7 +534,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_fkpln")
 [node name="perLevelDeaths" type="Label" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Deaths: 18"
+text = "Deaths: X"
 label_settings = SubResource("LabelSettings_6ec0n")
 horizontal_alignment = 1
 
@@ -550,7 +558,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_qeedf")
 [node name="perLevelDeaths" type="Label" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Deaths: 2"
+text = "Deaths: X"
 label_settings = SubResource("LabelSettings_6ec0n")
 horizontal_alignment = 1
 
@@ -723,3 +731,4 @@ texture_normal = ExtResource("37_6ec0n")
 [connection signal="timeout" from="mainUI/mainMenu/Timer" to="mainUI/mainMenu" method="_on_timer_timeout"]
 [connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect3/Level Select" to="mainUI/winScreen" method="winScreenLevelSelectPressed"]
 [connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect4/Next Level" to="mainUI/winScreen" method="winScreenNextLevelPressed"]
+[connection signal="pressed" from="mainUI/levelSelect/Exit Button" to="mainUI/levelSelect" method="levelSelectExitPressed"]

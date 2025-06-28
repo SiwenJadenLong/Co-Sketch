@@ -19,7 +19,7 @@ var focused : button;
 @onready var settings: TextureButton = $VBoxContainer/Settings;
 @onready var quit: TextureButton = $VBoxContainer/Quit;
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	match focused:
 		button.start:
 			highLight.position.y = move_toward(highLight.position.y, 282.0,10);

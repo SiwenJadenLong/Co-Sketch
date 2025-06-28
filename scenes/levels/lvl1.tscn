@@ -14,13 +14,9 @@ initInkLimit = 200.0
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(-522, -64)
-openDoor = null
-closedDoor = null
 
 [node name="door2" parent="objects" index="1"]
 position = Vector2(-382, -65)
-openDoor = null
-closedDoor = null
 
 [node name="sharpie" parent="objects" index="2" instance=ExtResource("9_dn8pr")]
 position = Vector2(443, 159)
@@ -46,7 +42,7 @@ scale = Vector2(0.5, 0.5)
 [node name="woodenPencil" parent="objects" index="8" instance=ExtResource("3_0b2i4")]
 position = Vector2(457, 55)
 rotation = -0.481711
-scale = Vector2(0.5, 0.5)
+scale = Vector2(1, 1)
 
 [node name="ruler2" parent="objects" index="9" instance=ExtResource("2_w6uo3")]
 position = Vector2(353, 350)

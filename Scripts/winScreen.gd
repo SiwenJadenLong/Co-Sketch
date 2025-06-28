@@ -7,8 +7,6 @@ extends Control
 func _ready():
 	SignalBus.levelWon.connect(_levelWon)
 
-func _process(delta):
-	pass
 func _levelWon():
 	finalTime.text = "Finished in: %s" % str(GlobalVariables.levelTime).pad_decimals(2);
 	player1Deaths.text = "Deaths: %s" % GlobalVariables.perLevelOrangeDeathCounter;

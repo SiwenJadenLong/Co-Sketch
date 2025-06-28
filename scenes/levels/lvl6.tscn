@@ -1,0 +1,138 @@
+[gd_scene load_steps=18 format=3 uid="uid://yydqubnff5th"]
+
+[ext_resource type="PackedScene" uid="uid://p0m3x403thtk" path="res://scenes/LevelTemplete.tscn" id="1_tni81"]
+[ext_resource type="PackedScene" uid="uid://ccm4byyiutv1s" path="res://scenes/objects/levelstatics/redUsb.tscn" id="2_g5nqd"]
+[ext_resource type="PackedScene" uid="uid://cd66mt6mbhrse" path="res://scenes/objects/levelstatics/ram.tscn" id="3_8mhbi"]
+[ext_resource type="PackedScene" uid="uid://cxo4mmi1n4xwh" path="res://scenes/objects/Killobjects/paperShredder.tscn" id="4_6aapk"]
+[ext_resource type="PackedScene" uid="uid://csho1iirubrk1" path="res://scenes/objects/Killobjects/stamp.tscn" id="5_1y3cb"]
+[ext_resource type="PackedScene" uid="uid://c2rjyc6g5b20r" path="res://scenes/objects/levelstatics/blackPen.tscn" id="6_6e3js"]
+[ext_resource type="PackedScene" uid="uid://bgw07yacjftr3" path="res://scenes/objects/levelstatics/blueUsb.tscn" id="7_k8mm2"]
+[ext_resource type="PackedScene" uid="uid://ccu12p6n7mqve" path="res://scenes/objects/Killobjects/cannon.tscn" id="8_f0ypn"]
+[ext_resource type="PackedScene" uid="uid://br7rq2xhklrhh" path="res://scenes/objects/levelstatics/blueFlippyUsb.tscn" id="9_6aapk"]
+[ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="9_48vl6"]
+[ext_resource type="PackedScene" uid="uid://di0qhxyxmndq5" path="res://scenes/objects/Killobjects/scissors.tscn" id="10_1y3cb"]
+[ext_resource type="PackedScene" uid="uid://0vlwe6pkgpcx" path="res://scenes/objects/levelstatics/ruler.tscn" id="10_3vvh0"]
+[ext_resource type="PackedScene" uid="uid://c0avyrit42j1x" path="res://scenes/objects/levelstatics/paperClip.tscn" id="11_6e3js"]
+[ext_resource type="PackedScene" uid="uid://cywgftjbo7sds" path="res://scenes/objects/levelstatics/pencilLead.tscn" id="12_1y3cb"]
+[ext_resource type="PackedScene" uid="uid://c3go8ov38w3df" path="res://scenes/objects/levelstatics/redPen.tscn" id="14_6e3js"]
+[ext_resource type="PackedScene" uid="uid://7tjt7ofx4aum" path="res://scenes/objects/levelstatics/purplePen.tscn" id="16_k8mm2"]
+[ext_resource type="PackedScene" uid="uid://cckvww8n4cu5e" path="res://scenes/objects/levelstatics/lipBlam.tscn" id="17_f0ypn"]
+
+[node name="map" instance=ExtResource("1_tni81")]
+initInkLimit = 2000.0
+
+[node name="door" parent="objects" index="0"]
+position = Vector2(-362, 93)
+
+[node name="door2" parent="objects" index="1"]
+position = Vector2(610, -224)
+
+[node name="redUsb" parent="objects" index="2" instance=ExtResource("2_g5nqd")]
+position = Vector2(-38, -202)
+
+[node name="ram" parent="objects" index="3" instance=ExtResource("3_8mhbi")]
+position = Vector2(-295, -14)
+
+[node name="paperShredder" parent="objects" index="4" instance=ExtResource("4_6aapk")]
+position = Vector2(-295, -96)
+scale = Vector2(3.01724, 1.52201)
+
+[node name="stamp" parent="objects" index="5" instance=ExtResource("5_1y3cb")]
+position = Vector2(-57, -169)
+rotation = -3.14159
+scale = Vector2(0.8, 0.8)
+stomping = true
+
+[node name="blackPen" parent="objects" index="6" instance=ExtResource("6_6e3js")]
+position = Vector2(-295, -440)
+rotation = 1.57079
+
+[node name="blueUsb" parent="objects" index="7" instance=ExtResource("7_k8mm2")]
+position = Vector2(-468, -123)
+rotation = -1.57079
+scale = Vector2(0.5, 0.5)
+
+[node name="cannon" parent="objects" index="8" instance=ExtResource("8_f0ypn")]
+position = Vector2(-626, -224)
+rotation = -3.14159
+firing_timer = 4.0
+
+[node name="cannon2" parent="objects" index="9" instance=ExtResource("8_f0ypn")]
+position = Vector2(-626, -285)
+rotation = -3.14159
+
+[node name="objectName" parent="objects" index="10" instance=ExtResource("9_6aapk")]
+position = Vector2(-295, 166)
+rotation = -1.57079
+
+[node name="scissors" parent="objects" index="11" instance=ExtResource("10_1y3cb")]
+position = Vector2(-295, 384)
+rotation = -1.57079
+
+[node name="paperclip" parent="objects" index="12" instance=ExtResource("11_6e3js")]
+position = Vector2(-432, 83)
+rotation = -1.57079
+
+[node name="paperShredder2" parent="objects" index="13" instance=ExtResource("4_6aapk")]
+position = Vector2(312, -323)
+scale = Vector2(3.88, 1)
+
+[node name="stamp2" parent="objects" index="14" instance=ExtResource("5_1y3cb")]
+position = Vector2(457, -81)
+scale = Vector2(0.5, 0.5)
+stomping = true
+speedMultiplier = 0.5
+
+[node name="stamp3" parent="objects" index="15" instance=ExtResource("5_1y3cb")]
+position = Vector2(335, -81)
+scale = Vector2(0.5, 0.5)
+stomping = true
+offsetDelay = 1.0
+speedMultiplier = 0.5
+
+[node name="stamp4" parent="objects" index="16" instance=ExtResource("5_1y3cb")]
+position = Vector2(212, -81)
+scale = Vector2(0.5, 0.5)
+stomping = true
+offsetDelay = 2.0
+speedMultiplier = 0.5
+
+[node name="paperShredder3" parent="objects" index="17" instance=ExtResource("4_6aapk")]
+position = Vector2(335, 36)
+scale = Vector2(3.52, 1)
+
+[node name="pencilLead" parent="objects" index="18" instance=ExtResource("12_1y3cb")]
+position = Vector2(93, 26)
+rotation = -1.309
+scale = Vector2(0.406805, 0.406805)
+
+[node name="ruler" parent="objects" index="19" instance=ExtResource("10_3vvh0")]
+position = Vector2(335, 60)
+scale = Vector2(0.671876, 0.671876)
+
+[node name="redPen" parent="objects" index="20" instance=ExtResource("14_6e3js")]
+position = Vector2(-122, 334)
+rotation = 2.87979
+
+[node name="cannon3" parent="objects" index="21" instance=ExtResource("8_f0ypn")]
+position = Vector2(617, 313)
+
+[node name="Player" parent="players" index="0"]
+position = Vector2(560, -223)
+
+[node name="Player2" parent="players" index="1"]
+position = Vector2(-26, -260)
+
+[node name="sharpie" parent="players" index="2" instance=ExtResource("9_48vl6")]
+position = Vector2(713, -169)
+
+[node name="ruler" parent="players" index="3" instance=ExtResource("10_3vvh0")]
+position = Vector2(115, -463)
+rotation = 1.83259
+
+[node name="purplePen" parent="." index="7" instance=ExtResource("16_k8mm2")]
+position = Vector2(692, 171)
+
+[node name="lipBlam" parent="." index="8" instance=ExtResource("17_f0ypn")]
+position = Vector2(-581, 286)
+rotation = 0.785397

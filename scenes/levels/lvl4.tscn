@@ -76,6 +76,7 @@ rotation = 3.92699
 
 [node name="woodenPencil" parent="objects" index="13" instance=ExtResource("13_jbuoe")]
 position = Vector2(1, -152)
+scale = Vector2(1, 1)
 
 [node name="stamp3" parent="objects" index="14" instance=ExtResource("9_6r67h")]
 position = Vector2(-244, 14)

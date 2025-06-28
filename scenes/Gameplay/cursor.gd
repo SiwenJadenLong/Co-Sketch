@@ -48,7 +48,7 @@ func setPlayerEditor(playerColor: String):
 	else:
 		printerr("playerColor in setPlayerEditor() is not a valid type");
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	position = get_global_mouse_position();
 	
 	if line.get_point_count() == 0:
@@ -109,7 +109,7 @@ func addLinePoint(mousePosition: Vector2) -> void:
 				collision.name = "Segment%sHitbox" % (line.get_point_count()-1) ;
 				collision.shape = newSegmentShape;
 				
-				var combinedPosition : Vector2
+				var combinedPosition : Vector2;
 				var numberOfPoints : int = line.get_point_count();
 				for lineIndex in numberOfPoints:
 					combinedPosition += line.get_point_position(lineIndex);

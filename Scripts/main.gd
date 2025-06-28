@@ -43,9 +43,15 @@ func unloadLevel():
 		levelInstance.queue_free();
 	levelInstance = null;
 
-func loadNewLevel(levelnumber : int):
+func loadNewLevel(levelnumber):
 	unloadLevel();
-	var levelPath : String = "res://scenes/levels/lvl%s.tscn" % str(levelnumber);
+	var levelPath : String
+#	If
+	if levelnumber is int:
+		levelPath = "res://scenes/levels/lvl%s.tscn" % str(levelnumber);
+	else:
+		levelPath = "res://scenes/levels/%s.tscn" % levelnumber;
+	
 	var levelResource : PackedScene = load(levelPath);
 	if levelResource:
 		levelInstance = levelResource.instantiate();
@@ -65,6 +71,7 @@ func _input(event):
 	if event.is_action("Pause") and canPause:
 		togglePause();
 
+#hide pause, level select, main menu, win screen, unpause tree, paused set to false.
 func hideallpopupui():
 	paused = false;
 	levelContainer.process_mode = Node.PROCESS_MODE_INHERIT;
