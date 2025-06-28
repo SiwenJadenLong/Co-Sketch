@@ -732,6 +732,7 @@ texture_normal = ExtResource("37_6ec0n")
 [connection signal="mouse_entered" from="mainUI/mainMenu/VBoxContainer/Settings" to="mainUI/mainMenu" method="_on_settings_mouse_entered"]
 [connection signal="focus_entered" from="mainUI/mainMenu/VBoxContainer/Quit" to="mainUI/mainMenu" method="_on_quit_focus_entered"]
 [connection signal="mouse_entered" from="mainUI/mainMenu/VBoxContainer/Quit" to="mainUI/mainMenu" method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="mainUI/mainMenu/VBoxContainer/Quit" to="mainUI/mainMenu" method="onQuitPressed"]
 [connection signal="timeout" from="mainUI/mainMenu/Timer" to="mainUI/mainMenu" method="_on_timer_timeout"]
 [connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect3/Level Select" to="mainUI/winScreen" method="winScreenLevelSelectPressed"]
 [connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect4/Next Level" to="mainUI/winScreen" method="winScreenNextLevelPressed"]

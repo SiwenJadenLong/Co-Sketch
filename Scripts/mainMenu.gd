@@ -77,3 +77,7 @@ func _on_settings_mouse_entered() -> void:
 
 func _on_quit_mouse_entered() -> void:
 	focused = button.quit;
+
+
+func onQuitPressed() -> void:
+	get_tree().quit();
