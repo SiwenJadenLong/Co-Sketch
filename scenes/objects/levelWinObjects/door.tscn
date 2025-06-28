@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://di8x2ilgml1fg"]
+[gd_scene load_steps=8 format=3 uid="uid://di8x2ilgml1fg"]
 
 [ext_resource type="Script" uid="uid://xo8odklcdrjn" path="res://Scripts/door.gd" id="1_taevt"]
-[ext_resource type="Texture2D" uid="uid://8m20lesuv6ru" path="res://assets/art/static/levelObjects/interactable/closedDoorplace.png" id="2_5nc7h"]
-[ext_resource type="Texture2D" uid="uid://c7dyn8fxslmar" path="res://assets/art/static/levelObjects/interactable/openDoorplace.png" id="2_sdp2h"]
+[ext_resource type="Texture2D" uid="uid://jfxkdab6c5g4" path="res://assets/art/static/levelObjects/interactable/orangeDoorRight.png" id="2_mv7jf"]
+[ext_resource type="Texture2D" uid="uid://6ort3bx6sgq" path="res://assets/art/static/levelObjects/interactable/OrangeDoorFull.png" id="3_44e7i"]
+[ext_resource type="Texture2D" uid="uid://ye816fg2rfe6" path="res://assets/art/static/levelObjects/interactable/blueDoorRight.png" id="4_i1rh2"]
+[ext_resource type="Texture2D" uid="uid://ccxfybt7kevce" path="res://assets/art/static/levelObjects/interactable/blueDoorFull.png" id="5_k3snx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aji8h"]
 size = Vector2(50, 50)
@@ -15,18 +17,18 @@ outline_color = Color(0, 0, 0, 1)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_taevt")
-openOrangeDoor = ExtResource("2_sdp2h")
-closedOrangeDoor = ExtResource("2_5nc7h")
-openBlueDoor = ExtResource("2_sdp2h")
-closedBlueDoor = ExtResource("2_5nc7h")
+openOrangeDoor = ExtResource("2_mv7jf")
+closedOrangeDoor = ExtResource("3_44e7i")
+openBlueDoor = ExtResource("4_i1rh2")
+closedBlueDoor = ExtResource("5_k3snx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_aji8h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_5nc7h")
+scale = Vector2(0.333181, 0.333181)
+texture = ExtResource("3_44e7i")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5

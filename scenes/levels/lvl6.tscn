@@ -84,17 +84,16 @@ stomping = true
 speedMultiplier = 0.5
 
 [node name="stamp3" parent="objects" index="15" instance=ExtResource("5_1y3cb")]
-position = Vector2(335, -81)
-scale = Vector2(0.5, 0.5)
-stomping = true
-offsetDelay = 1.0
-speedMultiplier = 0.5
-
-[node name="stamp4" parent="objects" index="16" instance=ExtResource("5_1y3cb")]
-position = Vector2(212, -81)
+position = Vector2(347, -81)
 scale = Vector2(0.5, 0.5)
 stomping = true
 offsetDelay = 2.0
+speedMultiplier = 0.5
+
+[node name="stamp4" parent="objects" index="16" instance=ExtResource("5_1y3cb")]
+position = Vector2(237, -81)
+scale = Vector2(0.5, 0.5)
+stomping = true
 speedMultiplier = 0.5
 
 [node name="paperShredder3" parent="objects" index="17" instance=ExtResource("4_6aapk")]
@@ -117,6 +116,13 @@ rotation = 2.87979
 [node name="cannon3" parent="objects" index="21" instance=ExtResource("8_f0ypn")]
 position = Vector2(617, 313)
 
+[node name="purplePen" parent="objects" index="22" instance=ExtResource("16_k8mm2")]
+position = Vector2(692, 171)
+
+[node name="lipBlam" parent="objects" index="23" instance=ExtResource("17_f0ypn")]
+position = Vector2(-581, 286)
+rotation = 0.785397
+
 [node name="Player" parent="players" index="0"]
 position = Vector2(560, -223)
 
@@ -129,10 +135,3 @@ position = Vector2(713, -169)
 [node name="ruler" parent="players" index="3" instance=ExtResource("10_3vvh0")]
 position = Vector2(115, -463)
 rotation = 1.83259
-
-[node name="purplePen" parent="." index="7" instance=ExtResource("16_k8mm2")]
-position = Vector2(692, 171)
-
-[node name="lipBlam" parent="." index="8" instance=ExtResource("17_f0ypn")]
-position = Vector2(-581, 286)
-rotation = 0.785397

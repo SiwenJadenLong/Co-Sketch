@@ -25,6 +25,7 @@ func _enter_tree():
 		"Blue":
 			openDoor = openBlueDoor;
 			closedDoor = closedBlueDoor;
+	$Sprite2D.texture = closedDoor;
 
 
 func _on_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
