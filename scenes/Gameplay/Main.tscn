@@ -1,14 +1,14 @@
-[gd_scene load_steps=73 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=74 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="Script" uid="uid://x76rmtn2xmec" path="res://Scripts/deathMarkers.gd" id="2_6301w"]
-[ext_resource type="Script" path="res://Scripts/transitions.gd" id="3_7il0k"]
-[ext_resource type="Script" path="res://Scripts/pauseMenu.gd" id="3_as2w2"]
+[ext_resource type="Script" uid="uid://dd7wbono7p6cg" path="res://Scripts/transitions.gd" id="3_7il0k"]
+[ext_resource type="Script" uid="uid://bwmopnkpq6mpn" path="res://Scripts/pauseMenu.gd" id="3_as2w2"]
 [ext_resource type="Theme" uid="uid://bwpi0vjp0opks" path="res://assets/Resources/Text Buttons.tres" id="3_va4b4"]
 [ext_resource type="Script" uid="uid://dv87gvks1sqgl" path="res://Scripts/stats.gd" id="4_kbq0m"]
 [ext_resource type="LabelSettings" uid="uid://bopv5knqrlyrk" path="res://assets/Resources/Big Time font.tres" id="5_0r74j"]
 [ext_resource type="FontFile" uid="uid://mpyutpjtpxma" path="res://assets/Resources/HalfTermSchoolsOut-V4q5l.ttf" id="5_fkpln"]
-[ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="5_u0cjw"]
+[ext_resource type="Script" uid="uid://b5cc58y1geqse" path="res://Scripts/mainMenu.gd" id="5_u0cjw"]
 [ext_resource type="Script" uid="uid://dgmq2vk28tnxd" path="res://Scripts/levelSelect.gd" id="7_as2w2"]
 [ext_resource type="Script" uid="uid://ycodo2nkmy1y" path="res://Scripts/winScreen.gd" id="7_kbq0m"]
 [ext_resource type="Texture2D" uid="uid://b76l5osjarrco" path="res://assets/art/static/UI/background textures/comboBackground1.png" id="9_cjdp4"]
@@ -23,7 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://co5ogstis7v0s" path="res://assets/art/static/player1Full.svg" id="12_8r8rs"]
 [ext_resource type="Texture2D" uid="uid://bk5caw23cbcrl" path="res://assets/art/static/UI/highres-Co-Sketch2.png" id="12_ewm06"]
 [ext_resource type="Texture2D" uid="uid://chdtfc5fiyth5" path="res://assets/art/static/UI/backing2.png" id="12_q4uja"]
-[ext_resource type="LabelSettings" uid="uid://dwcqy68hq7t66" path="res://assets/Resources/PlayerDeaths.tres" id="13_0r74j"]
 [ext_resource type="Texture2D" uid="uid://bgdnqecyggx8g" path="res://assets/art/static/player2Full.svg" id="13_acxsw"]
 [ext_resource type="Texture2D" uid="uid://c1jwawa44d2du" path="res://assets/art/static/UI/backing3.png" id="13_mbipg"]
 [ext_resource type="Texture2D" uid="uid://dvv3uj64xmpq" path="res://assets/art/static/UI/lowResLevelSelect.png" id="13_qeedf"]
@@ -36,8 +35,9 @@
 [ext_resource type="Texture2D" uid="uid://dm0evmyqgopqq" path="res://assets/art/static/UI/lowResEraser.png" id="17_ewm06"]
 [ext_resource type="Texture2D" uid="uid://c7drhvovx4rx7" path="res://assets/art/static/UI/lowResPencil.png" id="18_muheq"]
 [ext_resource type="Texture2D" uid="uid://bsndmx8wt2jkt" path="res://assets/art/static/UI/highlight1.png" id="19_cxvb2"]
+[ext_resource type="Texture2D" uid="uid://cfo7j6m5klnjk" path="res://assets/art/static/UI/background textures/mrcromlageStapler.png" id="32_0xqjo"]
 [ext_resource type="Texture2D" uid="uid://ct3klewejt5pt" path="res://assets/art/static/UI/background textures/lowResCrumbledLinedPaper.png" id="33_0xqjo"]
-[ext_resource type="Texture2D" uid="uid://hw577gk6xgie" path="res://assets/art/static/UI/exit1.png" id="37_6ec0n"]
+[ext_resource type="Texture2D" uid="uid://cqku8g5c7rtby" path="res://assets/art/static/UI/exit2.png" id="37_6ec0n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r8rs"]
 bg_color = Color(0.207843, 0.780392, 1, 1)
@@ -117,6 +117,12 @@ default_font = SubResource("SystemFont_fsby3")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8r8rs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkpln"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ec0n"]
+font = ExtResource("5_fkpln")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bqlx"]
 
@@ -345,7 +351,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_y8wxa")
 text = "Main Menu"
 
 [node name="mainMenu" type="Control" parent="mainUI"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -431,7 +436,13 @@ texture = ExtResource("18_muheq")
 wait_time = 1.5
 autostart = true
 
+[node name="Sprite2D" type="Sprite2D" parent="mainUI/mainMenu"]
+position = Vector2(1043, 523)
+scale = Vector2(3, 3)
+texture = ExtResource("32_0xqjo")
+
 [node name="winScreen" type="Control" parent="mainUI"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1366.0
@@ -493,7 +504,7 @@ horizontal_alignment = 1
 
 [node name="HSeparator2" type="HSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 60
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8r8rs")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
@@ -514,8 +525,9 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_fkpln")
 
 [node name="perLevelDeaths" type="Label" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P1"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Deaths: 18"
-label_settings = ExtResource("13_0r74j")
+label_settings = SubResource("LabelSettings_6ec0n")
 horizontal_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2"]
@@ -537,37 +549,111 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_qeedf")
 
 [node name="perLevelDeaths" type="Label" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer2/P2"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Deaths: 2"
-label_settings = ExtResource("13_0r74j")
+label_settings = SubResource("LabelSettings_6ec0n")
 horizontal_alignment = 1
 
 [node name="HSeparator3" type="HSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_acxsw")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="level_select" type="Button" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_va4b4")
-theme_override_font_sizes/font_size = 0
-text = "LEVEL
-SELECT"
+texture = ExtResource("13_mbipg")
+
+[node name="TextureRect" type="TextureRect" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect3"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_top = 10.0
+offset_right = 223.0
+offset_bottom = 117.0
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(111, 53)
+texture = ExtResource("13_mbipg")
+
+[node name="Level Select" type="Button" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -46.0
+offset_right = 173.5
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_cxvb2")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b3o3l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1bs7s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qq21t")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mnp54")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nnukd")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bdqtl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8xkwy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_do52r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_npicm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ohauh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y8wxa")
+text = "Level Select"
 
 [node name="VSeparator" type="VSeparator" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_u0cjw")
 
-[node name="next_level" type="Button" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect4" type="TextureRect" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_va4b4")
-text = "NEXT
-LEVEL"
+texture = ExtResource("12_q4uja")
+
+[node name="TextureRect" type="TextureRect" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect4"]
+modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_top = 10.0
+offset_right = 213.0
+offset_bottom = 127.0
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(106, 58)
+texture = ExtResource("12_q4uja")
+
+[node name="Next Level" type="Button" parent="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -46.0
+offset_right = 173.5
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_cxvb2")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b3o3l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1bs7s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qq21t")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mnp54")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_nnukd")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bdqtl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8xkwy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_do52r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_npicm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ohauh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y8wxa")
+text = "Next Level"
 
 [node name="levelSelect" type="Control" parent="mainUI"]
 visible = false
@@ -609,15 +695,14 @@ theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 50
 columns = 5
 
-[node name="Exit Button" type="TextureRect" parent="mainUI/levelSelect"]
+[node name="Exit Button" type="TextureButton" parent="mainUI/levelSelect"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 25.0
 offset_right = 175.0
 offset_bottom = 175.0
 pivot_offset = Vector2(70, 70)
-texture = ExtResource("37_6ec0n")
-expand_mode = 1
+texture_normal = ExtResource("37_6ec0n")
 
 [connection signal="visibility_changed" from="mainUI/pauseMenu" to="mainUI/pauseMenu" method="_on_visibility_changed"]
 [connection signal="pressed" from="mainUI/pauseMenu/Pause Buttons/TextureRect/Resume" to="mainUI/pauseMenu" method="pauseMenuResumePressed"]
@@ -636,5 +721,5 @@ expand_mode = 1
 [connection signal="focus_entered" from="mainUI/mainMenu/VBoxContainer/Quit" to="mainUI/mainMenu" method="_on_quit_focus_entered"]
 [connection signal="mouse_entered" from="mainUI/mainMenu/VBoxContainer/Quit" to="mainUI/mainMenu" method="_on_quit_mouse_entered"]
 [connection signal="timeout" from="mainUI/mainMenu/Timer" to="mainUI/mainMenu" method="_on_timer_timeout"]
-[connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/level_select" to="mainUI/winScreen" method="winScreenLevelSelectPressed"]
-[connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/next_level" to="mainUI/winScreen" method="winScreenNextLevelPressed"]
+[connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect3/Level Select" to="mainUI/winScreen" method="winScreenLevelSelectPressed"]
+[connection signal="pressed" from="mainUI/winScreen/Background/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureRect4/Next Level" to="mainUI/winScreen" method="winScreenNextLevelPressed"]
