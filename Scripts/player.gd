@@ -215,6 +215,11 @@ func _on_hit_detect_area_entered(area):
 	#Runs when this player gets hit by projectile
 	if area.is_in_group("playerkill"):
 		death();
-		
+	if area.is_in_group("coin"):
+		if !area.penny:
+			GlobalVariables.coins += 1;
+		else:
+			GlobalVariables.winConditionCoins += 1;
+	
 func lockinputs():
 	playerState = states.locked

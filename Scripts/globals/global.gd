@@ -11,3 +11,6 @@ var perLevelBlueDeathCounter: int;
 
 var totalLineDistance: float;
 var inkLimit: float;
+
+var coins: int;
+var winConditionCoins: int;
