@@ -75,7 +75,7 @@ func _input(event: InputEvent) -> void:
 		
 func addLinePoint(mousePosition: Vector2) -> void:
 	if players[editingPlayerNumber - 1].global_position.distance_to(mousePosition) <= drawingRadius:
-		if line.get_point_count() == 0 and !lineContainer.get_parent():
+		if line.get_point_count() == 0:
 			get_parent().add_child(lineContainer);
 			line.add_point(mousePosition);
 		if line.get_point_count() > 0:
