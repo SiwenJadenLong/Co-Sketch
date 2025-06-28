@@ -73,10 +73,16 @@ func _input(event: InputEvent) -> void:
 	if players[0].playerState == players[0].states.editing or players[1].playerState == players[1].states.editing:
 		if event.is_action_pressed("drawEvent"):
 			addLinePoint(position);
-		elif event.is_action_pressed("p%s_delete" % editingPlayerNumber) and line.get_point_count() > 2:
-			GlobalVariables.totalLineDistance -= line.points[line.get_point_count() - 1].distance_to(line.points[line.get_point_count() - 2]);
-			line.remove_point(line.get_point_count() - 1);
-			lineContainer.get_node("Segment%sHitbox" % (line.get_point_count())).queue_free();
+		elif event.is_action_pressed("p%s_delete" % editingPlayerNumber):
+			if line.get_point_count() > 2:
+				GlobalVariables.totalLineDistance -= line.points[line.get_point_count() - 1].distance_to(line.points[line.get_point_count() - 2]);
+				line.remove_point(line.get_point_count() - 1);
+				lineContainer.get_node("Segment%sHitbox" % (line.get_point_count())).queue_free();
+			#TODO Figure out why this causes weird edge cases
+#			elif line.get_point_count() > 1:
+#				line.remove_point(line.get_point_count() - 1);
+#				previewLine.remove_point(line.get_point_count() - 1);
+
 		
 func addLinePoint(mousePosition: Vector2) -> void:
 	if players[editingPlayerNumber - 1].global_position.distance_to(mousePosition) <= drawingRadius:
