@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dlfl1f8omo7yw" path="res://scenes/objects/levelstatics/sharpie.tscn" id="9_dn8pr"]
 
 [node name="map2" instance=ExtResource("1_syvye")]
-initInkLimit = 200.0
+inkLimit = 200.0
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(-522, -64)

@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cckvww8n4cu5e" path="res://scenes/objects/levelstatics/lipBlam.tscn" id="17_f0ypn"]
 
 [node name="map" instance=ExtResource("1_tni81")]
-initInkLimit = 2000.0
+inkLimit = 2000.0
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(-362, 93)

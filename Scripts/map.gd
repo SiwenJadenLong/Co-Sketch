@@ -2,7 +2,8 @@ extends Node2D;
 
 var winCondition : bool;
 @export var levelNumber : String;
-@export var initInkLimit: float;
+@export var inkLimit: float;
+@export var requiredPennies: int = 0;
 @onready var allObjects : Array[Node] = $objects.get_children();
 @onready var allPlayers : Array[Node] = $players.get_children();
 
@@ -22,8 +23,10 @@ func _process(delta: float) -> void:
 
 #Run on node entering game
 func _ready():
-	GlobalVariables.inkLimit = initInkLimit;
+	GlobalVariables.inkLimit = inkLimit;
 	GlobalVariables.totalLineDistance= 0;
+	
+	GlobalVariables.winConditionCoins = requiredCoins;
 	
 	GlobalVariables.levelTime = 0
 	SignalBus.playerDeath.connect(stopobjects);

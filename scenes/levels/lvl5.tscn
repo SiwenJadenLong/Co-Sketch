@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bgw07yacjftr3" path="res://scenes/objects/levelstatics/blueUsb.tscn" id="7_7fw37"]
 
 [node name="map" instance=ExtResource("1_fw58d")]
-initInkLimit = 6000.0
+inkLimit = 6000.0
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(501, 30)
