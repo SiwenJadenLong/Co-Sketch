@@ -23,11 +23,11 @@ levelNumber = "4"
 inkLimit = 2500.0
 
 [node name="door" parent="objects" index="0"]
-position = Vector2(-104, -186)
+position = Vector2(-103, -220)
 correctPlayer = "Blue"
 
 [node name="door2" parent="objects" index="1"]
-position = Vector2(130, -211)
+position = Vector2(138, -244)
 correctPlayer = "Orange"
 
 [node name="plasticPencilSharpener" parent="objects" index="2" instance=ExtResource("2_i8kah")]

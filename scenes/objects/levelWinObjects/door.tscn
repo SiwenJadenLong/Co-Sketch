@@ -1,13 +1,51 @@
-[gd_scene load_steps=8 format=3 uid="uid://di8x2ilgml1fg"]
+[gd_scene load_steps=13 format=3 uid="uid://di8x2ilgml1fg"]
 
 [ext_resource type="Script" uid="uid://xo8odklcdrjn" path="res://Scripts/door.gd" id="1_taevt"]
-[ext_resource type="Texture2D" uid="uid://jfxkdab6c5g4" path="res://assets/art/static/levelObjects/interactable/orangeDoorRight.png" id="2_mv7jf"]
-[ext_resource type="Texture2D" uid="uid://6ort3bx6sgq" path="res://assets/art/static/levelObjects/interactable/OrangeDoorFull.png" id="3_44e7i"]
-[ext_resource type="Texture2D" uid="uid://ye816fg2rfe6" path="res://assets/art/static/levelObjects/interactable/blueDoorRight.png" id="4_i1rh2"]
-[ext_resource type="Texture2D" uid="uid://ccxfybt7kevce" path="res://assets/art/static/levelObjects/interactable/blueDoorFull.png" id="5_k3snx"]
+[ext_resource type="Texture2D" uid="uid://cxc41xtqt4h4b" path="res://assets/art/static/levelObjects/interactable/Door/blueDoorIcons.png" id="3_k3snx"]
+[ext_resource type="Texture2D" uid="uid://b3uip5ah531iy" path="res://assets/art/static/levelObjects/interactable/Door/door1.png" id="6_sq2co"]
+[ext_resource type="Texture2D" uid="uid://d2vn2tm2adckx" path="res://assets/art/static/levelObjects/interactable/Door/door2.png" id="7_d8mg1"]
+[ext_resource type="Texture2D" uid="uid://dexcweb625teu" path="res://assets/art/static/levelObjects/interactable/Door/door3.png" id="8_40s2b"]
+[ext_resource type="Texture2D" uid="uid://b1n8bnc40vh82" path="res://assets/art/static/levelObjects/interactable/Door/door4.png" id="9_a7s7y"]
+[ext_resource type="Texture2D" uid="uid://tm71wm77rq1s" path="res://assets/art/static/levelObjects/interactable/Door/door5.png" id="10_vbk8n"]
+[ext_resource type="Texture2D" uid="uid://cjneil4xi6jxr" path="res://assets/art/static/levelObjects/interactable/Door/door6.png" id="11_rtb0k"]
+[ext_resource type="Texture2D" uid="uid://blmuds6bflrl6" path="res://assets/art/static/levelObjects/interactable/Door/OrangeDoorIcons.png" id="12_6xyrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aji8h"]
-size = Vector2(50, 50)
+size = Vector2(51.3007, 51.0009)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_on0to"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_sq2co")
+}],
+"loop": false,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_sq2co")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d8mg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_40s2b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a7s7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vbk8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rtb0k")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 9.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5nc7h"]
 outline_size = 10
@@ -17,27 +55,35 @@ outline_color = Color(0, 0, 0, 1)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_taevt")
-openOrangeDoor = ExtResource("2_mv7jf")
-closedOrangeDoor = ExtResource("3_44e7i")
-openBlueDoor = ExtResource("4_i1rh2")
-closedBlueDoor = ExtResource("5_k3snx")
+orangeIcon = ExtResource("12_6xyrr")
+blueIcon = ExtResource("3_k3snx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.59347, 1.23179)
+scale = Vector2(0.873234, 2.38116)
 shape = SubResource("RectangleShape2D_aji8h")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_on0to")
+animation = &"opening"
+autoplay = "closed"
+frame = 5
+frame_progress = 1.0
+
+[node name="icon" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.333181, 0.333181)
-texture = ExtResource("3_44e7i")
+texture = ExtResource("12_6xyrr")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -45.0
-offset_top = -50.0
-offset_right = 45.0
-offset_bottom = -27.6667
+offset_left = -48.0
+offset_top = -88.0
+offset_right = 42.0
+offset_bottom = -65.6667
 grow_horizontal = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)

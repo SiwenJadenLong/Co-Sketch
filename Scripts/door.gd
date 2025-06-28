@@ -5,39 +5,40 @@ signal doorOpened;
 #Select if door Orange or Blue
 @export_enum("Orange","Blue") var correctPlayer : String;
 
-@export var openOrangeDoor : Texture2D;
-@export var closedOrangeDoor : Texture2D;
+@export var orangeIcon : Texture2D;
+@export var blueIcon : Texture2D;
 
-@export var openBlueDoor : Texture2D;
-@export var closedBlueDoor : Texture2D;
+@onready var icon: Sprite2D = $icon;
 
 var openDoor
 var closedDoor
 
 var playerInDoor : bool;
 
-func _enter_tree():
+func _ready() -> void:
 	$Label.text = correctPlayer;
 	match correctPlayer:
 		"Orange":
-			openDoor = openOrangeDoor;
-			closedDoor = closedOrangeDoor;
+			icon.texture = orangeIcon;
 		"Blue":
-			openDoor = openBlueDoor;
-			closedDoor = closedBlueDoor;
-	$Sprite2D.texture = closedDoor;
+			icon.texture = blueIcon;
 
 
 func _on_body_shape_entered(_body_rid, body, _body_shape_index, _local_shape_index):
 	if body.is_in_group("Player") and body.playerColor == correctPlayer:
 		$doorHoldTimer.start();
 		await $doorHoldTimer.timeout;
-		$Sprite2D.texture = openDoor;
-		playerInDoor = true;
-	doorOpened.emit();
+		icon.hide();
+		$AnimatedSprite2D.play("opening");
+		await $AnimatedSprite2D.animation_finished;
+		if $AnimatedSprite2D.animation == "opening":
+			playerInDoor = true;
+			doorOpened.emit();
 
 
 func _on_body_exited(body):
 	if body.is_in_group("Player") and body.playerColor == correctPlayer:
-		$Sprite2D.texture = closedDoor;
 		playerInDoor = false;
+		$AnimatedSprite2D.play_backwards("opening");
+		await $AnimatedSprite2D.animation_finished;
+		icon.show();

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccxfybt7kevce"
-path="res://.godot/imported/blueDoorFull.png-934a3f8aca4949248b6741482f5f5320.ctex"
+uid="uid://vu2gd8yf77uw"
+path="res://.godot/imported/coin.png-a0cda199a67cacd3c134d5ab4335e4b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/static/levelObjects/interactable/blueDoorFull.png"
-dest_files=["res://.godot/imported/blueDoorFull.png-934a3f8aca4949248b6741482f5f5320.ctex"]
+source_file="res://assets/art/static/levelObjects/interactable/Coin/coin.png"
+dest_files=["res://.godot/imported/coin.png-a0cda199a67cacd3c134d5ab4335e4b5.ctex"]
 
 [params]
 

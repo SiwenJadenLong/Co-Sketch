@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo7k1wwwpo1f2"
-path="res://.godot/imported/penny.png-1dccf2657d4745ff7c6782f14c1e3c76.ctex"
+uid="uid://ye816fg2rfe6"
+path="res://.godot/imported/blueDoorRight.png-28eb01c13e7cd03341987e9cf063eb23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/static/levelObjects/interactable/penny.png"
-dest_files=["res://.godot/imported/penny.png-1dccf2657d4745ff7c6782f14c1e3c76.ctex"]
+source_file="res://assets/art/static/levelObjects/interactable/Door/blueDoorRight.png"
+dest_files=["res://.godot/imported/blueDoorRight.png-28eb01c13e7cd03341987e9cf063eb23.ctex"]
 
 [params]
 

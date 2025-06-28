@@ -16,10 +16,10 @@ levelNumber = "2"
 inkLimit = 1000.0
 
 [node name="door" parent="objects" index="0"]
-position = Vector2(-476, -202)
+position = Vector2(-469, -238)
 
 [node name="door2" parent="objects" index="1"]
-position = Vector2(558, -34)
+position = Vector2(561, -68)
 
 [node name="ruler" parent="objects" index="2" instance=ExtResource("2_w6uo3")]
 position = Vector2(-155, -79)

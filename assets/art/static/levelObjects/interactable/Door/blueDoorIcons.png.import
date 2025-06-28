@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ye816fg2rfe6"
-path="res://.godot/imported/blueDoorRight.png-047354b6d21d85bf2e7c110ae7d68e9a.ctex"
+uid="uid://cxc41xtqt4h4b"
+path="res://.godot/imported/blueDoorIcons.png-13ff62568f321d2d91fa3f4ffd1d5b61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/static/levelObjects/interactable/blueDoorRight.png"
-dest_files=["res://.godot/imported/blueDoorRight.png-047354b6d21d85bf2e7c110ae7d68e9a.ctex"]
+source_file="res://assets/art/static/levelObjects/interactable/Door/blueDoorIcons.png"
+dest_files=["res://.godot/imported/blueDoorIcons.png-13ff62568f321d2d91fa3f4ffd1d5b61.ctex"]
 
 [params]
 

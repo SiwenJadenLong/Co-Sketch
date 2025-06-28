@@ -26,7 +26,7 @@ func _ready():
 	GlobalVariables.inkLimit = inkLimit;
 	GlobalVariables.totalLineDistance= 0;
 	
-	GlobalVariables.winConditionCoins = requiredCoins;
+	GlobalVariables.winConditionCoins = requiredPennies;
 	
 	GlobalVariables.levelTime = 0
 	SignalBus.playerDeath.connect(stopobjects);

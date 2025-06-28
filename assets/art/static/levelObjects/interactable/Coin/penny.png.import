@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7dyn8fxslmar"
-path="res://.godot/imported/openDoorplace.png-dc40487e9b60f2ece94d6cb8db920a5d.ctex"
+uid="uid://bo7k1wwwpo1f2"
+path="res://.godot/imported/penny.png-ca725e47b09f5bc31ac18f77ab2dc7f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/static/levelObjects/interactable/openDoorplace.png"
-dest_files=["res://.godot/imported/openDoorplace.png-dc40487e9b60f2ece94d6cb8db920a5d.ctex"]
+source_file="res://assets/art/static/levelObjects/interactable/Coin/penny.png"
+dest_files=["res://.godot/imported/penny.png-ca725e47b09f5bc31ac18f77ab2dc7f7.ctex"]
 
 [params]
 

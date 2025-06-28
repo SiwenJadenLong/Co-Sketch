@@ -19,13 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://cckvww8n4cu5e" path="res://scenes/objects/levelstatics/lipBlam.tscn" id="17_f0ypn"]
 
 [node name="map" instance=ExtResource("1_tni81")]
-inkLimit = 2000.0
+inkLimit = 2500.0
 
 [node name="door" parent="objects" index="0"]
-position = Vector2(-362, 93)
+position = Vector2(-345, 93)
 
 [node name="door2" parent="objects" index="1"]
-position = Vector2(610, -224)
+position = Vector2(603, -260)
 
 [node name="redUsb" parent="objects" index="2" instance=ExtResource("2_g5nqd")]
 position = Vector2(-38, -202)

@@ -12,10 +12,10 @@
 inkLimit = 6000.0
 
 [node name="door" parent="objects" index="0"]
-position = Vector2(501, 30)
+position = Vector2(502, -8)
 
 [node name="door2" parent="objects" index="1"]
-position = Vector2(589, 30)
+position = Vector2(590, -8)
 
 [node name="paperShredder" parent="objects" index="2" instance=ExtResource("2_usnf5")]
 position = Vector2(111, 331)
