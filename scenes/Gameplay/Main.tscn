@@ -398,20 +398,24 @@ offset_bottom = 592.0
 theme_override_constants/separation = 28
 
 [node name="Start" type="TextureButton" parent="mainUI/mainMenu/VBoxContainer"]
+modulate = Color(0.881937, 0.881937, 0.881937, 1)
 layout_mode = 2
 theme = SubResource("Theme_leamy")
 texture_normal = ExtResource("12_6bqlx")
 
 [node name="levelSelect" type="TextureButton" parent="mainUI/mainMenu/VBoxContainer"]
+modulate = Color(0.881937, 0.881937, 0.881937, 1)
 layout_mode = 2
 theme = SubResource("Theme_leamy")
 texture_normal = ExtResource("13_qeedf")
 
 [node name="Settings" type="TextureButton" parent="mainUI/mainMenu/VBoxContainer"]
+modulate = Color(0.881937, 0.881937, 0.881937, 1)
 layout_mode = 2
 texture_normal = ExtResource("14_45pn6")
 
 [node name="Quit" type="TextureButton" parent="mainUI/mainMenu/VBoxContainer"]
+modulate = Color(0.881937, 0.881937, 0.881937, 1)
 layout_mode = 2
 texture_normal = ExtResource("15_ifw20")
 
