@@ -66,7 +66,7 @@ func _process(_delta: float) -> void:
 		
 	if players[editingPlayerNumber - 1].global_position.distance_to(position) > drawingRadius:
 		previewLine.default_color = Color(1.0, 0.247, 0.294);
-	elif line.get_point_count() > 1 and \
+	elif line.get_point_count() >= 1 and \
 	position.distance_to(line.get_point_position(line.get_point_count() - 1)) + GlobalVariables.totalLineDistance > GlobalVariables.inkLimit:
 				previewLine.default_color = Color(1.0, 0.247, 0.294);
 	else:
