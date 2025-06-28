@@ -27,9 +27,14 @@ func _ready() -> void:
 	get_parent().add_child.call_deferred(previewLine);
 
 	SignalBus.editingEntered.connect(setPlayerEditor);
+	SignalBus.editingExited.connect(checkForAndDeleteChildlessCatlady);
 	SignalBus.editingExited.connect(resetLineContainer);
 	SignalBus.editingExited.connect(deletePreviewLine);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func checkForAndDeleteChildlessCatlady():
+	if line.points.size() == 0:
+		lineContainer.queue_free();
 
 func deletePreviewLine():
 	previewLine.clear_points()
