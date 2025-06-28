@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfp0sdwgutthc"]
+[gd_scene load_steps=12 format=3 uid="uid://bfp0sdwgutthc"]
 
 [ext_resource type="Script" uid="uid://di8serar4x82s" path="res://Scripts/player.gd" id="1_a0kq5"]
 [ext_resource type="Texture2D" uid="uid://bu460xa0l0kdb" path="res://assets/art/static/player1.svg" id="2_ndxx7"]
@@ -26,6 +26,10 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ssoob"]
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_l17cr"]
 offsets = PackedFloat32Array(0, 0.641667, 0.670833, 0.679167, 0.708333)
@@ -84,6 +88,7 @@ offset_right = 31.0
 offset_bottom = -23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player"
+label_settings = SubResource("LabelSettings_ssoob")
 horizontal_alignment = 1
 
 [node name="stateLabel" type="Label" parent="."]

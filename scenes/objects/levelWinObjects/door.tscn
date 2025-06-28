@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://di8x2ilgml1fg"]
+[gd_scene load_steps=6 format=3 uid="uid://di8x2ilgml1fg"]
 
 [ext_resource type="Script" uid="uid://xo8odklcdrjn" path="res://Scripts/door.gd" id="1_taevt"]
 [ext_resource type="Texture2D" uid="uid://8m20lesuv6ru" path="res://assets/art/static/levelObjects/interactable/closedDoorplace.png" id="2_5nc7h"]
@@ -6,6 +6,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aji8h"]
 size = Vector2(50, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5nc7h"]
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="door" type="Area2D"]
 collision_layer = 0
@@ -25,12 +29,18 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_5nc7h")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -24.0
-offset_top = -48.0
-offset_right = 16.0
-offset_bottom = -25.6667
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = -50.0
+offset_right = 45.0
+offset_bottom = -27.6667
+grow_horizontal = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Doorrr PX"
+label_settings = SubResource("LabelSettings_5nc7h")
 horizontal_alignment = 1
 
 [node name="doorHoldTimer" type="Timer" parent="."]
