@@ -26,7 +26,7 @@ func _ready():
 	GlobalVariables.inkLimit = inkLimit;
 	GlobalVariables.totalLineDistance= 0;
 	
-	GlobalVariables.winConditionCoins = requiredPennies;
+	GlobalVariables.winConditionCoins = 0;
 	
 	GlobalVariables.levelTime = 0
 	SignalBus.playerDeath.connect(stopobjects);
@@ -40,13 +40,13 @@ func _ready():
 
 #Checks if win condition is met, then checks if both doors are occupied by correct players
 func levelWinCheck():
-	var levelWin = winCondition
+	if GlobalVariables.winConditionCoins < requiredPennies:
+		return
 	for object in allObjects:
 		if object is door:
 			if !object.playerInDoor:
-				levelWin = false;
-	if levelWin:
-		call_deferred("stopobjects");
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
-		SignalBus.levelWon.emit();
-		process_mode = Node.PROCESS_MODE_PAUSABLE
+				return;
+	call_deferred("stopobjects");
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
+	SignalBus.levelWon.emit();
+	process_mode = Node.PROCESS_MODE_PAUSABLE;
