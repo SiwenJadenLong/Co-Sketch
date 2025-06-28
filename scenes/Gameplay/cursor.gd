@@ -51,18 +51,22 @@ func setPlayerEditor(playerColor: String):
 func _process(delta: float) -> void:
 	position = get_global_mouse_position();
 	
-	if line.get_point_count() == 2:
-		previewLine.points = PackedVector2Array();
+	if line.get_point_count() == 0:
+		previewLine.clear_points()
+	elif line.get_point_count() == 1:
+		var newPackedV2Array = PackedVector2Array();
 
-		previewLine.add_point(line.points[0]);
-		previewLine.add_point(position);
-	elif line.get_point_count() > 2:
+		newPackedV2Array.append(line.points[0]);
+		newPackedV2Array.append(position);
+		
+		previewLine.points = newPackedV2Array;
+	elif line.get_point_count() > 1:
 		previewLine.points[0] = line.points[line.get_point_count() - 1];
 		previewLine.points[1] = position;
 		
 	if players[editingPlayerNumber - 1].global_position.distance_to(position) > drawingRadius:
 		previewLine.default_color = Color(1.0, 0.247, 0.294);
-	elif line.get_point_count() > 2 and \
+	elif line.get_point_count() > 1 and \
 	position.distance_to(line.get_point_position(line.get_point_count() - 1)) + GlobalVariables.totalLineDistance > GlobalVariables.inkLimit:
 				previewLine.default_color = Color(1.0, 0.247, 0.294);
 	else:
@@ -74,14 +78,14 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("drawEvent"):
 			addLinePoint(position);
 		elif event.is_action_pressed("p%s_delete" % editingPlayerNumber):
-			if line.get_point_count() > 2:
+			if line.get_point_count() > 1:
 				GlobalVariables.totalLineDistance -= line.points[line.get_point_count() - 1].distance_to(line.points[line.get_point_count() - 2]);
 				line.remove_point(line.get_point_count() - 1);
 				lineContainer.get_node("Segment%sHitbox" % (line.get_point_count())).queue_free();
 			#TODO Figure out why this causes weird edge cases
-#			elif line.get_point_count() > 1:
-#				line.remove_point(line.get_point_count() - 1);
-#				previewLine.remove_point(line.get_point_count() - 1);
+			elif line.get_point_count() >= 0:
+				line.remove_point(line.get_point_count() - 1);
+				previewLine.remove_point(line.get_point_count() - 1);
 
 		
 func addLinePoint(mousePosition: Vector2) -> void:
@@ -89,7 +93,7 @@ func addLinePoint(mousePosition: Vector2) -> void:
 		if line.get_point_count() == 0:
 			get_parent().add_child(lineContainer);
 			line.add_point(mousePosition);
-		if line.get_point_count() > 0:
+		elif line.get_point_count() > 0:
 			if mousePosition.distance_to(line.get_point_position(line.get_point_count() - 1)) + GlobalVariables.totalLineDistance <= GlobalVariables.inkLimit:
 				line.add_point(mousePosition);
 				

@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cehyued3e0o7t" path="res://scenes/objects/levelstatics/bluePen.tscn" id="16_jendw"]
 [ext_resource type="PackedScene" uid="uid://cxo4mmi1n4xwh" path="res://scenes/objects/Killobjects/paperShredder.tscn" id="17_x2qb3"]
 
-[node name="map" instance=ExtResource("1_ccend")]
+[node name="map2" instance=ExtResource("1_ccend")]
 levelNumber = "4"
 initInkLimit = 2500.0
 
