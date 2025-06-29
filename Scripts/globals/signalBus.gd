@@ -14,3 +14,5 @@ signal levelWon();
 
 signal editingEntered(player: String);
 signal editingExited();
+
+signal lineKill();
