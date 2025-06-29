@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bo3dvk6liew6u"]
+[gd_scene load_steps=79 format=3 uid="uid://bo3dvk6liew6u"]
 
 [ext_resource type="Script" uid="uid://choumugh5cf6a" path="res://Scripts/main.gd" id="1_waoe8"]
 [ext_resource type="Script" uid="uid://x76rmtn2xmec" path="res://Scripts/deathMarkers.gd" id="2_6301w"]
@@ -11,6 +11,9 @@
 [ext_resource type="Script" uid="uid://b5cc58y1geqse" path="res://Scripts/mainMenu.gd" id="5_u0cjw"]
 [ext_resource type="Script" uid="uid://dgmq2vk28tnxd" path="res://Scripts/levelSelect.gd" id="7_as2w2"]
 [ext_resource type="Script" uid="uid://ycodo2nkmy1y" path="res://Scripts/winScreen.gd" id="7_kbq0m"]
+[ext_resource type="Texture2D" uid="uid://vu2gd8yf77uw" path="res://assets/art/static/levelObjects/interactable/Coin/coin.png" id="7_rh1bn"]
+[ext_resource type="Texture2D" uid="uid://bo7k1wwwpo1f2" path="res://assets/art/static/levelObjects/interactable/Coin/penny.png" id="8_0v3nc"]
+[ext_resource type="LabelSettings" uid="uid://df5f1gcv7ye7l" path="res://assets/Resources/topBar.tres" id="8_ctgk8"]
 [ext_resource type="Texture2D" uid="uid://b76l5osjarrco" path="res://assets/art/static/UI/background textures/comboBackground1.png" id="9_cjdp4"]
 [ext_resource type="Texture2D" uid="uid://lba58n4dbnty" path="res://assets/art/static/UI/background textures/comboBackground2.png" id="9_px8du"]
 [ext_resource type="Texture2D" uid="uid://ctie363mb5iu3" path="res://assets/art/static/UI/backing1.png" id="10_ewm06"]
@@ -67,6 +70,8 @@ font = ExtResource("5_fkpln")
 font_size = 50
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qie04"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_54g1r"]
 
@@ -229,6 +234,47 @@ theme_override_font_sizes/font_size = 20
 text = "Level 1"
 label_settings = SubResource("LabelSettings_acxsw")
 horizontal_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="mainUI/stats/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxFlat_u0cjw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="mainUI/stats/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="coin" type="HBoxContainer" parent="mainUI/stats/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="mainUI/stats/MarginContainer/HBoxContainer/VBoxContainer/coin"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("7_rh1bn")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="mainUI/stats/MarginContainer/HBoxContainer/VBoxContainer/coin"]
+layout_mode = 2
+text = "60"
+label_settings = ExtResource("8_ctgk8")
+
+[node name="VSeparator" type="VSeparator" parent="mainUI/stats/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_qie04")
+
+[node name="penny" type="HBoxContainer" parent="mainUI/stats/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="mainUI/stats/MarginContainer/HBoxContainer/VBoxContainer/penny"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("8_0v3nc")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="mainUI/stats/MarginContainer/HBoxContainer/VBoxContainer/penny"]
+layout_mode = 2
+text = "60"
+label_settings = ExtResource("8_ctgk8")
 
 [node name="pauseMenu" type="Control" parent="mainUI"]
 visible = false
