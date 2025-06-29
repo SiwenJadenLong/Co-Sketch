@@ -3,7 +3,7 @@ class_name projectile;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @export var speed: Vector2;
-@export var lineKill: bool = true;
+@export var lineKill: bool = false;
 
 var directionrotated: float;
 var spawnpos: Vector2;
