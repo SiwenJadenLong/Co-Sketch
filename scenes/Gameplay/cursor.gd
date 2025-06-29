@@ -30,6 +30,7 @@ func _ready() -> void:
 	SignalBus.editingExited.connect(checkForAndDeleteChildlessCatlady);
 	SignalBus.editingExited.connect(resetLineContainer);
 	SignalBus.editingExited.connect(deletePreviewLine);
+	SignalBus.lineKill.connect(resetLineContainer);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func checkForAndDeleteChildlessCatlady():

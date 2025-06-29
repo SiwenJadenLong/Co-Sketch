@@ -51,6 +51,8 @@ playerkill=""
 drawing=""
 staticLevelObject=""
 coin=""
+lineKill=""
+lineTemplate=""
 
 [gui]
 
