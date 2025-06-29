@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ctoxg3ns7dmj5" path="res://scenes/Gameplay/linemaker/linemaker.tscn" id="5_4qc4n"]
 [ext_resource type="PackedScene" uid="uid://di8x2ilgml1fg" path="res://scenes/objects/levelWinObjects/door.tscn" id="5_30pkq"]
 [ext_resource type="Texture2D" uid="uid://weygx8ktaqxe" path="res://assets/art/static/backgroundplace.jpg" id="5_vcwsh"]
-[ext_resource type="PackedScene" uid="uid://bs67e1nvqbr7c" path="res://scenes/objects/player.tscn" id="7_7nc4o"]
+[ext_resource type="PackedScene" uid="uid://bfp0sdwgutthc" path="res://scenes/objects/Player.tscn" id="7_7nc4o"]
 [ext_resource type="Texture2D" uid="uid://dv6t1dp61yvkb" path="res://assets/art/static/backgroundplace2.jpg" id="7_vcwsh"]
 
 [node name="map2" type="Node2D"]
