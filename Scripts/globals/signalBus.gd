@@ -16,3 +16,5 @@ signal editingEntered(player: String);
 signal editingExited();
 
 signal lineKill();
+
+signal moveCursor(direction: Vector2);

@@ -61,6 +61,7 @@ signal lineMakerFinished;
 
 
 var horizontalAxis : float;
+var verticalAxis: float;
 var upButton : String;
 var editButton : String;
 
@@ -79,7 +80,7 @@ func _ready():
 		$playerLabel.text = "P2 BLUE";
 
 	call_deferred("loadLineMaker");
-
+	
 func _physics_process(delta : float):
 	#---------Text debug code---------	
 	if debug:
@@ -105,10 +106,12 @@ func _physics_process(delta : float):
 	match playerColor:
 		"Orange":
 			horizontalAxis = Input.get_axis("p1_left", "p1_right");
-			upButton = "p1_up";
+			verticalAxis = Input.get_axis("p1_down", "p1_up");
 			editButton = "p1_edit_toggle";
+			upButton = "p1_up";
 		"Blue":
 			horizontalAxis = Input.get_axis("p2_left", "p2_right");
+			verticalAxis = Input.get_axis("p2_down", "p2_up");
 			upButton = "p2_up";
 			editButton = "p2_edit_toggle";
 		_:
@@ -131,6 +134,7 @@ func _physics_process(delta : float):
 					move_and_slide()
 					resistance()
 					applyGravity(delta);
+					SignalBus.moveCursor.emit(Vector2(horizontalAxis, verticalAxis));
 					editing.showZone();
 					lineMaker.get_node("cursor").visible = true;
 					lineMaker.process_mode = Node.PROCESS_MODE_INHERIT;
@@ -180,7 +184,7 @@ func horizontalmovement(direction):
 			velocity.x = direction * xMaxspeed;
 	else:
 		resistance()
-
+		
 func resistance():
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, groundResistance);

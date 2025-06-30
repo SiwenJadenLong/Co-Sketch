@@ -1,12 +1,19 @@
 extends Node2D
 
 # @onready var parent = $".";
+
 @export var lineTemplate: PackedScene = preload("res://scenes/Gameplay/linemaker/lineTemplate.tscn");
 @export var collisionTemplate: PackedScene = preload("res://scenes/Gameplay/linemaker/hitbox.tscn");
 @export var massPerLine : float = 1;
 @export var debug : bool = false;
-
 @export var drawingRadius: float = 250;
+
+
+@export_category("Manual Cursor Movement")
+@export var acceleration : float = 50;
+@export var maxSpeed : float = 200;
+
+var velocity: Vector2 = Vector2(0,0);
 
 @onready var lineContainer := lineTemplate.instantiate();
 @onready var players = get_parent().get_parent().get_node("players").get_children();
@@ -15,6 +22,10 @@ var editingPlayerNumber: int;
 
 var line: Line2D;
 var previewLine: Line2D;
+
+func _physics_process(delta: float) -> void:
+	if visible:
+		position += velocity;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,6 +42,7 @@ func _ready() -> void:
 	SignalBus.editingExited.connect(resetLineContainer);
 	SignalBus.editingExited.connect(deletePreviewLine);
 	SignalBus.lineKill.connect(resetLineContainer);
+	SignalBus.moveCursor.connect(moveCursor);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func checkForAndDeleteChildlessCatlady():
@@ -123,3 +135,15 @@ func resetLineContainer():
 	lineContainer = lineTemplate.instantiate();
 	line = lineContainer.summonLine();
 	get_parent().add_child(lineContainer);
+
+func moveCursor(direction: Vector2):
+	if direction:
+		if velocity.x <= maxSpeed and velocity.x >= -maxSpeed:
+			velocity.x += direction.x * acceleration;
+		else:
+			velocity.x = direction.x * maxSpeed;
+			
+		if velocity.y <= maxSpeed and velocity.y >= -maxSpeed:
+			velocity.y += direction.y * acceleration;
+		else:
+			velocity.y = direction.y * maxSpeed;
