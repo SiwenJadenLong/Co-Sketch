@@ -24,6 +24,7 @@ boot_splash/icon="res://icon.svg"
 
 SignalBus="*res://Scripts/globals/signalBus.gd"
 GlobalVariables="*res://Scripts/globals/global.gd"
+Audiomanager="*res://Scripts/globals/audioManager.gd"
 
 [display]
 
