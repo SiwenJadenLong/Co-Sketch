@@ -112,7 +112,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -269,7 +269,6 @@ offset = Vector2(3, -79)
 [node name="bottomCollision" type="CollisionPolygon2D" parent="."]
 rotation = 1.28446
 polygon = PackedVector2Array(16, -207, 81, -188, 86, -181, 48, -49, 0, -84, 19, -85, 44, -168)
-disabled = true
 
 [node name="top" type="Sprite2D" parent="."]
 rotation = 1.72399

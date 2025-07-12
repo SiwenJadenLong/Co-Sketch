@@ -193,7 +193,7 @@ func applyGravity(delta : float):
 
 #If this Player dies this function plays
 func death():
-	Audiomanager.playsoundeffect("pan");
+	Audiomanager.playsoundeffect("pan", "Master");
 	pupils.play("dead");
 	SignalBus.playerDeathPosition.emit(global_position, playerColor);
 	physicsHitbox.set_deferred("disabled",true);

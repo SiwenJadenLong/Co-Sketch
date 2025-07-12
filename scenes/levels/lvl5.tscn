@@ -53,9 +53,37 @@ rotation = 1.57079
 
 [node name="Player" parent="players" index="0"]
 position = Vector2(-520, 305)
+debug = null
+xAcceleration = null
+xMaxspeed = null
+jumpTime = null
+jumpSpeed = null
+jumpSpeedCap = null
+gravityMultiplier = null
+groundResistance = null
+airReistance = null
+pushForce = null
+drawingRange = null
+rotationIntensity = null
+launchIntensity = null
+launchDirection = null
 
 [node name="Player2" parent="players" index="1"]
 position = Vector2(-584, 305)
+debug = null
+xAcceleration = null
+xMaxspeed = null
+jumpTime = null
+jumpSpeed = null
+jumpSpeedCap = null
+gravityMultiplier = null
+groundResistance = null
+airReistance = null
+pushForce = null
+drawingRange = null
+rotationIntensity = null
+launchIntensity = null
+launchDirection = null
 
 [node name="blueUsb" parent="." index="7" instance=ExtResource("7_7fw37")]
 position = Vector2(0, 5)

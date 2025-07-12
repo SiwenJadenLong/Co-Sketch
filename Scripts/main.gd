@@ -25,6 +25,7 @@ func _ready():
 	SignalBus.levelChange.connect(loadNewLevel);
 	SignalBus.togglePause.connect(togglePause);
 	SignalBus.unloadLevel.connect(unloadLevel);
+	Audiomanager.changeBGMusic("battle");
 
 #On player death signal, load new level and play placeholder transition
 func playerDeath():

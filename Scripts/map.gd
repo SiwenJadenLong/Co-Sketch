@@ -4,6 +4,7 @@ var winCondition : bool;
 @export var levelNumber : String;
 @export var inkLimit: float;
 @export var requiredPennies: int = 0;
+@export var music : String = "bird";
 @onready var allObjects : Array[Node] = $objects.get_children();
 @onready var allPlayers : Array[Node] = $players.get_children();
 
@@ -23,6 +24,7 @@ func _process(delta: float) -> void:
 
 #Run on node entering game
 func _ready():
+	Audiomanager.changeBGMusic(music);
 	GlobalVariables.inkLimit = inkLimit;
 	GlobalVariables.totalLineDistance= 0;
 	

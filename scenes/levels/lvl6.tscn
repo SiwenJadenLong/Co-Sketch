@@ -20,6 +20,7 @@
 
 [node name="map" instance=ExtResource("1_tni81")]
 inkLimit = 2500.0
+music = "battle"
 
 [node name="door" parent="objects" index="0"]
 position = Vector2(-345, 93)
